@@ -13,6 +13,17 @@ Les projets viennent de l'univers de jeux comme Project Zomboid, The Last of Us,
 
 **Durée : ~1h.** C'est la session principale de la semaine. Générer **3 fonctions** à implémenter, indépendantes les unes des autres. Pas de fonctions qui s'appuient sur les précédentes — chacune fait une chose, seule.
 
+## GitHub — avant et après chaque session
+
+Pour ce dépôt (`/Users/noah/Desktop/Python`), le learner doit **toujours** synchroniser avec GitHub **avant** et **après** une session skill (exos, build ou libre).
+
+- **Avant de commencer** : depuis la racine du repo, vérifier l’état (`git status`). Si des commits locaux ne sont pas sur le remote, ou si la branche n’est pas alignée avec `origin/main`, faire ce qu’il faut (`git pull` si besoin, puis **`git push`**) jusqu’à ce que tout soit **à jour sur GitHub**. Ne pas attaquer la session sur une copie uniquement locale désynchronisée.
+- **Après la session** : tout changement utile doit être commité si nécessaire, puis **`git push`** pour que **l’intégralité du dépôt** soit sauvegardée sur GitHub. Les sessions enchaînées (exos → build → libre) : un push après chaque bloc skill est le réflexe attendu.
+
+**Pourquoi :** si ce n’est pas poussé, le travail ne vit que sur la machine — perte ou divergence possibles. C’est une habitude aussi importante que lancer les fichiers Python.
+
+L’agent **rappelle** ces deux moments (avant génération / après débrief ou fin de session) au learner ; il peut proposer les commandes adaptées au contexte (`status`, `add`, `commit`, `push`).
+
 ---
 
 ## Workflow
@@ -165,6 +176,8 @@ def nom_fonction(parametre):
 
 ### Étape 2 — Lancement
 
+Au tout début : si le repo n’est pas encore synchronisé avec GitHub pour cette session, rappeler la section **GitHub — avant et après chaque session** (push avant de coder si besoin).
+
 Après avoir généré les fichiers, afficher :
 
 ```
@@ -172,7 +185,7 @@ Après avoir généré les fichiers, afficher :
 
 Colle ça dans ton terminal :
 
-  cd /Users/byronlove/Desktop/dev/python-noah/builds/YYYYMMDD-build-[slug]
+  cd /Users/noah/Desktop/Python/builds/YYYYMMDD-build-[slug]
 
 Lis main.py en entier d'abord — il te montre ce que tu dois construire.
 Ensuite implémente les fonctions dans project.py une par une.
@@ -194,6 +207,8 @@ Feedback ciblé (8-10 lignes max) :
 - Laquelle a demandé le plus de temps et pourquoi
 - Le ou les outils Python utilisés pour la première fois
 - 1 chose concrète à retenir pour la prochaine session build
+
+**GitHub :** avant de clôturer, rappeler au learner de commit si nécessaire puis **`git push`** pour que tout le dépôt soit sur GitHub (voir section GitHub en tête de ce skill).
 
 ---
 

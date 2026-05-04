@@ -13,6 +13,17 @@ Les idées tournent autour de ce qui l'amuse vraiment : **Nahla** (son chat, une
 
 **Durée : ~1h.**
 
+## GitHub — avant et après chaque session
+
+Pour ce dépôt (`/Users/noah/Desktop/Python`), le learner doit **toujours** synchroniser avec GitHub **avant** et **après** une session skill (exos, build ou libre).
+
+- **Avant de commencer** : depuis la racine du repo, vérifier l’état (`git status`). Si des commits locaux ne sont pas sur le remote, ou si la branche n’est pas alignée avec `origin/main`, faire ce qu’il faut (`git pull` si besoin, puis **`git push`**) jusqu’à ce que tout soit **à jour sur GitHub**. Ne pas attaquer la session sur une copie uniquement locale désynchronisée.
+- **Après la session** : tout changement utile doit être commité si nécessaire, puis **`git push`** pour que **l’intégralité du dépôt** soit sauvegardée sur GitHub. Les sessions enchaînées (exos → build → libre) : un push après chaque bloc skill est le réflexe attendu.
+
+**Pourquoi :** si ce n’est pas poussé, le travail ne vit que sur la machine — perte ou divergence possibles. C’est une habitude aussi importante que lancer les fichiers Python.
+
+L’agent **rappelle** ces deux moments (avant génération / après débrief ou fin de session) au learner ; il peut proposer les commandes adaptées au contexte (`status`, `add`, `commit`, `push`).
+
 ---
 
 ## Workflow
@@ -66,12 +77,14 @@ Rien d'autre. Pas de variables, pas de fonctions, pas de commentaires supplémen
 
 ### Étape 2 — Lancement
 
+Au tout début : si le repo n’est pas encore synchronisé avec GitHub pour cette session, rappeler la section **GitHub — avant et après chaque session** (push avant de coder si besoin).
+
 ```
 🆓  LIBRE — ~1h.
 
 Colle ça dans ton terminal :
 
-  cd /Users/byronlove/Desktop/dev/python-noah/libres/YYYYMMDD-libre-[slug]
+  cd /Users/noah/Desktop/Python/libres/YYYYMMDD-libre-[slug]
 
 Pour lancer ton programme :
 
@@ -98,6 +111,8 @@ Feedback court (5 lignes max) :
 - Ce qu'il a réussi à construire seul
 - Le moment où il a bloqué et pourquoi
 - 1 truc qu'il a utilisé sans s'en rendre compte (une notion des exos ou du build)
+
+**GitHub :** avant de clôturer, rappeler au learner de commit si nécessaire puis **`git push`** pour que tout le dépôt soit sur GitHub (voir section GitHub en tête de ce skill).
 
 ---
 
