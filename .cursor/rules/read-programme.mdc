@@ -1,0 +1,22 @@
+---
+description: Lire PROGRAMME.md avant de répondre à toute question ouverte ou générale
+alwaysApply: true
+---
+
+# Lire PROGRAMME.md pour les questions ouvertes
+
+Quand l'utilisateur pose une question **ouverte ou générale** — par exemple "on fait quoi aujourd'hui ?", "qu'est-ce qu'on fait ?", "on continue ?", "c'est quoi la suite ?" ou toute formulation similaire — tu dois **immédiatement lire `PROGRAMME.md`** avant de répondre.
+
+## Quand lire PROGRAMME.md
+
+- Questions sur ce qu'il faut faire / la suite / le programme du jour
+- Manque de contexte sur où en est le learner
+- Doute sur quel exercice ou notion aborder
+
+## Quand NE PAS lire PROGRAMME.md
+
+- L'utilisateur demande quelque chose de très précis et explicite : `/python-build`, `/python-debug`, `/python-fill`, "génère un exercice sur les listes", etc.
+
+## Règle
+
+> En cas de doute, lis `PROGRAMME.md`. C'est toujours la source de vérité sur la progression du learner.
