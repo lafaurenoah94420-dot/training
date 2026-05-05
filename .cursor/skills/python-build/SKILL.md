@@ -71,7 +71,7 @@ builds/YYYYMMDD-build-[slug]/
 └── project.py    # fonctions à implémenter
 ```
 
-Pas de BRIEF.md — les instructions sont dans l'en-tête de `main.py`.
+Les instructions sont dans l'en-tête de `main.py`.
 
 ---
 
@@ -79,7 +79,7 @@ Pas de BRIEF.md — les instructions sont dans l'en-tête de `main.py`.
 
 **`main.py` :**
 - Déjà complet et lisible — ne doit jamais être modifié par le learner
-- Commence par un en-tête commenté qui remplace le BRIEF.md :
+- Commence par un en-tête commenté :
   - 2-3 phrases sur ce que fait le programme
   - Ce que le learner doit faire (ouvrir project.py, implémenter dans l'ordre, lancer)
   - Les critères de réussite (tourne jusqu'au ✅, exemples `=>` respectés, plus de NotImplementedError)
