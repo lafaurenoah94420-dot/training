@@ -78,21 +78,26 @@ Rien d'autre. Pas de variables, pas de fonctions, pas de commentaires supplémen
 
 ### Étape 2 — Lancement
 
-```
-🆓  LIBRE — ~1h.
+Après avoir créé le fichier, afficher **uniquement** :
+- La commande `cd` à coller
+- La commande pour lancer
+- **Un point de départ concret** — une seule phrase qui dit par quoi commencer (la toute première chose à écrire, pas une liste, pas un plan). Doit être formulé comme une action immédiate : "commence par demander l'heure avec `input()`", "première chose : crée une variable `score` à 0 et affiche-la", etc. Calibré pour que le learner sache exactement quoi taper sans se poser de question.
 
+Format :
+
+```
 Colle ça dans ton terminal :
 
   cd /Users/noah/Desktop/Python/libres/YYYYMMDD-libre-[slug]
 
-Pour lancer ton programme :
+Pour lancer :
 
   python main.py
 
-Le fichier main.py t'attend. Parte de zéro.
-Tu peux me demander de l'aide — je te donne des indices, pas du code.
-Dis-moi quand t'as fini ou quand t'en peux plus.
+Pour commencer : [une seule action concrète à faire en premier — outil Python précis ou variable à créer].
 ```
+
+Ne pas dire "le fichier t'attend", "pars de zéro", ni rappeler les règles d'aide — juste la commande et le premier pas.
 
 ### Pendant la session — Règle de l'agent
 
