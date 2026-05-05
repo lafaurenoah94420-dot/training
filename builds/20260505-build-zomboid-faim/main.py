@@ -1,5 +1,21 @@
-# Programme principal — ne pas modifier.
-# Lis ce fichier pour comprendre ce que project.py doit fournir.
+# ============================================================
+# Project Zomboid — jauge de faim
+# ============================================================
+# Ce programme simule la jauge de faim d'un survivant.
+# Manger la fait baisser, le temps qui passe la fait monter.
+# Un message d'état résume la situation à la fin.
+#
+# Ce que tu dois faire :
+# → Ouvre project.py et implémente les 3 fonctions dans l'ordre
+# → Lance python main.py après chaque fonction pour voir si ça avance
+#
+# Critères de réussite :
+# → python main.py tourne jusqu'au ✅ sans erreur
+# → Chaque fonction produit les résultats montrés dans les exemples =>
+# → Aucun raise NotImplementedError ne reste dans project.py
+# ============================================================
+# NE PAS MODIFIER CE FICHIER.
+# ============================================================
 
 from project import eat_reduce_hunger, hunger_from_time_passing, hunger_status_message
 

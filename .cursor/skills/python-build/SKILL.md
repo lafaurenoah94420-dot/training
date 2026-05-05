@@ -55,16 +55,23 @@ Voici 3 projets — choisis-en un :
 
 Attends le choix avant de générer quoi que ce soit.
 
+### Étape 0.5 — Lire les exos du jour
+
+Avant de choisir le projet et les fonctions, lire le dossier `exos/` pour identifier les notions travaillées aujourd'hui. Le build doit utiliser **les mêmes notions** que les exos du jour — c'est le renforcement immédiat qui ancre vraiment l'apprentissage.
+
+Exemple : si les exos du jour couvrent `for` sur une liste et `if` dans une boucle → au moins une ou deux fonctions du build doivent utiliser ces notions dans un contexte différent.
+
 ### Étape 1 — Générer les fichiers
 
 Créer `builds/YYYYMMDD-build-[slug]/` avec :
 
 ```
 builds/YYYYMMDD-build-[slug]/
-├── BRIEF.md
 ├── main.py       # programme principal — déjà écrit, ne pas modifier
 └── project.py    # fonctions à implémenter
 ```
+
+Pas de BRIEF.md — les instructions sont dans l'en-tête de `main.py`.
 
 ---
 
@@ -72,9 +79,13 @@ builds/YYYYMMDD-build-[slug]/
 
 **`main.py` :**
 - Déjà complet et lisible — ne doit jamais être modifié par le learner
-- Montre clairement ce que le programme fait : appelle les fonctions de `project.py`, affiche les résultats
-- Commence par : `from project import fonction1, fonction2, ...`
-- Doit être court (20-30 lignes) — lisible en 2 minutes
+- Commence par un en-tête commenté qui remplace le BRIEF.md :
+  - 2-3 phrases sur ce que fait le programme
+  - Ce que le learner doit faire (ouvrir project.py, implémenter dans l'ordre, lancer)
+  - Les critères de réussite (tourne jusqu'au ✅, exemples `=>` respectés, plus de NotImplementedError)
+  - La ligne `# NE PAS MODIFIER CE FICHIER.`
+- Après l'en-tête : `from project import fonction1, fonction2, ...`
+- Doit être court (30-40 lignes en tout) — lisible en 2 minutes
 - Si `main.py` est lancé avec toutes les fonctions non implémentées → crash propre sur `NotImplementedError`
 - Textes affichés en français, noms de variables en anglais
 
@@ -150,33 +161,25 @@ def nom_fonction(parametre1, parametre2):
 - TODO 3 : le plus difficile — combine deux concepts vus dans les deux premières
 - Pas de fonction bonus avant la semaine 3
 
-**`BRIEF.md` :**
+**Structure de l'en-tête de `main.py` :**
 
-```markdown
-# Build — [nom du projet]
-
-## Ce que tu vas construire
-
-[2-3 phrases : ce que le programme fait une fois terminé, du point de vue de l'utilisateur]
-
-## Comment démarrer
-
-1. Lis `main.py` en entier — ne le modifie pas, il te montre ce que le programme doit faire
-2. Ouvre `project.py` et implémente les fonctions dans l'ordre
-3. Lance `python main.py` après chaque fonction implémentée pour voir si ça avance
-
-## Critères de réussite
-
-- [ ] `python main.py` tourne de bout en bout sans erreur
-- [ ] Chaque fonction produit les résultats montrés dans les exemples `=>`
-- [ ] Aucun `raise NotImplementedError` ne reste
-
-## Indice (seulement si bloqué depuis plus de 15 min)
-
-<details>
-<summary>Indice général</summary>
-[Un pointeur vers le bon concept Python — pas le code]
-</details>
+```python
+# ============================================================
+# [Jeu] — [titre du projet]
+# ============================================================
+# [2-3 phrases sur ce que fait le programme une fois terminé.]
+#
+# Ce que tu dois faire :
+# → Ouvre project.py et implémente les 3 fonctions dans l'ordre
+# → Lance python main.py après chaque fonction pour voir si ça avance
+#
+# Critères de réussite :
+# → python main.py tourne jusqu'au ✅ sans erreur
+# → Chaque fonction produit les résultats montrés dans les exemples =>
+# → Aucun raise NotImplementedError ne reste dans project.py
+# ============================================================
+# NE PAS MODIFIER CE FICHIER.
+# ============================================================
 ```
 
 ---
