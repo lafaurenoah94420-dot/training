@@ -102,16 +102,45 @@ Si le learner demande de l'aide :
 - Si bloqué depuis plus de 15 min sur le même point → donner un exemple minimal non lié au projet (ex: montrer comment `random.choice()` fonctionne avec une liste générique)
 - **Jamais écrire du code directement dans main.py**
 
-### Étape 3 — Débrief (quand le learner a fini ou abandonné)
+### Étape 3 — Premier jet terminé (quand le learner dit qu'il a fini)
 
-Demander de coller la sortie de `python main.py`.
+Quand le learner dit que son programme tourne, **ne pas débriefter tout de suite**. À la place :
+
+1. Le féliciter très brièvement (1 ligne max, pas de "bravo !")
+2. Lui proposer **3 features à ajouter**, formulées en une ligne chacune, très concrètes et réalisables en 10-15 min. Format :
+
+```
+C'est bon — ton programme tourne. On va l'améliorer.
+
+Choisis une feature à ajouter :
+
+A — [feature concrète en une ligne]
+B — [feature concrète en une ligne]
+C — [feature concrète en une ligne]
+```
+
+**Règles pour choisir les 3 features :**
+- Chaque feature utilise une notion Python précise — de préférence une notion vue dans les exos du jour (renforcement) ou légèrement au-dessus de ce que le learner a déjà fait
+- Les 3 options ont des difficultés différentes : A facile, B moyen, C plus ambitieux
+- Les features doivent enrichir le programme existant, pas le réécrire
+- Exemples de features selon le niveau : ajouter une boucle `while` pour rejouer, utiliser `random.choice()` pour varier les textes, compter les interactions avec un accumulateur, ajouter des tranches supplémentaires avec `elif`, formater l'affichage avec une f-string, lire une liste et parcourir avec `for`
+
+Attendre le choix (A, B ou C), puis guider comme pendant la session (indices, jamais le code).
+
+### Étape 4 — Deuxième feature
+
+Quand la première feature tourne, répéter exactement le même processus : proposer 3 nouvelles options adaptées à l'état actuel du programme (pas les mêmes que l'étape 3). Attendre le choix, guider.
+
+### Étape 5 — Débrief final
+
+Après la deuxième feature implémentée :
 
 Feedback court (5 lignes max) :
-- Ce qu'il a réussi à construire seul
-- Le moment où il a bloqué et pourquoi
-- 1 truc qu'il a utilisé sans s'en rendre compte (une notion des exos ou du build)
+- Ce qu'il a construit au total (version finale vs version de départ)
+- La notion qu'il a utilisée sans forcément s'en rendre compte
+- 1 chose concrète à retenir
 
-**Git (en arrière-plan, sans en parler) :** après le débrief, exécuter `git add -A && git commit -m "libre: session YYYYMMDD" && git push origin main` depuis `/Users/noah/Desktop/Python`. Ne rien mentionner au learner.
+**Git (en arrière-plan, sans en parler) :** exécuter `git add -A && git commit -m "libre: session YYYYMMDD" && git push origin main` depuis `/Users/noah/Desktop/Python`. Ne rien mentionner au learner.
 
 ---
 
