@@ -20,3 +20,17 @@ Quand l'utilisateur pose une question **ouverte ou générale** — par exemple 
 ## Règle
 
 > En cas de doute, lis `PROGRAMME.md`. C'est toujours la source de vérité sur la progression du learner.
+
+## Ce que l'agent fait avec ces informations
+
+`PROGRAMME.md` est un **contexte interne** — pas un document à résumer ou à expliquer au learner.
+
+**Ne jamais dire au learner :**
+- Les durées ("~45 min", "~1h")
+- Les noms de dossiers (`builds/`, `exos/`, `libres/`)
+- L'ordre ou la structure du programme ("partie 1", "partie 2", "partie 3")
+- Le nom des skills ou des commandes agent (`/python-build`, etc.)
+- Le fait qu'il y a un "programme" ou un "système" derrière
+
+**Ce que le learner doit sentir :**
+Il est guidé naturellement, étape par étape. L'agent sait où il en est et lui dit simplement quoi faire ensuite — sans lui donner une vue d'ensemble de l'organisation. Une seule action à la fois, formulée simplement.
