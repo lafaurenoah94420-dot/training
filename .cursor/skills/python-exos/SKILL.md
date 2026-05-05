@@ -9,17 +9,30 @@ description: Génère 5 petits exercices Python indépendants, un par fichier, d
 
 **Durée : ~45 min.**
 
-## GitHub — gestion automatique par l’agent (invisible pour le learner)
+## Gestion silencieuse (invisible pour le learner)
 
-Le learner ne sait pas ce qu’est GitHub et ne doit **jamais** voir de commandes git ni entendre parler de commit, push ou synchronisation. **L’agent gère tout en arrière-plan, silencieusement, sans jamais le mentionner.**
+Tout ce qui suit se fait en arrière-plan, sans jamais en parler à Noah.
 
-**Repo :** `/Users/noah/Desktop/Python` — remote : `origin/main`
+**Structure du jour :** tous les fichiers vont dans `YYYYMMDD/exos/` à la racine du repo (`/Users/noah/Desktop/Python/YYYYMMDD/exos/`). Le dossier `YYYYMMDD/` est le dossier du jour — il contient aussi `build/`, `libre/` et `recap.md`.
 
-**Avant de générer les fichiers :** exécuter silencieusement `cd /Users/noah/Desktop/Python && git pull origin main`. Si le pull échoue, continuer quand même.
+**Git :**
+- Avant de générer : `cd /Users/noah/Desktop/Python && git pull origin main` (silencieux, continuer si échec)
+- Après le débrief : `git add -A && git commit -m "YYYYMMDD exos" && git push origin main` (silencieux)
 
-**Après le débrief :** exécuter silencieusement `cd /Users/noah/Desktop/Python && git add -A && git commit -m "[session]: YYYYMMDD" && git push origin main`. Si rien à commiter, ne rien faire.
+**Recap :**
+Après le débrief, ajouter silencieusement la section suivante à `YYYYMMDD/recap.md` (créer le fichier s'il n'existe pas, sinon appender) :
 
-**Règle absolue : ne jamais prononcer les mots git, GitHub, commit, push, synchronisation devant le learner. Ces mots n’existent pas dans la conversation avec lui.**
+```
+# YYYY-MM-DD
+
+## Exos
+notions : [liste des 5 notions du jour séparées par des virgules]
+score : [X]/5
+bloqué : [notion du fichier où il a bloqué, ou "—" si tout fini]
+notes : [une phrase sur ce qui était solide et ce qui reste fragile]
+```
+
+**Règle absolue : ne jamais prononcer les mots git, GitHub, commit, push, recap, synchronisation devant le learner.**
 
 ---
 
@@ -27,7 +40,7 @@ Le learner ne sait pas ce qu’est GitHub et ne doit **jamais** voir de commande
 
 ### Étape 0 — Choisir les 5 notions
 
-Avant de générer quoi que ce soit, vérifier le dossier `exos/` pour voir les sessions récentes et **ne pas répéter une notion utilisée dans les 2 dernières sessions**.
+Avant de générer quoi que ce soit, vérifier `YYYYMMDD/recap.md` si le fichier existe — pour voir les notions déjà travaillées récemment et ne pas répéter une notion utilisée dans les 2 dernières sessions.
 
 Choisir 5 notions dans le pool ci-dessous, dans un ordre de difficulté croissante pour la session. Pas besoin de proposer des choix — générer directement.
 
@@ -59,18 +72,19 @@ Règle de progression dans la session :
 
 ### Étape 1 — Générer les fichiers
 
-Créer `exos/YYYYMMDD-exos-[slug]/` avec 5 fichiers :
+Créer `YYYYMMDD/exos/` avec 5 fichiers :
 
 ```
-exos/YYYYMMDD-exos-[slug]/
-├── 01_[notion].py
-├── 02_[notion].py
-├── 03_[notion].py
-├── 04_[notion].py
-└── 05_[notion].py
+YYYYMMDD/
+└── exos/
+    ├── 01_[notion].py
+    ├── 02_[notion].py
+    ├── 03_[notion].py
+    ├── 04_[notion].py
+    └── 05_[notion].py
 ```
 
-Pas de BRIEF.md — les instructions sont dans chaque fichier.
+Pas d'instructions séparées — tout est dans chaque fichier.
 
 ---
 
@@ -93,8 +107,9 @@ Pas de BRIEF.md — les instructions sont dans chaque fichier.
 
 # [Ce que tu dois faire, formulé comme une action]
 #
-# [exemple avec les valeurs réelles]  =>  [résultat attendu]
-# [cas limite si pertinent]           =>  [résultat attendu]
+# [déroulé pas à pas avec les valeurs réelles]
+#
+# Résultat attendu : [variable] == [valeur]
 #
 # Indice : [nom exact de l'outil Python — jamais l'implémentation]
 
@@ -301,7 +316,7 @@ Notions :
 
 Colle ça dans ton terminal :
 
-  cd /Users/noah/Desktop/Python/exos/YYYYMMDD-exos-[slug]
+  cd /Users/noah/Desktop/Python/YYYYMMDD/exos
 
 Puis pour lancer chaque exercice :
 
@@ -323,4 +338,6 @@ Feedback court (5 lignes max) :
 - La notion sur laquelle il a bloqué et pourquoi c'est normal
 - Ce qu'il faut retenir avant la prochaine session
 
-**Git (en arrière-plan, sans en parler) :** après le débrief, exécuter `git add -A && git commit -m "exos: session YYYYMMDD" && git push origin main` depuis `/Users/noah/Desktop/Python`. Ne rien mentionner au learner.
+Ensuite, silencieusement :
+1. Appender la section `## Exos` dans `YYYYMMDD/recap.md`
+2. `git add -A && git commit -m "YYYYMMDD exos" && git push origin main`

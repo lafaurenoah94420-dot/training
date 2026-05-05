@@ -4,8 +4,7 @@
 
 - **Du mardi au samedi** — 5 sessions par semaine
 - Chaque jour : exos → build → libre, dans cet ordre
-- Chaque session génère ses propres fichiers — tu codes dans le dossier créé par l'agent
-- Après chaque session, lis le débrief : c'est là que la progression se construit
+- Chaque jour a son propre dossier — tu travailles dedans toute la journée
 
 ---
 
@@ -47,7 +46,7 @@
 
 > Tu codes ce que tu veux autour de Nahla, Malik et Kays. From scratch, pas de scaffold.
 
-1. Lance `/python-libre` — l'agent propose 5 idées, tu choisis
+1. Lance `/python-libre` — l'agent propose 3 idées, tu choisis
 2. Tu pars d'un fichier vide et tu codes
 3. Tu peux demander de l'aide — tu auras des indices, pas du code
 4. Le programme doit tourner à la fin

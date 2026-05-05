@@ -13,31 +13,48 @@ Les projets viennent de l'univers de jeux comme Project Zomboid, The Last of Us,
 
 **Durée : ~1h.** C'est la session principale de la semaine. Générer **3 fonctions** à implémenter, indépendantes les unes des autres. Pas de fonctions qui s'appuient sur les précédentes — chacune fait une chose, seule.
 
-## GitHub — gestion automatique par l’agent (invisible pour le learner)
+## Gestion silencieuse (invisible pour le learner)
 
-Le learner ne sait pas ce qu’est GitHub et ne doit **jamais** voir de commandes git ni entendre parler de commit, push ou synchronisation. **L’agent gère tout en arrière-plan, silencieusement, sans jamais le mentionner.**
+Tout ce qui suit se fait en arrière-plan, sans jamais en parler à Noah.
 
-**Repo :** `/Users/noah/Desktop/Python` — remote : `origin/main`
+**Structure du jour :** les fichiers vont dans `YYYYMMDD/build/` à la racine du repo (`/Users/noah/Desktop/Python/YYYYMMDD/build/`).
 
-**Avant de générer les fichiers :** exécuter silencieusement `cd /Users/noah/Desktop/Python && git pull origin main`. Si le pull échoue, continuer quand même.
+**Avant de générer :**
+1. `cd /Users/noah/Desktop/Python && git pull origin main` (silencieux, continuer si échec)
+2. Lire `YYYYMMDD/recap.md` si le fichier existe — vérifier que la section `## Exos` est présente. Si absente, noter mentalement que les exos n'ont pas été faits aujourd'hui, mais continuer sans rien dire.
 
-**Après le débrief :** exécuter silencieusement `cd /Users/noah/Desktop/Python && git add -A && git commit -m "[session]: YYYYMMDD" && git push origin main`. Si rien à commiter, ne rien faire.
+**Après le débrief :**
+1. Appender la section `## Build` dans `YYYYMMDD/recap.md` (voir format ci-dessous)
+2. `git add -A && git commit -m "YYYYMMDD build" && git push origin main` (silencieux)
 
-**Règle absolue : ne jamais prononcer les mots git, GitHub, commit, push, synchronisation devant le learner. Ces mots n’existent pas dans la conversation avec lui.**
+**Format de la section recap :**
+```
+## Build
+projet : [nom du projet]
+notions utilisées : [liste des notions Python mobilisées]
+difficultés : [ce qui a demandé le plus d'efforts — une ligne]
+notes : [ce qui était solide vs ce qui reste fragile]
+```
+
+**Règle absolue : ne jamais prononcer les mots git, GitHub, commit, push, recap, synchronisation devant le learner.**
 
 ---
 
 ## Workflow
 
-### Étape 0 — Proposer 3 projets
+### Étape 0 — Lire les exos du jour + proposer 3 projets
 
-Avant de générer quoi que ce soit, propose exactement 3 projets distincts et attends le choix.
+Lire `YYYYMMDD/exos/` pour identifier les notions travaillées aujourd'hui. Le build doit utiliser **les mêmes notions** que les exos du jour — c'est le renforcement immédiat qui ancre vraiment l'apprentissage.
+
+Exemple : si les exos du jour couvrent `for` sur une liste et `if` dans une boucle → au moins une ou deux fonctions du build doivent utiliser ces notions dans un contexte différent.
+
+Ensuite, proposer exactement 3 projets distincts et attendre le choix.
 
 Règles :
 - Chaque projet doit produire un programme **qui fait quelque chose de visible et amusant**
 - Varier les contextes : jeux en mode texte, outils, scripts utiles ou marrants
-- Ne pas reproduire un projet récent (vérifier `builds/` si nécessaire)
-- Calibrer la difficulté : le projet du mercredi est plus facile que celui du vendredi
+- Ne pas reproduire un projet récent (vérifier les dossiers `*/build/` si nécessaire)
+- Calibrer la difficulté selon les notions maîtrisées (lire `recap.md` pour le niveau réel)
 
 Format :
 ```
@@ -55,20 +72,15 @@ Voici 3 projets — choisis-en un :
 
 Attends le choix avant de générer quoi que ce soit.
 
-### Étape 0.5 — Lire les exos du jour
-
-Avant de choisir le projet et les fonctions, lire le dossier `exos/` pour identifier les notions travaillées aujourd'hui. Le build doit utiliser **les mêmes notions** que les exos du jour — c'est le renforcement immédiat qui ancre vraiment l'apprentissage.
-
-Exemple : si les exos du jour couvrent `for` sur une liste et `if` dans une boucle → au moins une ou deux fonctions du build doivent utiliser ces notions dans un contexte différent.
-
 ### Étape 1 — Générer les fichiers
 
-Créer `builds/YYYYMMDD-build-[slug]/` avec :
+Créer `YYYYMMDD/build/` avec :
 
 ```
-builds/YYYYMMDD-build-[slug]/
-├── main.py       # programme principal — déjà écrit, ne pas modifier
-└── project.py    # fonctions à implémenter
+YYYYMMDD/
+└── build/
+    ├── main.py       # programme principal — déjà écrit, ne pas modifier
+    └── project.py    # fonctions à implémenter
 ```
 
 Les instructions sont dans l'en-tête de `main.py`.
@@ -88,6 +100,27 @@ Les instructions sont dans l'en-tête de `main.py`.
 - Doit être court (30-40 lignes en tout) — lisible en 2 minutes
 - Si `main.py` est lancé avec toutes les fonctions non implémentées → crash propre sur `NotImplementedError`
 - Textes affichés en français, noms de variables en anglais
+
+**Structure de l'en-tête de `main.py` :**
+
+```python
+# ============================================================
+# [Jeu] — [titre du projet]
+# ============================================================
+# [2-3 phrases sur ce que fait le programme une fois terminé.]
+#
+# Ce que tu dois faire :
+# → Ouvre project.py et implémente les 3 fonctions dans l'ordre
+# → Lance python main.py après chaque fonction pour voir si ça avance
+#
+# Critères de réussite :
+# → python main.py tourne jusqu'au ✅ sans erreur
+# → Chaque fonction produit les résultats montrés dans les exemples =>
+# → Aucun raise NotImplementedError ne reste dans project.py
+# ============================================================
+# NE PAS MODIFIER CE FICHIER.
+# ============================================================
+```
 
 **`project.py` :**
 
@@ -161,27 +194,6 @@ def nom_fonction(parametre1, parametre2):
 - TODO 3 : le plus difficile — combine deux concepts vus dans les deux premières
 - Pas de fonction bonus avant la semaine 3
 
-**Structure de l'en-tête de `main.py` :**
-
-```python
-# ============================================================
-# [Jeu] — [titre du projet]
-# ============================================================
-# [2-3 phrases sur ce que fait le programme une fois terminé.]
-#
-# Ce que tu dois faire :
-# → Ouvre project.py et implémente les 3 fonctions dans l'ordre
-# → Lance python main.py après chaque fonction pour voir si ça avance
-#
-# Critères de réussite :
-# → python main.py tourne jusqu'au ✅ sans erreur
-# → Chaque fonction produit les résultats montrés dans les exemples =>
-# → Aucun raise NotImplementedError ne reste dans project.py
-# ============================================================
-# NE PAS MODIFIER CE FICHIER.
-# ============================================================
-```
-
 ---
 
 ### Étape 2 — Lancement
@@ -193,7 +205,7 @@ Après avoir généré les fichiers, afficher :
 
 Colle ça dans ton terminal :
 
-  cd /Users/noah/Desktop/Python/builds/YYYYMMDD-build-[slug]
+  cd /Users/noah/Desktop/Python/YYYYMMDD/build
 
 Lis main.py en entier d'abord — il te montre ce que tu dois construire.
 Ensuite implémente les fonctions dans project.py une par une.
@@ -216,7 +228,9 @@ Feedback ciblé (8-10 lignes max) :
 - Le ou les outils Python utilisés pour la première fois
 - 1 chose concrète à retenir pour la prochaine session build
 
-**Git (en arrière-plan, sans en parler) :** après le débrief, exécuter `git add -A && git commit -m "build: session YYYYMMDD" && git push origin main` depuis `/Users/noah/Desktop/Python`. Ne rien mentionner au learner.
+Ensuite, silencieusement :
+1. Appender la section `## Build` dans `YYYYMMDD/recap.md`
+2. `git add -A && git commit -m "YYYYMMDD build" && git push origin main`
 
 ---
 

@@ -13,17 +13,34 @@ Les idées tournent autour de ce qui l'amuse vraiment : **Nahla** (son chat, une
 
 **Durée : ~1h.**
 
-## GitHub — gestion automatique par l’agent (invisible pour le learner)
+## Gestion silencieuse (invisible pour le learner)
 
-Le learner ne sait pas ce qu’est GitHub et ne doit **jamais** voir de commandes git ni entendre parler de commit, push ou synchronisation. **L’agent gère tout en arrière-plan, silencieusement, sans jamais le mentionner.**
+Tout ce qui suit se fait en arrière-plan, sans jamais en parler à Noah.
 
-**Repo :** `/Users/noah/Desktop/Python` — remote : `origin/main`
+**Structure du jour :** le fichier va dans `YYYYMMDD/libre/main.py` à la racine du repo (`/Users/noah/Desktop/Python/YYYYMMDD/libre/main.py`).
 
-**Avant de générer les fichiers :** exécuter silencieusement `cd /Users/noah/Desktop/Python && git pull origin main`. Si le pull échoue, continuer quand même.
+**Avant de générer :**
+1. `cd /Users/noah/Desktop/Python && git pull origin main` (silencieux, continuer si échec)
+2. Lire `YYYYMMDD/recap.md` — vérifier que les sections `## Exos` et `## Build` sont présentes. Si l'une ou l'autre manque, noter mentalement mais continuer sans rien dire.
+3. Lire les notions des exos du jour dans `## Exos` du recap — les features proposées après le premier jet doivent s'en inspirer.
 
-**Après le débrief :** exécuter silencieusement `cd /Users/noah/Desktop/Python && git add -A && git commit -m "[session]: YYYYMMDD" && git push origin main`. Si rien à commiter, ne rien faire.
+**Après le débrief final :**
+1. Appender la section `## Libre` puis `## Journée` dans `YYYYMMDD/recap.md` (voir formats ci-dessous)
+2. `git add -A && git commit -m "YYYYMMDD libre + recap" && git push origin main` (silencieux)
 
-**Règle absolue : ne jamais prononcer les mots git, GitHub, commit, push, synchronisation devant le learner. Ces mots n’existent pas dans la conversation avec lui.**
+**Format de la section recap :**
+```
+## Libre
+sujet : [titre du programme]
+notions utilisées : [liste des notions Python mobilisées]
+features : [features ajoutées après le premier jet, ou "—"]
+notes : [ce qui a marché, ce qui a bloqué — une ligne]
+
+## Journée
+[2-3 phrases de synthèse : progression globale du jour, ce qui est solide, ce qui reste à travailler]
+```
+
+**Règle absolue : ne jamais prononcer les mots git, GitHub, commit, push, recap, synchronisation devant le learner.**
 
 ---
 
@@ -36,7 +53,7 @@ Proposer exactement 3 idées, une par personnage, dans cet ordre fixe :
 2. **Malik** — toujours autour de son comportement incontrôlable (court partout, se met à poil, dit des trucs de fou, complètement imprévisible)
 3. **Kays** — toujours autour de son racisme extrémiste assumé, humour noir total, les trucs qu'il dit sont tellement choquants que c'en est drôle
 
-Ne pas reproduire une idée récente (vérifier `libres/` si nécessaire).
+Ne pas reproduire une idée récente (vérifier les dossiers `*/libre/` si nécessaire).
 
 Pour chaque idée : titre + 2 lignes + exemple d'exécution concret (inputs/outputs sur 4-6 lignes). L'exemple d'exécution est le seul cadrage que le learner a.
 
@@ -64,7 +81,7 @@ Attends le choix avant de faire quoi que ce soit.
 
 ### Étape 1 — Créer le fichier vide
 
-Créer `libres/YYYYMMDD-libre-[slug]/main.py` avec uniquement l'en-tête :
+Créer `YYYYMMDD/libre/main.py` avec uniquement l'en-tête :
 
 ```python
 # ============================================================
@@ -88,7 +105,7 @@ Format :
 ```
 Colle ça dans ton terminal :
 
-  cd /Users/noah/Desktop/Python/libres/YYYYMMDD-libre-[slug]
+  cd /Users/noah/Desktop/Python/YYYYMMDD/libre
 
 Pour lancer :
 
@@ -125,7 +142,7 @@ C — [feature concrète en une ligne]
 ```
 
 **Règles pour choisir les 3 features :**
-- Chaque feature utilise une notion Python précise — de préférence une notion vue dans les exos du jour (renforcement) ou légèrement au-dessus de ce que le learner a déjà fait
+- Chaque feature utilise une notion Python précise — de préférence une notion vue dans les exos du jour (lire `## Exos` dans `YYYYMMDD/recap.md`) ou légèrement au-dessus de ce que le learner a déjà fait
 - Les 3 options ont des difficultés différentes : A facile, B moyen, C plus ambitieux
 - Les features doivent enrichir le programme existant, pas le réécrire
 - Exemples de features selon le niveau : ajouter une boucle `while` pour rejouer, utiliser `random.choice()` pour varier les textes, compter les interactions avec un accumulateur, ajouter des tranches supplémentaires avec `elif`, formater l'affichage avec une f-string, lire une liste et parcourir avec `for`
@@ -145,7 +162,9 @@ Feedback court (5 lignes max) :
 - La notion qu'il a utilisée sans forcément s'en rendre compte
 - 1 chose concrète à retenir
 
-**Git (en arrière-plan, sans en parler) :** exécuter `git add -A && git commit -m "libre: session YYYYMMDD" && git push origin main` depuis `/Users/noah/Desktop/Python`. Ne rien mentionner au learner.
+Ensuite, silencieusement :
+1. Appender `## Libre` puis `## Journée` dans `YYYYMMDD/recap.md`
+2. `git add -A && git commit -m "YYYYMMDD libre + recap" && git push origin main`
 
 ---
 
