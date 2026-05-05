@@ -11,7 +11,7 @@ Les projets viennent de l'univers de jeux comme Project Zomboid, The Last of Us,
 
 **Le `main.py` ne se touche pas.** Il montre ce que le programme est censé faire — les fonctions appelées, les données attendues, le résultat affiché. Le learner lit `main.py` pour comprendre, puis implémente dans `project.py`.
 
-**Durée : ~1h.** C'est la session principale de la semaine. Générer **3 fonctions** à implémenter, indépendantes les unes des autres. Pas de fonctions qui s'appuient sur les précédentes — chacune fait une chose, seule.
+**Durée : ~1h.** C'est la session principale de la semaine. Générer **5 fonctions** à implémenter, indépendantes les unes des autres. Pas de fonctions qui s'appuient sur les précédentes — chacune fait une chose, seule.
 
 ## Gestion silencieuse (invisible pour le learner)
 
@@ -21,7 +21,7 @@ Tout ce qui suit se fait en arrière-plan, sans jamais en parler à Noah.
 
 **Avant de générer :**
 1. `cd /Users/noah/Desktop/Python && git pull origin main` (silencieux, continuer si échec)
-2. Scanner tous les dossiers `YYYYMMDD/` existants dans le repo (triés du plus ancien au plus récent). Lire les `recap.md` et les fichiers des sessions précédentes pour comprendre le niveau réel de Noah : quelles notions il maîtrise, sur lesquelles il bloque régulièrement, comment ses builds ont évolué. Ce contexte sert à choisir un projet adapté et à calibrer les 3 fonctions.
+2. Scanner tous les dossiers `YYYYMMDD/` existants dans le repo (triés du plus ancien au plus récent). Lire les `recap.md` et les fichiers des sessions précédentes pour comprendre le niveau réel de Noah : quelles notions il maîtrise, sur lesquelles il bloque régulièrement, comment ses builds ont évolué. Ce contexte sert à choisir un projet adapté et à calibrer les 5 fonctions.
 3. Vérifier que la section `## Exos` est présente dans `YYYYMMDD/recap.md` du jour. Si absente, noter mentalement que les exos n'ont pas été faits aujourd'hui, mais continuer sans rien dire.
 
 **Après le débrief :**
@@ -111,7 +111,7 @@ Les instructions sont dans l'en-tête de `main.py`.
 # [2-3 phrases sur ce que fait le programme une fois terminé.]
 #
 # Ce que tu dois faire :
-# → Ouvre project.py et implémente les 3 fonctions dans l'ordre
+# → Ouvre project.py et implémente les 5 fonctions dans l'ordre
 # → Lance python main.py après chaque fonction pour voir si ça avance
 #
 # Critères de réussite :
@@ -152,7 +152,7 @@ Structure type :
 # ============================================================
 # [Titre du projet]
 # ============================================================
-# Implémente les 3 fonctions ci-dessous pour que main.py fonctionne.
+# Implémente les 5 fonctions ci-dessous pour que main.py fonctionne.
 # Lance : python main.py
 # Implémente-les dans l'ordre — commence par TODO 1.
 # ============================================================
@@ -176,7 +176,7 @@ def nom_fonction(parametre1, parametre2):
     raise NotImplementedError  # supprime cette ligne et écris ton code ici
 
 
-# [répéter pour TODO 2 et TODO 3]
+# [répéter pour TODO 2, TODO 3, TODO 4 et TODO 5]
 ```
 
 **Règles pour les blocs TODO :**
@@ -191,9 +191,10 @@ def nom_fonction(parametre1, parametre2):
 
 **Règles pour la progression dans la session :**
 - TODO 1 : trivial — 2-3 lignes, aucun doute sur l'outil à utiliser
-- TODO 2 : un peu plus de réflexion — une condition ou une boucle simple
-- TODO 3 : le plus difficile — combine deux concepts vus dans les deux premières
-- Pas de fonction bonus avant la semaine 3
+- TODO 2 : légèrement plus complexe — une condition ou une comparaison simple
+- TODO 3 : intermédiaire — une boucle ou une accumulation
+- TODO 4 : combine deux concepts vus dans les premières
+- TODO 5 : le plus difficile — combine trois concepts, c'est normal de bloquer ici
 
 ---
 
@@ -237,7 +238,7 @@ Ensuite, silencieusement :
 
 ## Banque de projets (inspiration — générer des variantes originales)
 
-Chaque projet génère exactement 3 fonctions simples. Les exemples ci-dessous décrivent ce que les fonctions doivent faire — pas comment les implémenter.
+Chaque projet génère exactement 5 fonctions simples. Les exemples ci-dessous décrivent ce que les fonctions doivent faire — pas comment les implémenter.
 
 **The Last of Us — Simulateur de tir**
 Fonction 1 : calculer les munitions restantes après un tir (munitions - tir, min 0).
