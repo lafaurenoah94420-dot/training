@@ -1,22 +1,27 @@
 # ============================================================
-# Hearts of Iron IV — montée de la mobilisation
+# Hearts of Iron IV — mobilisation nationale
 # ============================================================
-# La jauge `mobilisation` commence à 10. Chaque semaine elle augmente de 8.
-# Dès que `mobilisation` atteint ou dépasse 50, la montée s'arrête.
-# Compte le nombre de semaines écoulées dans `semaines` (une incrémentation par semaine).
+# La jauge de mobilisation démarre à 10. Chaque semaine, elle
+# monte de 8 points. Dès qu'elle atteint ou dépasse 50, la montée
+# s'arrête — l'armée est prête. Combien de semaines faut-il ?
 #
-# Résultat attendu quand tu lances ce fichier :
-#   ✅ Correct !
+# Lance : python 05_while.py
 # ============================================================
 
 mobilisation = 10
 semaines = 0
 
+# Fais monter mobilisation de 8 par semaine jusqu'à ce qu'elle atteigne 50.
+# Incrémente semaines à chaque tour de boucle.
+#
+# départ : mobilisation = 10, semaines = 0
+# après 5 tours : mobilisation = 50, semaines = 5
+#
+# Indice : while + deux += dans le corps de la boucle
+
 while mobilisation < 50:
     mobilisation += 8
     semaines += 1
-
-# À toi — boucle while :
 
 
 # --- Vérification (ne pas modifier) ---

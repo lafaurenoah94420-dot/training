@@ -1,12 +1,21 @@
 # ============================================================
-# Project Zomboid — ration du matin
+# Project Zomboid — inventaire de survie
 # ============================================================
-# Tu as 28 unités de nourriture en poche. Tu en consommes 9 pour le petit-déjeuner.
-# En fouillant un placard, tu récupères encore 4 unités.
+# Chris sort du supermarché avec 28 unités de nourriture.
+# Il en consomme 9 pour le petit-déjeuner. En fouillant un
+# placard abandonné, il récupère 4 unités supplémentaires.
+# Combien lui en reste-t-il exactement ?
 #
-# Résultat attendu quand tu lances ce fichier :
-#   ✅ Correct !
+# Lance : python 01_calcul.py
 # ============================================================
+
+# Calcule le nombre d'unités restantes
+#
+# unites_restantes = 28 - 9 + 4
+# => 23
+#
+# Indice : une seule expression avec - et +
+
 unites_restantes = 28 - 9 + 4
 
 

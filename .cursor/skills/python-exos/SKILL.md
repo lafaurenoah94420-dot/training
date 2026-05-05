@@ -80,17 +80,25 @@ Pas de BRIEF.md — les instructions sont dans chaque fichier.
 
 ```python
 # ============================================================
-# [Titre dans le contexte du jeu vidéo]
+# [Jeu] — [situation courte]
 # ============================================================
-# [2 lignes de contexte — jeu vidéo, situation concrète]
+# [2-3 phrases narratives : personnage, contexte, enjeu concret.
+#  Le learner doit comprendre POURQUOI ce calcul existe dans le jeu.]
 #
-# Résultat attendu quand tu lances ce fichier :
-#   [output exact ligne par ligne]
+# Lance : python 0X_[notion].py
 # ============================================================
 
+[données déjà définies si nécessaire]
+[variable de départ = 0 ou ""]
+
+# [Ce que tu dois faire, formulé comme une action]
+#
+# [exemple avec les valeurs réelles]  =>  [résultat attendu]
+# [cas limite si pertinent]           =>  [résultat attendu]
+#
+# Indice : [nom exact de l'outil Python — jamais l'implémentation]
 
 # À toi :
-[variable ou fonction à compléter] = 0  # remplace ce 0 par ton code
 
 
 # --- Vérification (ne pas modifier) ---
@@ -102,59 +110,122 @@ print("✅ Correct !")
 - **Une seule notion par fichier** — si le fichier 03 porte sur les boucles, pas de condition dans la boucle
 - **Le learner ne doit écrire que 1 à 4 lignes** — jamais plus pour résoudre l'exercice
 - Le bloc `# --- Vérification ---` est déjà écrit — le learner ne le touche pas
-- Les messages d'assert sont utiles : `"Résultat obtenu différent de 26 — recompte les balles"` pas `"Erreur"`
+- Les messages d'assert sont utiles : `"Recompte : 30 - 7 + 3 = ?"` pas `"Erreur"`
 - Contexte jeu vidéo dans le titre et les variables — mais les noms de variables restent en anglais
 - Textes affichés et commentaires en français
+- L'exemple avec `=>` utilise toujours les valeurs réelles du fichier — jamais des valeurs inventées
+- L'indice donne le nom de l'outil (`for`, `if`, `+=`, `.upper()`, etc.) — jamais la ligne de code
 
 **Format selon la notion :**
 
 *Variables et calcul :*
 ```python
-# Joel commence avec 30 balles. Il tire 7 fois. Il ramasse 3 balles.
-# Calcule les balles restantes et stocke le résultat dans balles_restantes.
+# ============================================================
+# The Last of Us — munitions de Joel
+# ============================================================
+# Joel part avec 30 balles. Il en tire 7 sur des infectés.
+# Il fouille un cadavre et récupère 3 balles supplémentaires.
+# Combien lui en reste-t-il ?
+#
+# Lance : python 01_calcul.py
+# ============================================================
 
-# À toi :
 balles_restantes = 0
 
+# Calcule les balles restantes après le combat
+#
+# 30 - 7 + 3  =>  balles_restantes == 26
+#
+# Indice : une expression avec - et +
+
+# À toi :
+
+
+# --- Vérification (ne pas modifier) ---
 assert balles_restantes == 26, "Recompte : 30 - 7 + 3 = ?"
 print("✅ Correct !")
 ```
 
 *Condition if/else :*
 ```python
-# vie vaut 15. Si vie > 0, message vaut "Joel est vivant". Sinon "Joel est mort".
+# ============================================================
+# Resident Evil — statut médical
+# ============================================================
+# L'écran médical affiche "En vie" si les PV sont supérieurs à 0,
+# "Mort" sinon. Leon vient d'être touché — vérifie son statut.
+#
+# Lance : python 02_condition.py
+# ============================================================
 
 vie = 15
-
-# À toi :
 message = ""
 
+# Détermine le message selon la valeur de vie
+#
+# avec vie = 15  =>  message == "Joel est vivant"
+# avec vie = 0   =>  message == "Joel est mort"
+#
+# Indice : if / else
+
+# À toi :
+
+
+# --- Vérification (ne pas modifier) ---
 assert message == "Joel est vivant", f"Obtenu : '{message}'"
 print("✅ Correct !")
 ```
 
 *Boucle for sur une liste :*
 ```python
-# Additionne tous les dégâts dans la liste. Stocke le résultat dans total_degats.
+# ============================================================
+# GTA — bilan de missions
+# ============================================================
+# Franklin vient de finir sa session. À chaque mission il a infligé
+# des dégâts. Le jeu doit calculer le total pour son classement.
+#
+# Lance : python 03_for_liste.py
+# ============================================================
 
 degats = [5, 12, 3, 8, 20]
 total_degats = 0
 
-# À toi — utilise une boucle for :
+# Additionne tous les éléments de degats dans total_degats
+#
+# pour [5, 12, 3, 8, 20]  =>  total_degats == 48
+#
+# Indice : boucle for + +=
 
+# À toi :
+
+
+# --- Vérification (ne pas modifier) ---
 assert total_degats == 48, f"Obtenu : {total_degats}, attendu : 48"
 print("✅ Correct !")
 ```
 
 *Fonction simple :*
 ```python
-# Écris la fonction soigner() qui prend une vie actuelle et des points de soin,
-# et retourne la nouvelle vie (sans dépasser 100).
+# ============================================================
+# The Last of Us — kit de soin
+# ============================================================
+# Joel utilise un kit de soin. La fonction doit calculer la nouvelle vie
+# après soin — sans jamais dépasser 100 (la vie maximale).
+#
+# Lance : python 03_fonction.py
+# ============================================================
 
-# À toi :
+# Écris la fonction soigner(vie, soin) qui retourne la nouvelle vie
+#
+# soigner(60, 20)  =>  80
+# soigner(90, 20)  =>  100  (pas 110 — plafonné à 100)
+#
+# Indice : return + max ou min selon le plafond
+
 def soigner(vie, soin):
-    pass
+    pass  # remplace pass par ton code
 
+
+# --- Vérification (ne pas modifier) ---
 assert soigner(60, 20) == 80, "soigner(60, 20) doit retourner 80"
 assert soigner(90, 20) == 100, "soigner(90, 20) doit retourner 100, pas 110"
 print("✅ Correct !")
@@ -162,14 +233,28 @@ print("✅ Correct !")
 
 *String :*
 ```python
-# Le nom du personnage est "joel miller". Mets-le en majuscules.
-# Stocke le résultat dans nom_affiche.
+# ============================================================
+# The Last of Us — affichage du nom
+# ============================================================
+# L'interface du jeu affiche les noms des personnages en majuscules.
+# Transforme le nom de Joel pour l'affichage.
+#
+# Lance : python 02_string.py
+# ============================================================
 
 nom = "joel miller"
-
-# À toi :
 nom_affiche = ""
 
+# Mets nom en majuscules et stocke le résultat dans nom_affiche
+#
+# "joel miller"  =>  nom_affiche == "JOEL MILLER"
+#
+# Indice : .upper()
+
+# À toi :
+
+
+# --- Vérification (ne pas modifier) ---
 assert nom_affiche == "JOEL MILLER", f"Obtenu : '{nom_affiche}'"
 print("✅ Correct !")
 ```

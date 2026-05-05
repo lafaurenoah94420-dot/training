@@ -1,14 +1,21 @@
 # ============================================================
-# Resident Evil — état du personnage
+# Resident Evil — statut médical
 # ============================================================
-# Les points de vie valent 18. Si pv est strictement supérieur à 0, statut doit
-# valoir "En vie". Sinon statut doit valoir "Mort".
+# Dans le labo Umbrella, chaque survivant a un écran médical.
+# L'écran affiche "En vie" si les PV sont strictement supérieurs à 0,
+# "Mort" sinon. Leon vient d'être touché — vérifie son statut.
 #
-# Résultat attendu quand tu lances ce fichier :
-#   ✅ Correct !
+# Lance : python 02_condition.py
 # ============================================================
 
 pv = 18
+
+# Détermine le statut selon les PV
+#
+# avec pv = 18  =>  statut == "En vie"
+# avec pv = 0   =>  statut == "Mort"
+#
+# Indice : if / else
 
 if pv > 0:
     statut = "En vie"

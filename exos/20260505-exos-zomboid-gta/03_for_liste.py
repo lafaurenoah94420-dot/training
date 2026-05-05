@@ -1,18 +1,21 @@
 # ============================================================
-# GTA — niveaux d'étoiles cumulés
+# GTA — bilan de missions
 # ============================================================
-# La liste `niveaux` enregistre le nombre d'étoiles obtenues à chaque mission.
-# Additionne toutes les valeurs et stocke le résultat dans `etoiles_total`.
+# Franklin vient de finir sa session. À chaque mission il a obtenu
+# un nombre d'étoiles. Le jeu doit calculer son total pour afficher
+# son classement en fin de journée.
 #
-# Résultat attendu quand tu lances ce fichier :
-#   ✅ Correct !
+# Lance : python 03_for_liste.py
 # ============================================================
 
 niveaux = [2, 1, 4, 1, 3]
-
 etoiles_total = 0
 
-# À toi — utilise une boucle for :
+# Additionne tous les éléments de niveaux dans etoiles_total
+#
+# for x in [2, 1, 4, 1, 3]  =>  etoiles_total == 11
+#
+# Indice : boucle for + +=
 
 for x in niveaux:
     etoiles_total += x
