@@ -10,10 +10,14 @@
 
 pv = 18
 
-# Détermine le statut selon les PV
+# Détermine le statut selon les PV.
+# Si pv est strictement supérieur à 0, statut vaut "En vie".
+# Sinon (pv vaut 0 ou moins), statut vaut "Mort".
 #
-# avec pv = 18  =>  statut == "En vie"
-# avec pv = 0   =>  statut == "Mort"
+# pv = 18  →  18 > 0 ? oui  →  statut = "En vie"
+# pv = 0   →  0 > 0  ? non  →  statut = "Mort"
+#
+# Résultat attendu : statut == "En vie"  (car pv vaut 18 ici)
 #
 # Indice : if / else
 

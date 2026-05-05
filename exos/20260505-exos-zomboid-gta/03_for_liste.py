@@ -11,9 +11,15 @@
 niveaux = [2, 1, 4, 1, 3]
 etoiles_total = 0
 
-# Additionne tous les éléments de niveaux dans etoiles_total
+# Parcours la liste niveaux et additionne chaque valeur dans etoiles_total.
 #
-# for x in [2, 1, 4, 1, 3]  =>  etoiles_total == 11
+# tour 1 : x = 2  →  etoiles_total = 0 + 2 = 2
+# tour 2 : x = 1  →  etoiles_total = 2 + 1 = 3
+# tour 3 : x = 4  →  etoiles_total = 3 + 4 = 7
+# tour 4 : x = 1  →  etoiles_total = 7 + 1 = 8
+# tour 5 : x = 3  →  etoiles_total = 8 + 3 = 11
+#
+# Résultat attendu : etoiles_total == 11
 #
 # Indice : boucle for + +=
 

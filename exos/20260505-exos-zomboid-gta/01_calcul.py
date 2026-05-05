@@ -9,10 +9,13 @@
 # Lance : python 01_calcul.py
 # ============================================================
 
-# Calcule le nombre d'unités restantes
+# Calcule le nombre d'unités restantes avec une seule expression.
+# Chris part avec 28, mange 9, récupère 4 — dans cet ordre.
 #
-# unites_restantes = 28 - 9 + 4
-# => 23
+# 28 - 9 = 19   (après le petit-déj)
+# 19 + 4 = 23   (après avoir fouillé le placard)
+#
+# Résultat attendu : unites_restantes == 23
 #
 # Indice : une seule expression avec - et +
 

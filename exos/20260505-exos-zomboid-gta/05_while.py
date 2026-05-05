@@ -11,11 +11,17 @@
 mobilisation = 10
 semaines = 0
 
-# Fais monter mobilisation de 8 par semaine jusqu'à ce qu'elle atteigne 50.
-# Incrémente semaines à chaque tour de boucle.
+# Tant que mobilisation est inférieure à 50, ajoute 8 et compte une semaine.
+# La boucle s'arrête dès que mobilisation atteint ou dépasse 50.
 #
-# départ : mobilisation = 10, semaines = 0
-# après 5 tours : mobilisation = 50, semaines = 5
+# départ        : mobilisation = 10, semaines = 0
+# après tour 1  : mobilisation = 18, semaines = 1
+# après tour 2  : mobilisation = 26, semaines = 2
+# après tour 3  : mobilisation = 34, semaines = 3
+# après tour 4  : mobilisation = 42, semaines = 4
+# après tour 5  : mobilisation = 50, semaines = 5  →  50 >= 50, la boucle s'arrête
+#
+# Résultat attendu : semaines == 5
 #
 # Indice : while + deux += dans le corps de la boucle
 

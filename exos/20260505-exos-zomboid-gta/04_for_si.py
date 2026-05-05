@@ -12,12 +12,21 @@
 pv_infectes = [30, 12, 40, 25, 50, 10]
 risque_eleve = 0
 
-# Compte les infectés avec pv strictement > 25
+# Parcours la liste pv_infectes. Pour chaque infecté,
+# si ses PV sont strictement supérieurs à 25, ajoute 1 à risque_eleve.
+# Attention : un infecté à exactement 25 PV ne compte pas.
 #
-# pour [30, 12, 40, 25, 50, 10]  =>  risque_eleve == 3
-# (30, 40 et 50 comptent — 25 ne compte pas, il faut strictement plus)
+# pv_infectes = [30, 12, 40, 25, 50, 10]
+# 30 > 25 ? oui  →  risque_eleve = 1
+# 12 > 25 ? non  →  risque_eleve = 1
+# 40 > 25 ? oui  →  risque_eleve = 2
+# 25 > 25 ? non  →  risque_eleve = 2  (25 ne compte pas)
+# 50 > 25 ? oui  →  risque_eleve = 3
+# 10 > 25 ? non  →  risque_eleve = 3
 #
-# Indice : boucle for + if à l'intérieur
+# Résultat attendu : risque_eleve == 3
+#
+# Indice : boucle for, puis if à l'intérieur de la boucle
 
 for pv in pv_infectes:
     if pv > 25:

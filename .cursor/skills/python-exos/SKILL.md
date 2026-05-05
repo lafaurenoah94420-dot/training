@@ -113,8 +113,16 @@ print("✅ Correct !")
 - Les messages d'assert sont utiles : `"Recompte : 30 - 7 + 3 = ?"` pas `"Erreur"`
 - Contexte jeu vidéo dans le titre et les variables — mais les noms de variables restent en anglais
 - Textes affichés et commentaires en français
-- L'exemple avec `=>` utilise toujours les valeurs réelles du fichier — jamais des valeurs inventées
 - L'indice donne le nom de l'outil (`for`, `if`, `+=`, `.upper()`, etc.) — jamais la ligne de code
+
+**Règle centrale pour la consigne :**
+Le bloc de consigne doit montrer le déroulé pas à pas avec les valeurs réelles du fichier — pas une formule abstraite. Le learner doit pouvoir lire les commentaires et comprendre exactement ce qui doit se passer à chaque étape, sans avoir à le déduire.
+
+- Pour un **calcul** : montrer chaque opération sur une ligne avec le résultat intermédiaire
+- Pour une **condition** : montrer chaque cas (`pv = 18 → 18 > 0 ? oui → statut = "En vie"`)
+- Pour une **boucle for** : dérouler chaque tour avec la valeur de la variable et l'état de l'accumulateur
+- Pour un **while** : dérouler chaque tour avec l'état de toutes les variables impliquées
+- Pour une **fonction** : montrer l'appel avec les vraies valeurs et le résultat avec `=>`
 
 **Format selon la notion :**
 
@@ -132,9 +140,12 @@ print("✅ Correct !")
 
 balles_restantes = 0
 
-# Calcule les balles restantes après le combat
+# Calcule les balles restantes avec une seule expression.
 #
-# 30 - 7 + 3  =>  balles_restantes == 26
+# 30 - 7 = 23   (après les tirs)
+# 23 + 3 = 26   (après avoir récupéré des balles)
+#
+# Résultat attendu : balles_restantes == 26
 #
 # Indice : une expression avec - et +
 
@@ -160,10 +171,12 @@ print("✅ Correct !")
 vie = 15
 message = ""
 
-# Détermine le message selon la valeur de vie
+# Détermine le message selon la valeur de vie.
 #
-# avec vie = 15  =>  message == "Joel est vivant"
-# avec vie = 0   =>  message == "Joel est mort"
+# vie = 15  →  15 > 0 ? oui  →  message = "Joel est vivant"
+# vie = 0   →  0 > 0  ? non  →  message = "Joel est mort"
+#
+# Résultat attendu : message == "Joel est vivant"  (car vie vaut 15 ici)
 #
 # Indice : if / else
 
@@ -189,9 +202,15 @@ print("✅ Correct !")
 degats = [5, 12, 3, 8, 20]
 total_degats = 0
 
-# Additionne tous les éléments de degats dans total_degats
+# Parcours la liste degats et additionne chaque valeur dans total_degats.
 #
-# pour [5, 12, 3, 8, 20]  =>  total_degats == 48
+# tour 1 : x = 5   →  total_degats = 0 + 5  = 5
+# tour 2 : x = 12  →  total_degats = 5 + 12 = 17
+# tour 3 : x = 3   →  total_degats = 17 + 3 = 20
+# tour 4 : x = 8   →  total_degats = 20 + 8 = 28
+# tour 5 : x = 20  →  total_degats = 28 + 20 = 48
+#
+# Résultat attendu : total_degats == 48
 #
 # Indice : boucle for + +=
 
@@ -208,18 +227,21 @@ print("✅ Correct !")
 # ============================================================
 # The Last of Us — kit de soin
 # ============================================================
-# Joel utilise un kit de soin. La fonction doit calculer la nouvelle vie
-# après soin — sans jamais dépasser 100 (la vie maximale).
+# Joel utilise un kit de soin. La fonction calcule la nouvelle vie
+# après soin. Elle ne peut jamais dépasser 100 — c'est le maximum.
 #
 # Lance : python 03_fonction.py
 # ============================================================
 
-# Écris la fonction soigner(vie, soin) qui retourne la nouvelle vie
+#   vie   : les points de vie actuels de Joel
+#   soin  : les points récupérés grâce au kit
 #
-# soigner(60, 20)  =>  80
-# soigner(90, 20)  =>  100  (pas 110 — plafonné à 100)
+# soigner(60, 20)  →  60 + 20 = 80   →  retourne 80
+# soigner(90, 20)  →  90 + 20 = 110  →  plafonné à 100, retourne 100
 #
-# Indice : return + max ou min selon le plafond
+# Résultat attendu : soigner(60, 20) == 80  et  soigner(90, 20) == 100
+#
+# Indice : return + min(100, ...)
 
 def soigner(vie, soin):
     pass  # remplace pass par ton code
@@ -245,9 +267,11 @@ print("✅ Correct !")
 nom = "joel miller"
 nom_affiche = ""
 
-# Mets nom en majuscules et stocke le résultat dans nom_affiche
+# Transforme nom en majuscules et stocke le résultat dans nom_affiche.
 #
-# "joel miller"  =>  nom_affiche == "JOEL MILLER"
+# "joel miller"  →  chaque lettre passe en majuscule  →  "JOEL MILLER"
+#
+# Résultat attendu : nom_affiche == "JOEL MILLER"
 #
 # Indice : .upper()
 
