@@ -5,7 +5,7 @@ description: Génère un mini-projet Python avec un scaffold à compléter. main
 
 # Python Build
 
-Session de construction. L'agent génère un mini-programme avec un `main.py` déjà écrit et un `project.py` avec des fonctions à implémenter. Le learner complète les fonctions jusqu'à ce que `python main.py` fasse quelque chose de cool.
+Session de construction. L'agent génère un mini-programme avec un `main.py` déjà écrit et un `project.py` avec des fonctions à implémenter. Le learner complète les fonctions jusqu'à ce que `python3 main.py` fasse quelque chose de cool.
 
 Les projets viennent de l'univers de jeux comme Project Zomboid, The Last of Us, Resident Evil, GTA, Hearts of Iron 4. Le learner ne construit pas une "calculatrice scolaire" — il construit le système d'inventaire de Joel, le simulateur de propagation d'infection de Zomboid, le calculateur de production militaire de HOI4.
 
@@ -112,10 +112,10 @@ Les instructions sont dans l'en-tête de `main.py`.
 #
 # Ce que tu dois faire :
 # → Ouvre project.py et implémente les 5 fonctions dans l'ordre
-# → Lance python main.py après chaque fonction pour voir si ça avance
+# → Lance python3 main.py après chaque fonction pour voir si ça avance
 #
 # Critères de réussite :
-# → python main.py tourne jusqu'au ✅ sans erreur
+# → python3 main.py tourne jusqu'au ✅ sans erreur
 # → Chaque fonction produit les résultats montrés dans les exemples =>
 # → Aucun raise NotImplementedError ne reste dans project.py
 # ============================================================
@@ -153,7 +153,7 @@ Structure type :
 # [Titre du projet]
 # ============================================================
 # Implémente les 5 fonctions ci-dessous pour que main.py fonctionne.
-# Lance : python main.py
+# Lance : python3 main.py
 # Implémente-les dans l'ordre — commence par TODO 1.
 # ============================================================
 
@@ -214,7 +214,7 @@ Ensuite implémente les fonctions dans project.py une par une.
 
 Pour lancer le programme :
 
-  python main.py
+  python3 main.py
 
 ✅  Objectif : le programme tourne de bout en bout.
 Dis-moi quand tu as fini ou si tu es bloqué depuis plus de 15 min.
@@ -222,7 +222,7 @@ Dis-moi quand tu as fini ou si tu es bloqué depuis plus de 15 min.
 
 ### Étape 3 — Débrief (quand l'utilisateur a fini)
 
-Demander de coller la sortie de `python main.py`.
+Demander de coller la sortie de `python3 main.py`.
 
 Feedback ciblé (8-10 lignes max) :
 - Quelles fonctions ont été implémentées sans hésiter

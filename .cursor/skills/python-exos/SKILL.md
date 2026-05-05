@@ -101,7 +101,7 @@ Pas d'instructions séparées — tout est dans chaque fichier.
 # [2-3 phrases narratives : personnage, contexte, enjeu concret.
 #  Le learner doit comprendre POURQUOI ce calcul existe dans le jeu.]
 #
-# Lance : python 0X_[notion].py
+# Lance : python3 0X_[notion].py
 # ============================================================
 
 [données déjà définies si nécessaire]
@@ -152,7 +152,7 @@ Le bloc de consigne doit montrer le déroulé pas à pas avec les valeurs réell
 # Il fouille un cadavre et récupère 3 balles supplémentaires.
 # Combien lui en reste-t-il ?
 #
-# Lance : python 01_calcul.py
+# Lance : python3 01_calcul.py
 # ============================================================
 
 balles_restantes = 0
@@ -182,7 +182,7 @@ print("✅ Correct !")
 # L'écran médical affiche "En vie" si les PV sont supérieurs à 0,
 # "Mort" sinon. Leon vient d'être touché — vérifie son statut.
 #
-# Lance : python 02_condition.py
+# Lance : python3 02_condition.py
 # ============================================================
 
 vie = 15
@@ -213,7 +213,7 @@ print("✅ Correct !")
 # Franklin vient de finir sa session. À chaque mission il a infligé
 # des dégâts. Le jeu doit calculer le total pour son classement.
 #
-# Lance : python 03_for_liste.py
+# Lance : python3 03_for_liste.py
 # ============================================================
 
 degats = [5, 12, 3, 8, 20]
@@ -247,7 +247,7 @@ print("✅ Correct !")
 # Joel utilise un kit de soin. La fonction calcule la nouvelle vie
 # après soin. Elle ne peut jamais dépasser 100 — c'est le maximum.
 #
-# Lance : python 03_fonction.py
+# Lance : python3 03_fonction.py
 # ============================================================
 
 #   vie   : les points de vie actuels de Joel
@@ -278,7 +278,7 @@ print("✅ Correct !")
 # L'interface du jeu affiche les noms des personnages en majuscules.
 # Transforme le nom de Joel pour l'affichage.
 #
-# Lance : python 02_string.py
+# Lance : python3 02_string.py
 # ============================================================
 
 nom = "joel miller"
@@ -322,8 +322,8 @@ Colle ça dans ton terminal :
 
 Puis pour lancer chaque exercice :
 
-  python 01_[notion].py
-  python 02_[notion].py
+  python3 01_[notion].py
+  python3 02_[notion].py
   (etc.)
 
 ✅  Objectif : voir "✅ Correct !" sur chaque fichier.

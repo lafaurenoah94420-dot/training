@@ -110,7 +110,7 @@ Colle ça dans ton terminal :
 
 Pour lancer :
 
-  python main.py
+  python3 main.py
 
 Pour commencer : [une seule action concrète à faire en premier — outil Python précis ou variable à créer].
 ```
