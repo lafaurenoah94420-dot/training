@@ -10,15 +10,17 @@
 # ------------------------------------------------------------
 # TODO 1 — Manger fait baisser la faim
 # ------------------------------------------------------------
-# Ce que ça fait : après avoir mangé, la jauge de faim baisse. Elle ne peut
-# pas descendre en dessous de 0.
+# Après un repas, la jauge de faim de Chris baisse.
+# Si la nourriture est plus calorique que ce qu'il lui reste de faim,
+# la jauge tombe à 0 — elle ne peut jamais être négative.
 #
-# Exemple :
-#   Entrée  : current_hunger = 60, food_value = 25
-#   Sortie  : 35
+#   current_hunger  : la faim actuelle (un nombre entre 0 et 100)
+#   food_value      : les points de faim que la nourriture enlève
 #
-# Indice : soustraire food_value à current_hunger ; si le résultat serait
-#          négatif, utilise 0 à la place (if ou max(...)).
+# eat_reduce_hunger(60, 25)  =>  35
+# eat_reduce_hunger(10, 40)  =>  0   (pas -30)
+#
+# Indice : max(0, ...)
 # ------------------------------------------------------------
 def eat_reduce_hunger(current_hunger, food_value):
     current_hunger -= food_value
@@ -28,15 +30,18 @@ def eat_reduce_hunger(current_hunger, food_value):
 # ------------------------------------------------------------
 # TODO 2 — Le temps qui passe fait monter la faim
 # ------------------------------------------------------------
-# Ce que ça fait : chaque heure, la faim augmente d'un certain nombre de
-# points. La jauge ne peut pas dépasser 100.
+# Plus Chris attend, plus il a faim. Chaque heure, la jauge monte
+# d'un certain nombre de points. Elle ne peut pas dépasser 100 —
+# au-delà, il s'effondre de faim de toute façon.
 #
-# Exemple :
-#   Entrée  : current_hunger = 10, rise_per_hour = 5, hours = 4
-#   Sortie  : 30   (10 + 5 * 4)
+#   current_hunger  : la faim actuelle (un nombre entre 0 et 100)
+#   rise_per_hour   : de combien la faim monte par heure
+#   hours           : combien d'heures se sont écoulées
 #
-# Indice : calcule d'abord current_hunger + rise_per_hour * hours, puis
-#          borne le résultat pour qu'il ne dépasse jamais 100 (if ou min(...)).
+# hunger_from_time_passing(10, 5, 4)   =>  30   (10 + 5 * 4)
+# hunger_from_time_passing(90, 5, 4)   =>  100  (pas 110)
+#
+# Indice : min(100, ...)
 # ------------------------------------------------------------
 def hunger_from_time_passing(current_hunger, rise_per_hour, hours):
     current_hunger += rise_per_hour * hours
@@ -46,17 +51,18 @@ def hunger_from_time_passing(current_hunger, rise_per_hour, hours):
 # ------------------------------------------------------------
 # TODO 3 — Message selon le niveau de faim
 # ------------------------------------------------------------
-# Ce que ça fait : renvoie une phrase en français selon la valeur de hunger.
-#   - si hunger >= 80  → "Critique : trouve à manger maintenant."
-#   - sinon si hunger >= 40 → "Faim modérée : pense à grignoter."
-#   - sinon → "Tranquille pour l'instant."
+# L'interface du jeu affiche un message d'alerte selon la jauge.
+# Trois niveaux : critique, modéré, ou tranquille.
+# Le texte doit être identique caractère pour caractère — main.py compare
+# exactement ce que tu retournes.
 #
-# Exemple :
-#   Entrée  : hunger = 90
-#   Sortie  : "Critique : trouve à manger maintenant." (respecte les guillemets
-#             et la ponctuation EXACTEMENT comme ci-dessus)
+#   hunger  : la faim actuelle (un nombre entre 0 et 100)
 #
-# Indice : enchaîne if / elif / else et renvoie la chaîne avec return.
+# hunger_status_message(90)  =>  "Critique : trouve à manger maintenant."
+# hunger_status_message(55)  =>  "Faim modérée : pense à grignoter."
+# hunger_status_message(20)  =>  "Tranquille pour l'instant."
+#
+# Indice : if / elif / else + return
 # ------------------------------------------------------------
 def hunger_status_message(hunger):
     if hunger >= 80:

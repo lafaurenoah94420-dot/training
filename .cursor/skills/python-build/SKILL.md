@@ -114,17 +114,20 @@ Structure type :
 
 
 # ------------------------------------------------------------
-# TODO 1 — [nom de l'action]
+# TODO 1 — [titre court et impératif — ex: "Manger fait baisser la faim"]
 # ------------------------------------------------------------
-# Ce que ça fait : [description en une phrase, point de vue utilisateur]
+# [2-3 phrases narratives : contexte concret dans l'univers du jeu,
+#  enjeu de la fonction, ce qui se passe au cas limite.]
 #
-# Exemple :
-#   Entrée  : [valeur concrète simple — un int, une string, une liste courte]
-#   Sortie  : [valeur concrète attendue]
+#   parametre1  : [ce que c'est en une ligne — ex: "la faim actuelle (0 à 100)"]
+#   parametre2  : [ce que c'est en une ligne]
 #
-# Indice : [nom exact de l'outil Python à utiliser — ex: "utilise random.randint()"]
+# nom_fonction(valeur1, valeur2)   =>  résultat_normal
+# nom_fonction(valeur_limite, x)   =>  résultat_limite   (explication du cas)
+#
+# Indice : [nom exact de l'outil Python — ex: max(0, ...) / min(100, ...) / if / return]
 # ------------------------------------------------------------
-def nom_fonction(parametre):
+def nom_fonction(parametre1, parametre2):
     raise NotImplementedError
 
 
@@ -132,7 +135,10 @@ def nom_fonction(parametre):
 ```
 
 **Règles pour les blocs TODO :**
-- L'exemple Entrée/Sortie est toujours **concret et simple** — un seul int ou string en entrée, pas de structure complexe
+- **Narrative d'abord** — 2-3 phrases qui posent le contexte et l'enjeu avant tout
+- **Chaque paramètre expliqué** — une ligne par argument, alignées avec les espaces, entre la narrative et les exemples
+- **Deux exemples avec `=>`** — le cas normal + le cas limite (valeur à 0, plafond à 100, liste vide, etc.)
+- **Jamais les labels `Entrée :` / `Sortie :`** — utiliser la syntaxe d'appel directe avec `=>`
 - L'indice donne le nom exact de l'outil sans donner l'implémentation
 - Chaque fonction commence obligatoirement par `raise NotImplementedError`
 - La première fonction doit être implémentable en 5-10 minutes
@@ -162,7 +168,7 @@ def nom_fonction(parametre):
 ## Critères de réussite
 
 - [ ] `python main.py` tourne de bout en bout sans erreur
-- [ ] Chaque fonction fait ce que l'exemple Entrée/Sortie décrit
+- [ ] Chaque fonction produit les résultats montrés dans les exemples `=>`
 - [ ] Aucun `raise NotImplementedError` ne reste
 
 ## Indice (seulement si bloqué depuis plus de 15 min)
