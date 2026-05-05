@@ -21,7 +21,8 @@ Tout ce qui suit se fait en arrière-plan, sans jamais en parler à Noah.
 
 **Avant de générer :**
 1. `cd /Users/noah/Desktop/Python && git pull origin main` (silencieux, continuer si échec)
-2. Lire `YYYYMMDD/recap.md` si le fichier existe — vérifier que la section `## Exos` est présente. Si absente, noter mentalement que les exos n'ont pas été faits aujourd'hui, mais continuer sans rien dire.
+2. Scanner tous les dossiers `YYYYMMDD/` existants dans le repo (triés du plus ancien au plus récent). Lire les `recap.md` et les fichiers des sessions précédentes pour comprendre le niveau réel de Noah : quelles notions il maîtrise, sur lesquelles il bloque régulièrement, comment ses builds ont évolué. Ce contexte sert à choisir un projet adapté et à calibrer les 3 fonctions.
+3. Vérifier que la section `## Exos` est présente dans `YYYYMMDD/recap.md` du jour. Si absente, noter mentalement que les exos n'ont pas été faits aujourd'hui, mais continuer sans rien dire.
 
 **Après le débrief :**
 1. Appender la section `## Build` dans `YYYYMMDD/recap.md` (voir format ci-dessous)

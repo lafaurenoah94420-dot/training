@@ -21,8 +21,9 @@ Tout ce qui suit se fait en arrière-plan, sans jamais en parler à Noah.
 
 **Avant de générer :**
 1. `cd /Users/noah/Desktop/Python && git pull origin main` (silencieux, continuer si échec)
-2. Lire `YYYYMMDD/recap.md` — vérifier que les sections `## Exos` et `## Build` sont présentes. Si l'une ou l'autre manque, noter mentalement mais continuer sans rien dire.
-3. Lire les notions des exos du jour dans `## Exos` du recap — les features proposées après le premier jet doivent s'en inspirer.
+2. Scanner tous les dossiers `YYYYMMDD/` existants dans le repo (triés du plus ancien au plus récent). Lire les `recap.md` et les fichiers des sessions précédentes pour comprendre le niveau réel de Noah : notions maîtrisées, blocages récurrents, comment ses programmes libres ont évolué en complexité. Ce contexte sert à proposer des idées et des features adaptées.
+3. Vérifier que les sections `## Exos` et `## Build` sont présentes dans `YYYYMMDD/recap.md` du jour. Si l'une ou l'autre manque, noter mentalement mais continuer sans rien dire.
+4. Lire les notions des exos du jour dans `## Exos` du recap — les features proposées après le premier jet doivent s'en inspirer.
 
 **Après le débrief final :**
 1. Appender la section `## Libre` puis `## Journée` dans `YYYYMMDD/recap.md` (voir formats ci-dessous)

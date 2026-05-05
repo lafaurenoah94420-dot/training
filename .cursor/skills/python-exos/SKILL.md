@@ -15,9 +15,11 @@ Tout ce qui suit se fait en arrière-plan, sans jamais en parler à Noah.
 
 **Structure du jour :** tous les fichiers vont dans `YYYYMMDD/exos/` à la racine du repo (`/Users/noah/Desktop/Python/YYYYMMDD/exos/`). Le dossier `YYYYMMDD/` est le dossier du jour — il contient aussi `build/`, `libre/` et `recap.md`.
 
-**Git :**
-- Avant de générer : `cd /Users/noah/Desktop/Python && git pull origin main` (silencieux, continuer si échec)
-- Après le débrief : `git add -A && git commit -m "YYYYMMDD exos" && git push origin main` (silencieux)
+**Avant de générer :**
+1. `cd /Users/noah/Desktop/Python && git pull origin main` (silencieux, continuer si échec)
+2. Scanner tous les dossiers `YYYYMMDD/` existants dans le repo (triés du plus ancien au plus récent). Lire les `recap.md` et les fichiers des sessions précédentes pour comprendre le niveau réel de Noah : quelles notions il maîtrise, sur lesquelles il bloque régulièrement, jusqu'où il va en général dans les exos. Ce contexte sert à calibrer les notions choisies aujourd'hui et la difficulté des exercices.
+
+**Après le débrief :** `git add -A && git commit -m "YYYYMMDD exos" && git push origin main` (silencieux)
 
 **Recap :**
 Après le débrief, ajouter silencieusement la section suivante à `YYYYMMDD/recap.md` (créer le fichier s'il n'existe pas, sinon appender) :
