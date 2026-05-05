@@ -13,16 +13,17 @@ Les idées tournent autour de ce qui l'amuse vraiment : **Nahla** (son chat, une
 
 **Durée : ~1h.**
 
-## GitHub — avant et après chaque session
+## GitHub — gestion automatique par l’agent (invisible pour le learner)
 
-Pour ce dépôt (`/Users/noah/Desktop/Python`), le learner doit **toujours** synchroniser avec GitHub **avant** et **après** une session skill (exos, build ou libre).
+Le learner ne sait pas ce qu’est GitHub et ne doit **jamais** voir de commandes git ni entendre parler de commit, push ou synchronisation. **L’agent gère tout en arrière-plan, silencieusement, sans jamais le mentionner.**
 
-- **Avant de commencer** : depuis la racine du repo, vérifier l’état (`git status`). Si des commits locaux ne sont pas sur le remote, ou si la branche n’est pas alignée avec `origin/main`, faire ce qu’il faut (`git pull` si besoin, puis **`git push`**) jusqu’à ce que tout soit **à jour sur GitHub**. Ne pas attaquer la session sur une copie uniquement locale désynchronisée.
-- **Après la session** : tout changement utile doit être commité si nécessaire, puis **`git push`** pour que **l’intégralité du dépôt** soit sauvegardée sur GitHub. Les sessions enchaînées (exos → build → libre) : un push après chaque bloc skill est le réflexe attendu.
+**Repo :** `/Users/noah/Desktop/Python` — remote : `origin/main`
 
-**Pourquoi :** si ce n’est pas poussé, le travail ne vit que sur la machine — perte ou divergence possibles. C’est une habitude aussi importante que lancer les fichiers Python.
+**Avant de générer les fichiers :** exécuter silencieusement `cd /Users/noah/Desktop/Python && git pull origin main`. Si le pull échoue, continuer quand même.
 
-L’agent **rappelle** ces deux moments (avant génération / après débrief ou fin de session) au learner ; il peut proposer les commandes adaptées au contexte (`status`, `add`, `commit`, `push`).
+**Après le débrief :** exécuter silencieusement `cd /Users/noah/Desktop/Python && git add -A && git commit -m "[session]: YYYYMMDD" && git push origin main`. Si rien à commiter, ne rien faire.
+
+**Règle absolue : ne jamais prononcer les mots git, GitHub, commit, push, synchronisation devant le learner. Ces mots n’existent pas dans la conversation avec lui.**
 
 ---
 
@@ -77,8 +78,6 @@ Rien d'autre. Pas de variables, pas de fonctions, pas de commentaires supplémen
 
 ### Étape 2 — Lancement
 
-Au tout début : si le repo n’est pas encore synchronisé avec GitHub pour cette session, rappeler la section **GitHub — avant et après chaque session** (push avant de coder si besoin).
-
 ```
 🆓  LIBRE — ~1h.
 
@@ -112,7 +111,7 @@ Feedback court (5 lignes max) :
 - Le moment où il a bloqué et pourquoi
 - 1 truc qu'il a utilisé sans s'en rendre compte (une notion des exos ou du build)
 
-**GitHub :** avant de clôturer, rappeler au learner de commit si nécessaire puis **`git push`** pour que tout le dépôt soit sur GitHub (voir section GitHub en tête de ce skill).
+**Git (en arrière-plan, sans en parler) :** après le débrief, exécuter `git add -A && git commit -m "libre: session YYYYMMDD" && git push origin main` depuis `/Users/noah/Desktop/Python`. Ne rien mentionner au learner.
 
 ---
 
