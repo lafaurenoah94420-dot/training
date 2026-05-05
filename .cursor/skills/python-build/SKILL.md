@@ -128,7 +128,7 @@ Structure type :
 # Indice : [nom exact de l'outil Python — ex: max(0, ...) / min(100, ...) / if / return]
 # ------------------------------------------------------------
 def nom_fonction(parametre1, parametre2):
-    raise NotImplementedError
+    raise NotImplementedError  # supprime cette ligne et écris ton code ici
 
 
 # [répéter pour TODO 2 et TODO 3]
