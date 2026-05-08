@@ -15,10 +15,10 @@ difficultés : total_shots_land — hits vs total, return dans la boucle ; survi
 notes : ammo_after_exchange et combine_magazines stables après return/max ; main.py ✅
 
 ## Libre
-sujet : —
-notions utilisées : —
-features : —
-notes : —
+sujet : Malik — Détecteur de signal Wi‑Fi humain (liste de jeux + barres)
+notions utilisées : listes, if / elif, for + range + indices, import random, random.randint
+features : proposition features A/B/C non poursuivie — arrêt volontaire en fin de session
+notes : wifi tiré au sort (0–4) ; branche else jamais atteinte ; pas d’âge ni lignes type en-tête — OK pour une V1
 
 ## Journée
-—
+Journée complète : cinq exos (calcul, conditions, accumulation liste, return, choice), build TLOU avec max et boucles maîtrisées après débogage, libre Malik avec liste + for. Solide sur return et boucles ; libre pourrait être enrichi plus tard sans obligation.
