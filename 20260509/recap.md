@@ -15,10 +15,10 @@ difficultés : gear_over_days — return dans la boucle puis hors boucle ; front
 notes : spare_litres et crank_until_live OK ; main.py ✅
 
 ## Libre
-sujet : —
-notions utilisées : —
-features : —
-notes : —
+sujet : Nahla — sac de croquettes (while + soustraction par bouchées)
+notions utilisées : input, int, if / else, while, -=, print
+features : correction if/elif → second if après -= pour message « fini » ; en-tête fichier
+notes : piège if/elif même tour ; cas 0 croquettes géré avant boucle
 
 ## Journée
-—
+Journée complète : exos (%, in, range, for+if, while), build HOI4 aligné sur ces notions, libre Nahla avec boucle while et sortie propre. Solide sur cumulative counts et conditions ; attention rester vigilant sur chaîne if/elif vs deux if.
