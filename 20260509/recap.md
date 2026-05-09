@@ -9,10 +9,10 @@ bloqué : —
 notes : 02 : == liste vs in ; 04 : comparer l’élément du for au seuil, pas toute la liste
 
 ## Build
-projet : —
-notions utilisées : —
-difficultés : —
-notes : —
+projet : Hearts of Iron IV — Quartier sous tension
+notions utilisées : %, in → bool, for range + cumul, for + if + compteur > seuil, while + +=
+difficultés : gear_over_days — return dans la boucle puis hors boucle ; fronts_above_threshold — cumul sur count pas sur i
+notes : spare_litres et crank_until_live OK ; main.py ✅
 
 ## Libre
 sujet : —
