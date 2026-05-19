@@ -9,10 +9,10 @@ bloqué : —
 notes : f-string ponctuation exacte (—, espaces) ; append avec () pas [] ; min(100, vie+soin) pas min(100,0)
 
 ## Build
-projet : —
-notions utilisées : —
-difficultés : —
-notes : —
+projet : GTA — Comptoir de liasses
+notions utilisées : //, elif paliers, f-string return, append liste, min(100, rep+gain)
+difficultés : wanted_tier return avec chaîne ; crew_roster liste locale vs nom de fonction
+notes : cap_rep et radio_line rapides ; main.py ✅
 
 ## Libre
 sujet : —
