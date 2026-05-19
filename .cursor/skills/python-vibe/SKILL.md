@@ -1,11 +1,13 @@
 ---
 name: python-vibe
-description: Session vibe coding. L'agent choisit un projet ambitieux (jeu 2D, simulation, outil visuel…) avec toutes les specs techniques. Noah pilote une IA par ses prompts pour construire quelque chose d'impressionnant — sans écrire de code lui-même. L'objectif : apprendre à penser, prompter et créer avec l'IA. Utilise quand l'utilisateur dit /python-vibe.
+description: Session vibe coding. L'agent propose 3 projets ambitieux (jeu 2D, simulation, site…), Noah choisit. L'agent fournit la stack et un premier prompt en français. Noah pilote une IA pour construire sans coder. Utilise quand l'utilisateur dit /python-vibe.
 ---
 
 # Python Vibe
 
-Session vibe coding. Noah ne code pas — il **dirige**. Il prompt une IA (Cursor, ChatGPT, Claude) pour construire quelque chose d'ambitieux et d'impressionnant. L'agent choisit le projet, la stack, les specs. Noah n'a qu'à pousser aussi loin que possible dans sa créativité.
+Session vibe coding. Noah ne code pas — il **dirige**. Il prompt une IA (Cursor, ChatGPT, Claude) pour construire quelque chose d'ambitieux et d'impressionnant.
+
+**L'agent propose 3 projets, Noah choisit.** L'agent fixe la stack technique et les specs — Noah n'a pas à y penser. Il reçoit un **premier prompt en français** à coller, puis il pousse aussi loin que possible.
 
 **Une seule règle : aller le plus loin possible. Le reste, c'est l'IA qui s'en charge.**
 
@@ -19,6 +21,10 @@ Tout ce qui suit se fait en arrière-plan, sans jamais en parler à Noah.
 
 **Structure du jour :** le dossier va dans `YYYYMMDD/vibe/` à la racine du repo.
 
+**Avant de proposer :**
+1. `cd /Users/noah/Desktop/Python && git pull origin main` (silencieux, continuer si échec)
+2. Scanner les dossiers `*/vibe/` et `recap.md` récents pour ne pas reproposer le même type de projet deux sessions d'affilée
+
 **Après le débrief :**
 1. Appender la section `## Vibe` dans `YYYYMMDD/recap.md`
 2. `git add -A && git commit -m "YYYYMMDD vibe" && git push origin main` (silencieux)
@@ -27,9 +33,9 @@ Tout ce qui suit se fait en arrière-plan, sans jamais en parler à Noah.
 ```
 ## Vibe
 projet : [titre]
-stack : [ce que l'agent a choisi comme techno]
+stack : [techno choisie par l'agent]
 jusqu'où : [ce que Noah a réussi à construire]
-prompts qui ont marché : [1-2 exemples de prompts efficaces]
+prompts qui ont marché : [1-2 exemples de prompts efficaces en français]
 notes : [observations sur sa façon de prompter]
 ```
 
@@ -39,45 +45,71 @@ notes : [observations sur sa façon de prompter]
 
 ## Workflow
 
-### Étape 0 — Choisir le projet
+### Étape 0 — Proposer 3 projets
 
-L'agent choisit **seul** un projet parmi la banque ci-dessous (ou une variante originale). Il sélectionne aussi la **stack technique** sans demander l'avis de Noah.
+Proposer **exactement 3 projets** ambitieux et **attendre le choix** (A, B ou C) avant de créer quoi que ce soit.
 
-**Règles de choix :**
-- Le projet doit être **visuellement impressionnant** ou **techniquement bluffant** — quelque chose qui donne envie de montrer à ses amis
-- Pas de mini-apps, pas de calculatrices, pas de programmes en console basiques
-- Varier les types entre les sessions (ne pas reproposer la même catégorie deux fois d'affilée)
-- La stack doit être **accessible depuis Cursor** : Python avec pygame / tkinter, HTML/CSS/JS vanilla, ou Python terminal avancé (curses, rich) — pas de frameworks complexes qui nécessitent 2h de setup
+**Règles pour les 3 propositions :**
+- Chaque projet doit être **visuellement impressionnant** ou **techniquement bluffant**
+- Pas de mini-apps, pas de calculatrices, pas de programmes console basiques
+- Les 3 options doivent être de **catégories différentes** (ex. simulation pygame + jeu 2D + site web)
+- L'agent annonce la **stack** dans chaque proposition (pygame, HTML/CSS/JS, rich terminal, etc.) — Noah ne choisit pas la techno, seulement le projet
+- Varier par rapport aux sessions vibe précédentes
 
-**Banque de projets (varier à chaque session) :**
-
-- **Jeu 2D pygame** : platformer, shooter spatial, snake amélioré avec obstacles, tower defense, casse-briques avec power-ups, jeu de voiture en vue de dessus
-- **Simulation pygame** : simulation de fourmis (stigmergie), boids (nuée d'oiseaux), feu de forêt qui se propage, automate cellulaire (Game of Life), évolution de créatures
-- **Outil visuel pygame** : générateur de fractales interactif, visualiseur de tri en temps réel (bulles, rapide, fusion), simulateur de gravité avec des planètes
-- **Site web** : page perso dark/neon avec animations CSS, jeu dans le navigateur (canvas JS), générateur de cartes de profil stylées, tableau de bord fictif animé
-- **Terminal visuel (rich/curses)** : dashboard de monitoring fictif animé, visualiseur de données ASCII en temps réel, jeu de rôle textuel avec interface soignée
-
-### Étape 1 — Briefing
-
-Présenter le projet à Noah avec :
-1. **Le titre** — accrocheur et concret
-2. **Ce que ça fait** — 3-4 phrases qui donnent envie, avec des détails visuels précis (couleurs, animations, ce qu'on voit à l'écran)
-3. **La stack choisie** — annoncée simplement : « tu vas coder ça en Python avec pygame » ou « c'est un site HTML/CSS/JS »
-4. **Le dossier de travail** — `YYYYMMDD/vibe/`
-5. **Le premier prompt à tester** — une seule phrase de départ concrète que Noah peut coller dans l'IA pour commencer (pas un plan, juste le déclencheur initial)
+**Banque d'inspiration (l'agent pioche et adapte) :**
+- **Simulation pygame** : fourmis (stigmergie), boids, feu de forêt, Game of Life, évolution de créatures
+- **Jeu 2D pygame** : shooter spatial, platformer, tower defense, casse-briques power-ups, vue de dessus arcade
+- **Outil visuel pygame** : fractales interactives, visualiseur de tris animé, simulateur de gravité
+- **Site web** : portfolio cyberpunk, jeu canvas dans le navigateur, dashboard fictif animé
+- **Terminal rich/curses** : dashboard animé, jeu de rôle textuel avec interface soignée
 
 Format :
 ```
-🎮  VIBE — [Titre du projet]
+Voici 3 projets vibe — choisis A, B ou C :
 
-[3-4 phrases d'accroche visuelles et concrètes. Ce qu'on voit à l'écran, les animations, le sentiment quand ça tourne.]
+**A — [Titre accrocheur]**
+[2-3 phrases : ce qu'on voit à l'écran, pourquoi c'est impressionnant]
+Stack : [techno fixée par l'agent]
 
-Stack : [techno choisie par l'agent]
-Dossier : YYYYMMDD/vibe/
+**B — [Titre accrocheur]**
+[2-3 phrases]
+Stack : [techno]
 
-Pour démarrer, colle ce prompt dans Cursor (ou l'IA de ton choix) :
+**C — [Titre accrocheur]**
+[2-3 phrases]
+Stack : [techno]
+```
 
-"[Un prompt de départ précis, ambitieux, en français ou anglais selon ce qui marche mieux pour la techno]"
+**Ne rien générer** (pas de dossier, pas de BRIEF.md) tant que Noah n'a pas choisi.
+
+### Étape 1 — Briefing (après le choix)
+
+Une fois Noah a choisi A, B ou C :
+
+1. Créer `YYYYMMDD/vibe/` et `YYYYMMDD/vibe/BRIEF.md`
+2. Présenter le briefing oral + le contenu du BRIEF
+
+**BRIEF.md contient :**
+- Titre du projet
+- 3-4 phrases d'accroche (visuel, concret)
+- Stack (déjà annoncée dans la proposition)
+- **Premier prompt en français** — bloc prêt à copier-coller, détaillé et ambitieux (5-8 lignes max, pas un roman)
+- 2-3 idées de features à demander ensuite à l'IA (en français, en une phrase chacune)
+
+**Règle absolue pour les prompts :** tous les prompts fournis à Noah (premier prompt + suggestions de suite) sont **en français**. Pas de code dans le BRIEF — zéro fichier de départ.
+
+Format affiché à Noah :
+```
+VIBE — [Titre du projet]
+
+[3-4 phrases d'accroche]
+
+Stack : [techno]
+Dossier : /Users/noah/Desktop/Python/YYYYMMDD/vibe/
+
+Pour démarrer, colle ce prompt dans Cursor (mode Agent, dossier vibe ouvert) :
+
+[le prompt en français, entre guillemets ou en bloc]
 
 Ensuite c'est toi. Pousse aussi loin que tu veux.
 Dis-moi ce que t'as réussi à faire ou ce qui bloque.
@@ -87,39 +119,34 @@ Dis-moi ce que t'as réussi à faire ou ce qui bloque.
 
 Noah est en autonomie. L'agent intervient **uniquement si Noah le demande**, et de façon minimaliste :
 
-- **Si Noah est bloqué sur un prompt** → l'agent propose une reformulation plus précise (pas du code, juste une meilleure façon de demander à l'IA)
-- **Si Noah veut ajouter une feature** → l'agent suggère comment la décrire à l'IA en une phrase
-- **Si Noah ne sait pas quoi faire ensuite** → l'agent propose 2-3 directions créatives très concrètes (« tu pourrais demander à l'IA d'ajouter des explosions quand les fourmis se croisent »)
-- **Jamais** : expliquer du code, corriger du code, écrire du code, entrer dans les détails techniques
+- **Prompt bloqué** → reformulation plus précise **en français** (pas de code)
+- **Feature à ajouter** → une phrase type à dire à l'IA, **en français**
+- **Ne sait pas quoi faire** → 2-3 directions créatives concrètes, formulées comme des prompts possibles **en français**
+- **Jamais** : expliquer du code, corriger du code, écrire du code
 
 ### Étape 3 — Débrief
 
-Quand Noah dit qu'il a fini (ou arrêté), demander :
-- Une capture ou description de ce qu'il a construit
-- Le prompt qui a le mieux fonctionné
+Quand Noah dit qu'il a fini (ou arrêté) :
+- Description ou capture de ce qu'il a construit
+- Le prompt (en français) qui a le mieux fonctionné
 
-Feedback court (5 lignes max) :
-- Ce qu'il a réussi à construire depuis zéro avec des prompts
-- La qualité de ses prompts (trop vague ? trop précis ? bien ciblés ?)
-- Une technique de prompting à retenir pour la prochaine fois
-
-Ensuite, silencieusement : appender `## Vibe` dans `YYYYMMDD/recap.md` et git push.
+Feedback court (5 lignes max), puis silencieusement recap + git push.
 
 ---
 
-## Banque de premiers prompts (exemples)
+## Banque de premiers prompts en français (exemples)
 
-Pour une **simulation de fourmis pygame** :
-> "Create a Python pygame simulation of an ant colony using stigmergy. Ants leave pheromone trails that evaporate over time. When an ant finds food, it returns to the nest leaving a strong trail. Other ants follow the strongest trail. Start with 100 ants, a nest in the center, and 5 food sources randomly placed. Show pheromone trails as colored gradients."
+**Simulation de fourmis (pygame) :**
+> Crée une simulation pygame d'une colonie de fourmis avec stigmergie. Les fourmis laissent des traces de phéromones qui s'évaporent. Quand une fourmi trouve de la nourriture, elle retourne au nid en laissant une piste forte ; les autres suivent la piste la plus intense. 100 fourmis, nid au centre, 5 sources de nourriture aléatoires. Affiche les phéromones en dégradés de couleur sur fond sombre. Fenêtre 1000x700.
 
-Pour un **jeu de tir spatial pygame** :
-> "Create a pygame space shooter. The player controls a spaceship at the bottom, shoots upward, enemies come in waves from the top. Add particle explosions when enemies die, a score counter, and make the background a scrolling starfield. Start simple and make it feel juicy."
+**Shooter spatial (pygame) :**
+> Crée un shooter spatial en pygame. Le joueur pilote un vaisseau en bas, tire vers le haut, des vagues d'ennemis descendent. Explosions en particules, score à l'écran, fond étoilé qui défile. Commence simple mais que ce soit satisfaisant visuellement (effets, sons optionnels).
 
-Pour une **simulation Game of Life pygame** :
-> "Create Conway's Game of Life in pygame. The grid should be 100x100 cells, display in a 800x800 window. Add controls: Space to pause/resume, R to randomize, C to clear. Show a generation counter. Make alive cells bright green on black background. Add a speed slider."
+**Game of Life (pygame) :**
+> Crée le Jeu de la Vie de Conway en pygame. Grille 100x100, fenêtre 800x800. Espace pour pause, R pour randomiser, C pour effacer. Compteur de générations. Cellules vivantes vert fluo sur fond noir. Curseur pour la vitesse.
 
-Pour un **site perso dark/neon** :
-> "Create a personal portfolio page with a dark cyberpunk aesthetic. Neon green and purple colors, animated glitch effect on the title, smooth scroll between sections (About, Projects, Contact). Add a typing animation on the hero text. Make it look like something from a hacker movie."
+**Site cyberpunk (HTML/CSS/JS) :**
+> Crée une page portfolio style cyberpunk : fond noir, néons vert et violet, effet glitch sur le titre, scroll fluide entre sections (À propos, Projets, Contact). Animation machine à écrire sur le texte d'accueil. Que ça fasse film de hacker.
 
-Pour un **visualiseur de tri pygame** :
-> "Create a sorting visualizer in pygame. Show bars representing an array of 100 elements. Animate bubble sort, merge sort, and quick sort. Highlight the elements being compared in red, sorted elements in green. Add buttons to switch between algorithms and a speed control."
+**Visualiseur de tris (pygame) :**
+> Crée un visualiseur de tris en pygame : 100 barres, anime tri à bulles, tri fusion et tri rapide. Barres comparées en rouge, triées en vert. Boutons pour changer d'algorithme et régler la vitesse.
