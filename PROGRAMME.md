@@ -3,7 +3,7 @@
 ## Règles générales
 
 - **Du mardi au samedi** — 5 sessions par semaine
-- Chaque jour : exos → build → libre, dans cet ordre
+- Chaque jour : exos → build → libre → vibe, dans cet ordre
 - Chaque jour a son propre dossier — tu travailles dedans toute la journée
 
 ---
@@ -58,17 +58,33 @@
 
 ---
 
+### Partie 4 — Vibe (~1h)
+
+> Tu ne codes pas. Tu diriges une IA pour construire quelque chose d'ambitieux et d'impressionnant.
+
+1. Lance `/python-vibe` — l'agent choisit le projet et toutes les specs techniques
+2. Tu lis le briefing et le premier prompt de départ
+3. Tu colles le prompt dans Cursor (ou l'IA de ton choix) et tu construis
+4. Tu pousses aussi loin que tu veux — l'agent est là uniquement si tu bloques sur comment formuler une demande
+
+**Objectif de progression :**
+
+- Semaines 1-2 : réussir à faire tourner quelque chose d'impressionnant avec des prompts simples
+- Semaines 3+ : maîtriser la précision des prompts, empiler les features sans perdre le fil, diriger l'IA comme un vrai chef de projet
+
+---
+
 ## Récap hebdomadaire
 
-| Jour     | Partie 1          | Partie 2          | Partie 3          | Total    |
-| -------- | ----------------- | ----------------- | ----------------- | -------- |
-| Mardi    | `/python-exos`    | `/python-build`   | `/python-libre`   | ~2h45    |
-| Mercredi | `/python-exos`    | `/python-build`   | `/python-libre`   | ~2h45    |
-| Jeudi    | `/python-exos`    | `/python-build`   | `/python-libre`   | ~2h45    |
-| Vendredi | `/python-exos`    | `/python-build`   | `/python-libre`   | ~2h45    |
-| Samedi   | `/python-exos`    | `/python-build`   | `/python-libre`   | ~2h45    |
+| Jour     | Partie 1          | Partie 2          | Partie 3          | Partie 4         | Total  |
+| -------- | ----------------- | ----------------- | ----------------- | ---------------- | ------ |
+| Mardi    | `/python-exos`    | `/python-build`   | `/python-libre`   | `/python-vibe`   | ~3h45  |
+| Mercredi | `/python-exos`    | `/python-build`   | `/python-libre`   | `/python-vibe`   | ~3h45  |
+| Jeudi    | `/python-exos`    | `/python-build`   | `/python-libre`   | `/python-vibe`   | ~3h45  |
+| Vendredi | `/python-exos`    | `/python-build`   | `/python-libre`   | `/python-vibe`   | ~3h45  |
+| Samedi   | `/python-exos`    | `/python-build`   | `/python-libre`   | `/python-vibe`   | ~3h45  |
 
-**Total : ~13h45/semaine**
+**Total : ~18h45/semaine**
 
 ---
 
@@ -79,3 +95,9 @@ Tu es à l'aise en Python quand :
 - **Exos** : tu finis les 5 fichiers sans chercher dans la doc
 - **Build** : tu lis un stub de fonction et tu sais quoi écrire du premier coup
 - **Global** : tu arrives sur du code que tu n'as pas écrit, tu comprends ce qu'il fait et tu sais où ajouter le tien
+
+Tu maîtrises le vibe coding quand :
+
+- **Vibe** : tu décris une feature en une phrase et l'IA la construit exactement comme tu l'imaginais
+- **Vibe** : tu sais itérer — un prompt, tu vois le résultat, tu corriges la direction, tu relances
+- **Vibe** : tu arrives à construire quelque chose que tu n'aurais jamais pu coder toi-même
