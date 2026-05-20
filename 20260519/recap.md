@@ -9,16 +9,16 @@ bloqué : —
 notes : 01 replace avec deux args (ok, préférer "_" → "-") ; 02 confusion casier entier vs clé ; 03 butins[0..4] au lieu du for — à refaire en boucle ; 04 ordre conserves // par_jour ; 05 defaut direct
 
 ## Build
-projet : —
-notions utilisées : —
-difficultés : —
-notes : —
+projet : The Last of Us — Relais de ravitaillement
+notions utilisées : .replace(), dict lire/écrire, for + accumulation, //, paramètre par défaut
+difficultés : format_channel (return replace, pas en dur) ; total_weight (boucler sur weights, return hors for)
+notes : read_supply et restock OK ; exo 03 refait en for ; rations_days direct
 
 ## Libre
-sujet : —
-notions utilisées : —
-features : —
-notes : —
+sujet : Nahla — Réétiquetage Whiskas
+notions utilisées : .replace() avec réaffectation, int(input()), f-string, if seuil
+features : B nombre de sacs au clavier ; C message si > 3 sacs
+notes : replace sans = au début corrigé ; seuil > 3 au lieu de >= 5 — OK
 
 ## Journée
-—
+Exos 5/5 (for liste refait). Build TLOU relais : dict, boucle, //. Libre Nahla replace + input + bonus gourmandise. Solide sur assignation replace et input/int ; boucle for bien rentrée au build.

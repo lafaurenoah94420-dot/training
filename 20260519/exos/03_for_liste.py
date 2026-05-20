@@ -10,11 +10,9 @@
 butins = [15, 8, 22, 5, 30]
 total_butin = 0
 
-total_butin += butins[0]
-total_butin += butins[1]
-total_butin += butins[2]
-total_butin += butins[3]
-total_butin += butins[4]
+for i in butins: 
+    total_butin += i
+
 # Parcours butins et additionne chaque valeur dans total_butin.
 #
 # tour 1 : x = 15  →  total_butin = 0 + 15  = 15
