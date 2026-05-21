@@ -17,8 +17,8 @@ notes : read_supply et restock OK ; exo 03 refait en for ; rations_days direct
 ## Libre
 sujet : Nahla — Réétiquetage Whiskas
 notions utilisées : .replace() avec réaffectation, int(input()), f-string, if seuil
-features : B nombre de sacs au clavier ; C message si > 3 sacs
-notes : replace sans = au début corrigé ; seuil > 3 au lieu de >= 5 — OK
+features : B input sacs ; C message si > 5 ; for range(ajout) + nombre_de_sacs += 1
+notes : replace avec = ; confondre compter (print i) vs ajouter (+=) — corrigé
 
 ## Journée
 Exos 5/5 (for liste refait). Build TLOU relais : dict, boucle, //. Libre Nahla replace + input + bonus gourmandise. Solide sur assignation replace et input/int ; boucle for bien rentrée au build.
