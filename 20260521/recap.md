@@ -13,3 +13,9 @@ projet : Project Zomboid — Barricader les fenêtres
 notions utilisées : max(0, …), if / elif / else, for + range + -=, in, while + compteur + return
 difficultés : return dans la boucle (03) ; return sans valeur et nom compteur (05) ; has_tool sans else
 notes : TODO 1-2 rapides ; 03 range/planks OK après indice ; 04-05 alignés exos ; return et += bien acquis en fin de session
+
+## Libre
+sujet : Nahla — Compteur de mépris matinal
+notions utilisées : input/int, //, if/elif, while, def + appel
+features : boucle rejouer (o/n) ; refactor en mépris_de_Nahla()
+notes : // et return acquis ; def vs appel clarifié ; paramètres inutiles puis def() vide

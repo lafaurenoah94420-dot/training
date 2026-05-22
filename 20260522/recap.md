@@ -20,5 +20,10 @@ notions utilisées : def, return, print(), input/int, while (re-saisie), for + r
 features : —
 notes : 4 fonctions + boucle jours OK ; print(manger()) vs print(manger) compris ; pas de fonction main() — plan prof partiellement suivi
 
+## Vibe
+projet : HOI4 — Mini bataille de chars
+features : carte tranchées, armes (fusil/MG/char), scénarios offensif/défensif, pays 1914-1916 + drapeaux historiques, QG, tir à distance (bonus tranchée), IA contournement
+notes : session dirigée dans le chat ; max 34 unités ; assaut tranchées + portée corrigés en cours de route
+
 ## Journée
-Exos et build au complet le matin ; libre orienté fonctions (Nahla) avec boucle multi-jours. Solide sur for/accumulation et return ; vigilance sur l'appel de fonction avec (). Prêt pour une session vibe dirigée dans le chat.
+Exos, build, libre et vibe au complet. Solide sur for/accumulation et return ; vigilance sur l'appel de fonction avec ().
