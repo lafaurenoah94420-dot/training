@@ -13,3 +13,12 @@ projet : Resident Evil — Armoire du commissariat
 notions utilisées : random.choice(), len(), dict lecture, return, max(0,…) 3 paramètres, dict + for accumulation
 difficultés : heal_amount sans return ; total_supplies quantité vs item, return mal indenté
 notes : 1-2-4 rapides (exos du jour) ; 3 et 5 dict bien ancrés après indices ; hp_after_attack réutilisé direct de l'exo 04
+
+## Libre
+sujet : Malik — Prédicteur de comportement
+notions utilisées : def, random.randint(), if/elif, f-string, while + input
+features : boucle rejouer (Continuer ? oui/non) ; temp aléatoire à chaque tour
+notes : while/input indentation corrigée ; f-string sans f au départ ; paramètre degrés puis vie_de_Malik() sans args
+
+## Journée
+Exos 5/5, build RE terminé, libre Malik avec tranches de temp et rejouer. Dict et return bien rentrés ; while + indentation à surveiller au prochain programme from scratch.
