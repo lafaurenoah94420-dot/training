@@ -19,3 +19,13 @@ sujet : Malik — Faut-il sortir Malik ?
 notions utilisées : def, return, input/int, if/elif, and/or, appels de fonctions
 features : —
 notes : paramètres inutiles dans def corrigés ; ordre def puis appels ; print(verdict) vs verdict_malik()
+
+## Vibe
+projet : Nahla vs l'aspirateur
+stack : pygame
+jusqu'où : boss fight jouable — ZQSD partout, griffes/poils, phase 2 turbo, contre-attaque, croquettes, meubles, IA qui anticipe et contourne
+consignes qui ont bien marché : choix par numéros (« 7 », « 3 et 4 ») ; retours courts (« déplacer tout l'écran », « l'aspirateur est bête »)
+notes : vibe dirigé en français ; bug HIDE_KEYS oublié puis corrigé
+
+## Journée
+Journée solide : 5/5 exos, build HOI4 moral terminé, libre Malik (def/return/elif), vibe Nahla abouti en boss fight pygame avec plusieurs itérations gameplay. Bon réflexe pour formuler ce qu'il veut changer sans coder.
