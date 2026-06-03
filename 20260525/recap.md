@@ -13,3 +13,9 @@ projet : Hearts of Iron IV — Rapport de moral
 notions utilisées : split + return, elif + return, max(0,…) param défaut, and + bool, for + if + and compteur
 difficultés : return hors fonction (morale_status) ; seuil 45 vs 30 ; nombre/return dans la boucle (05)
 notes : TODO 3 direct depuis exo 05 ; 04-5 logique OK après rappel indentation et b["pertes"]
+
+## Libre
+sujet : Malik — Faut-il sortir Malik ?
+notions utilisées : def, return, input/int, if/elif, and/or, appels de fonctions
+features : —
+notes : paramètres inutiles dans def corrigés ; ordre def puis appels ; print(verdict) vs verdict_malik()
