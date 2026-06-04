@@ -19,3 +19,13 @@ sujet : Nahla — Nahla mange (version perso, pas cachettes)
 notions utilisées : input, def + paramètres, while, -=
 features : —
 notes : paramètres (lieu, stock) après UnboundLocalError ; while + else OK
+
+## Vibe
+projet : Nahla mange (pygame)
+stack : pygame
+jusqu'où : mini-jeu complet — ZQSD, pickups, stress/flemme, canapé, sac violet, ronron, eau, RUSH, Nahla grossit, humains bougent sous cache
+consignes qui ont bien marché : « vrai jeu divertissant », « ajoute les idées », bug cache/humains figés signalé
+notes : vibe dirigé ; itérations rapides ; correction logique hide vs déplacement humains
+
+## Journée
+Journée complète et solide : 5/5 exos, build GTA butin OK, libre Nahla+def/while, vibe Nahla mange abouti en vrai mini-jeu. Bonnes questions (fonctions, paramètres, pourquoi humains s'arrêtent). À garder : () vs [], modifier dict/liste sur place, -= pour stocker.
