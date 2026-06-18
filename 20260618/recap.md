@@ -11,3 +11,16 @@ projet : Project Zomboid — Veille de nuit
 notions utilisées : f-string, if/elif/else, for+range, dict+if, fonction+3 params
 difficultés : total_spawned (compteur vs hours) ; supply_status (dict[item])
 notes : format_zone_alert et barricade_damage directs ; dict ancré après exo 04
+
+## Libre
+sujet : Malik — Soirée à la maison
+notions utilisées : input, if, score compteur, elif verdict
+features : —
+notes : elif vs if séparés corrigé ; score affiché à peaufiner — session coupée pour vibe
+
+## Vibe
+projet : Nahla.lol — Pierre-Feuille-Ciseaux
+stack : HTML + CSS + JavaScript
+jusqu'où : site copié + rps.html jouable, score localStorage, répliques contextuelles arrogantes
+consignes qui ont bien marché : « messages plus arrogants et qui ont du sens »
+notes : reprise platformer parkour demandée pour prochaine session

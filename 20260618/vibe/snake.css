@@ -1,0 +1,107 @@
+.snake-page .logo {
+  text-decoration: none;
+  color: inherit;
+}
+
+.snake-main {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+  text-align: center;
+}
+
+.snake-header h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.snake-logo {
+  border-radius: 50%;
+  border: 2px solid rgba(244, 162, 97, 0.5);
+  margin-bottom: 0.75rem;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.snake-header p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.snake-hud {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.hud-box {
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.hud-box span {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.canvas-wrap {
+  position: relative;
+  display: inline-block;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 3px solid rgba(92, 62, 52, 0.9);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45), inset 0 0 0 2px rgba(244, 162, 97, 0.15);
+}
+
+#game {
+  display: block;
+  background: #3a322c;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 6, 14, 0.88);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay p {
+  color: var(--text);
+}
+
+#overlay-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+}
+
+#overlay-msg {
+  color: var(--muted);
+  font-size: 0.9rem;
+  max-width: 280px;
+}
+
+.snake-controls {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}

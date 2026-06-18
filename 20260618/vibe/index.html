@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nahla.lol — site officiel</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,800;1,9..40,400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="top">
+    <span class="logo">nahla<span class="dot">.</span>lol</span>
+    <nav>
+      <a href="#stats">Stats</a>
+      <a href="#quotes">Citations</a>
+      <a href="#games">Jeux</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <p class="badge">Certifiée 100% chat</p>
+        <h1>Nahla</h1>
+        <p class="tagline">Professionnelle de la sieste. Experte en mépris humain. Ne répond pas aux emails.</p>
+        <button id="quote-btn" class="btn">Citation du jour</button>
+        <p id="quote" class="quote">« Les humains sont lents. »</p>
+      </div>
+      <div class="hero-img-wrap">
+        <img src="nahla_head.png" alt="Nahla" class="hero-img">
+        <div class="glow"></div>
+      </div>
+    </section>
+
+    <section id="stats" class="stats">
+      <h2>Statistiques officielles</h2>
+      <div class="stat-grid">
+        <article class="stat-card">
+          <span class="stat-num" data-target="6.2">0</span>
+          <span class="stat-unit">kg</span>
+          <p class="stat-label">Poids de combat</p>
+        </article>
+        <article class="stat-card">
+          <span class="stat-num" data-target="18">0</span>
+          <span class="stat-unit">h</span>
+          <p class="stat-label">Sieste / jour</p>
+        </article>
+        <article class="stat-card">
+          <span class="stat-num" data-target="847">0</span>
+          <span class="stat-unit"></span>
+          <p class="stat-label">Humains ignorés (2026)</p>
+        </article>
+        <article class="stat-card">
+          <span class="stat-num" data-target="42069">0</span>
+          <span class="stat-unit"></span>
+          <p class="stat-label">Croquettes volées</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="quotes" class="about">
+      <h2>À propos</h2>
+      <p>Nahla occupe le canapé depuis 2022. Spécialités : regarder le mur, manger sans remercier, disparaître quand on l'appelle. Malik et Kays tentent régulièrement d'obtenir son attention. Taux de réussite : 0%.</p>
+    </section>
+
+    <section id="games" class="games">
+      <h2>Jeux Nahla</h2>
+      <p class="games-intro">Jeux web directement sur le site, ou programmes Python à lancer dans le terminal.</p>
+
+      <h3 class="games-subtitle">Jeux web <span class="subtitle-hint">(joue dans le navigateur)</span></h3>
+      <div class="game-grid">
+        <article class="game-card featured">
+          <span class="game-tag web">web · nouveau</span>
+          <h3>Pierre-Feuille-Ciseaux</h3>
+          <p>Affronte Nahla en ✊✋✌️ — score, égalités, répliques de mépris. Jouable dans le navigateur.</p>
+          <a href="rps.html" class="btn-play">Jouer →</a>
+        </article>
+        <article class="game-card">
+          <span class="game-tag web">web</span>
+          <h3>Nahla Snake</h3>
+          <p>Snake dans le salon — tête de Nahla, croquettes, meubles, queue de chat. Jouable dans le navigateur.</p>
+          <a href="snake.html" class="btn-play">Jouer →</a>
+        </article>
+      </div>
+
+      <h3 class="games-subtitle">Jeux pygame <span class="subtitle-hint">(vibe)</span></h3>
+      <div class="game-grid">
+        <article class="game-card">
+          <span class="game-tag">pygame</span>
+          <h3>Nahla vs l'aspirateur</h3>
+          <p>Boss fight dans le salon — griffes, poils, aspirateur en phase turbo, croquettes et meubles.</p>
+          <code class="launch-cmd" data-cmd="cd /Users/noah/Desktop/Python/20260525/vibe && python3 main.py">cd /Users/noah/Desktop/Python/20260525/vibe && python3 main.py</code>
+          <button class="btn-copy" type="button">Copier la commande</button>
+        </article>
+        <article class="game-card">
+          <span class="game-tag">pygame</span>
+          <h3>Nahla mange</h3>
+          <p>Survie dans le salon — croquettes, stress, canapé, Nahla grossit, humains en cache.</p>
+          <code class="launch-cmd" data-cmd="cd /Users/noah/Desktop/Python/20260604/vibe && python3 main.py">cd /Users/noah/Desktop/Python/20260604/vibe && python3 main.py</code>
+          <button class="btn-copy" type="button">Copier la commande</button>
+        </article>
+        <article class="game-card">
+          <span class="game-tag">pygame</span>
+          <h3>Nahla platformer</h3>
+          <p>Side-scroller — 10 croquettes, 3 aspirateurs, 3 vies, plateformes et caméra.</p>
+          <code class="launch-cmd" data-cmd="cd /Users/noah/Desktop/Python/20260605/vibe && python3 main.py">cd /Users/noah/Desktop/Python/20260605/vibe && python3 main.py</code>
+          <button class="btn-copy" type="button">Copier la commande</button>
+        </article>
+        <article class="game-card">
+          <span class="game-tag">pygame</span>
+          <h3>Nahla vs le laser</h3>
+          <p>Chase & combo — dash, ronron, Malik, croquettes, boss final, records et grades.</p>
+          <code class="launch-cmd" data-cmd="cd /Users/noah/Desktop/Python/20260606/vibe && python3 main.py">cd /Users/noah/Desktop/Python/20260606/vibe && python3 main.py</code>
+          <button class="btn-copy" type="button">Copier la commande</button>
+        </article>
+        <article class="game-card featured">
+          <span class="game-tag">pygame · récent</span>
+          <h3>Nahla cache-cache</h3>
+          <p>Vue du dessus — évite Malik, Kays et Maman, cache-toi, croquettes, touche F pour provoquer.</p>
+          <code class="launch-cmd" data-cmd="cd /Users/noah/Desktop/Python/20260607/vibe && python3 main.py">cd /Users/noah/Desktop/Python/20260607/vibe && python3 main.py</code>
+          <button class="btn-copy" type="button">Copier la commande</button>
+        </article>
+      </div>
+
+      <h3 class="games-subtitle">Programmes texte <span class="subtitle-hint">(libre)</span></h3>
+      <div class="game-grid game-grid-compact">
+        <article class="game-card">
+          <span class="game-tag libre">libre</span>
+          <h3>Planning du mépris</h3>
+          <p>Emploi du temps officiel de Nahla — que fait-elle selon l'heure ?</p>
+          <code class="launch-cmd" data-cmd="cd /Users/noah/Desktop/Python/20260505/libre && python3 main.py">cd /Users/noah/Desktop/Python/20260505/libre && python3 main.py</code>
+          <button class="btn-copy" type="button">Copier la commande</button>
+        </article>
+        <article class="game-card">
+          <span class="game-tag libre">libre</span>
+          <h3>Audit croquettes</h3>
+          <p>Bilan paresse / croquettes — diagnostic sans filtre.</p>
+          <code class="launch-cmd" data-cmd="cd /Users/noah/Desktop/Python/20260506/libre && python3 main.py">cd /Users/noah/Desktop/Python/20260506/libre && python3 main.py</code>
+          <button class="btn-copy" type="button">Copier la commande</button>
+        </article>
+        <article class="game-card">
+          <span class="game-tag libre">libre</span>
+          <h3>Procès du rayon croquettes</h3>
+          <p>Nahla est jugée pour ses vols au rayon croquettes.</p>
+          <code class="launch-cmd" data-cmd="cd /Users/noah/Desktop/Python/20260507/libre && python3 main.py">cd /Users/noah/Desktop/Python/20260507/libre && python3 main.py</code>
+          <button class="btn-copy" type="button">Copier la commande</button>
+        </article>
+        <article class="game-card">
+          <span class="game-tag libre">libre</span>
+          <h3>Sac de croquettes</h3>
+          <p>Vide le sac bouchée par bouchée avec une boucle while.</p>
+          <code class="launch-cmd" data-cmd="cd /Users/noah/Desktop/Python/20260509/libre && python3 main.py">cd /Users/noah/Desktop/Python/20260509/libre && python3 main.py</code>
+          <button class="btn-copy" type="button">Copier la commande</button>
+        </article>
+        <article class="game-card">
+          <span class="game-tag libre">libre</span>
+          <h3>Réétiquetage Whiskas</h3>
+          <p>Nahla rebrand les croquettes à son nom.</p>
+          <code class="launch-cmd" data-cmd="cd /Users/noah/Desktop/Python/20260519/libre && python3 main.py">cd /Users/noah/Desktop/Python/20260519/libre && python3 main.py</code>
+          <button class="btn-copy" type="button">Copier la commande</button>
+        </article>
+        <article class="game-card">
+          <span class="game-tag libre">libre</span>
+          <h3>Compteur de mépris</h3>
+          <p>Combien d'humains Nahla ignore avant midi ?</p>
+          <code class="launch-cmd" data-cmd="cd /Users/noah/Desktop/Python/20260521/libre && python3 main.py">cd /Users/noah/Desktop/Python/20260521/libre && python3 main.py</code>
+          <button class="btn-copy" type="button">Copier la commande</button>
+        </article>
+        <article class="game-card">
+          <span class="game-tag libre">libre</span>
+          <h3>La journée de Nahla</h3>
+          <p>Simulateur de journée — sieste, grignotage, mépris.</p>
+          <code class="launch-cmd" data-cmd="cd /Users/noah/Desktop/Python/20260522/libre && python3 main.py">cd /Users/noah/Desktop/Python/20260522/libre && python3 main.py</code>
+          <button class="btn-copy" type="button">Copier la commande</button>
+        </article>
+        <article class="game-card">
+          <span class="game-tag libre">libre</span>
+          <h3>Coût des croquettes</h3>
+          <p>Calcule combien Nahla a coûté depuis sa naissance.</p>
+          <code class="launch-cmd" data-cmd="cd /Users/noah/Desktop/Python/20260524/libre && python3 main.py">cd /Users/noah/Desktop/Python/20260524/libre && python3 main.py</code>
+          <button class="btn-copy" type="button">Copier la commande</button>
+        </article>
+        <article class="game-card">
+          <span class="game-tag libre">libre</span>
+          <h3>Nahla mange (texte)</h3>
+          <p>Version terminal du salon — avant le pygame.</p>
+          <code class="launch-cmd" data-cmd="cd /Users/noah/Desktop/Python/20260604/libre && python3 main.py">cd /Users/noah/Desktop/Python/20260604/libre && python3 main.py</code>
+          <button class="btn-copy" type="button">Copier la commande</button>
+        </article>
+        <article class="game-card">
+          <span class="game-tag libre">libre</span>
+          <h3>Où dormir ?</h3>
+          <p>Nahla choisit sa cachette pour la sieste.</p>
+          <code class="launch-cmd" data-cmd="cd /Users/noah/Desktop/Python/20260605/libre && python3 main.py">cd /Users/noah/Desktop/Python/20260605/libre && python3 main.py</code>
+          <button class="btn-copy" type="button">Copier la commande</button>
+        </article>
+        <article class="game-card">
+          <span class="game-tag libre">libre</span>
+          <h3>Rapport médical</h3>
+          <p>IMC de chat et diagnostic catastrophiste.</p>
+          <code class="launch-cmd" data-cmd="cd /Users/noah/Desktop/Python/20260606/libre && python3 main.py">cd /Users/noah/Desktop/Python/20260606/libre && python3 main.py</code>
+          <button class="btn-copy" type="button">Copier la commande</button>
+        </article>
+        <article class="game-card">
+          <span class="game-tag libre">libre</span>
+          <h3>Où est la gamelle ?</h3>
+          <p>Cache-cache texte — trouve la gamelle cachée au hasard.</p>
+          <code class="launch-cmd" data-cmd="cd /Users/noah/Desktop/Python/20260607/libre && python3 main.py">cd /Users/noah/Desktop/Python/20260607/libre && python3 main.py</code>
+          <button class="btn-copy" type="button">Copier la commande</button>
+        </article>
+        <article class="game-card featured">
+          <span class="game-tag libre">libre · récent</span>
+          <h3>Qui a été ignoré ?</h3>
+          <p>Malik et Kays ont-ils été snobés par Nahla ? Verdict personnalisé.</p>
+          <code class="launch-cmd" data-cmd="cd /Users/noah/Desktop/Python/20260617/libre && python3 main.py">cd /Users/noah/Desktop/Python/20260617/libre && python3 main.py</code>
+          <button class="btn-copy" type="button">Copier la commande</button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Nahla.lol — Tous droits réservés. Les humains peuvent partir.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
