@@ -17,6 +17,8 @@ Python 3 + pygame
 5. ✅ Croquettes + score HUD
 6. ✅ Aspirateurs patrouilleurs + 3 vies
 7. ✅ Sprite Nahla, menu, victoire/défaite, R pour rejouer
+8. ✅ 3 niveaux : Salon → Cuisine → Couloir (difficulté croissante)
+9. ✅ Niveau 4 — Boss Méga aspirateur (arène, saute sur la tête)
 
 ## Lancer
 

@@ -14,4 +14,4 @@ cd 20260605/vibe && python3 main.py
 - **R** — rejouer après victoire ou défaite
 - **Échap** — quitter
 
-**Objectif :** récupérer au moins la moitié des croquettes, atteindre le lit à droite, éviter les aspirateurs (3 vies).
+**Objectif :** finir les 4 niveaux. Niveaux 1–3 : croquettes + lit. **Niveau 4 :** vaincre le Méga aspirateur (saute sur sa tête, croquettes = dégâts bonus). Les vies se conservent entre les niveaux.

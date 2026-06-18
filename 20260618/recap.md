@@ -23,4 +23,7 @@ projet : Nahla.lol — Pierre-Feuille-Ciseaux
 stack : HTML + CSS + JavaScript
 jusqu'où : site copié + rps.html jouable, score localStorage, répliques contextuelles arrogantes
 consignes qui ont bien marché : « messages plus arrogants et qui ont du sens »
-notes : reprise platformer parkour demandée pour prochaine session
+notes : platformer Nahla (20260605) repris — 4 niveaux + boss Méga aspirateur, crash Espace corrigé
+
+## Journée
+exos 5/5, build Zomboid OK, libre Malik (base), vibe RPS sur nahla.lol + gros polish platformer (niveaux, boss). Dict/liste/if bien mieux qu’en début de session.
