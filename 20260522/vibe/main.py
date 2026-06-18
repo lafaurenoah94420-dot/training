@@ -173,13 +173,13 @@ def generate_battlefield():
     random.seed(1944)
     grid = [[MUD for _ in range(COLS)] for _ in range(ROWS)]
 
-    for y in range(ROWS):
-        for x in range(COLS):
+        for y in range(ROWS):
+            for x in range(COLS):
             if x < FRONT_COL - 3:
                 grid[y][x] = MUD if random.random() < 0.7 else MUD_DARK
             elif x > FRONT_COL + 3:
                 grid[y][x] = SCORCHED if random.random() < 0.65 else MUD_DARK
-            else:
+    else:
                 grid[y][x] = MUD_DARK if random.random() < 0.5 else SCORCHED
 
     for _ in range(85):
@@ -198,7 +198,7 @@ def generate_battlefield():
 
     carve_trench_network(grid)
 
-    for x in range(COLS):
+        for x in range(COLS):
         mid = ROWS // 2 + int(3 * (x / COLS - 0.5))
         for dy in range(-1, 2):
             ry = mid + dy

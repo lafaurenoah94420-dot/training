@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nahla Snake — nahla.lol</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="snake.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body class="snake-page">
+  <header class="top">
+    <a href="index.html" class="logo">nahla<span class="dot">.</span>lol</a>
+    <nav>
+      <a href="index.html#games">← Retour aux jeux</a>
+    </nav>
+  </header>
+
+  <main class="snake-main">
+    <div class="snake-header">
+      <img src="nahla_head.png" alt="" class="snake-logo" width="72" height="72">
+      <h1>Nahla Snake</h1>
+      <p>Glisse dans le salon, vole les croquettes, évite les meubles et ta propre queue.</p>
+    </div>
+
+    <div class="snake-hud">
+      <div class="hud-box">Croquettes : <span id="score">0</span></div>
+      <div class="hud-box">Record : <span id="record">0</span></div>
+    </div>
+
+    <div class="canvas-wrap">
+      <canvas id="game" width="480" height="480" aria-label="Nahla Snake"></canvas>
+      <div id="overlay" class="overlay hidden">
+        <p id="overlay-title">Nahla Snake</p>
+        <p id="overlay-msg">ZQSD ou flèches — vole des croquettes dans le salon</p>
+        <button id="start-btn" class="btn">Jouer</button>
+      </div>
+    </div>
+
+    <p class="snake-controls">ZQSD / flèches — bouger · Espace — pause · R — rejouer</p>
+  </main>
+
+  <script src="snake.js"></script>
+</body>
+</html>
