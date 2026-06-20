@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercice 5/6 — Deux fonctions ensemble</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <style>
+    body { font-family: 'Lora', Georgia, serif; max-width: 700px; margin: 0 auto; padding: 2rem 1.5rem; line-height: 1.75; }
+    h2 { font-family: monospace; font-size: 0.7rem; text-transform: uppercase; color: #aaa; border-bottom: 1px solid #eee; margin: 2rem 0 1rem; }
+    h3 { margin: 1.5rem 0 0.5rem; }
+    pre { background: #f7f7f5; border: 1px solid #e8e7e2; border-radius: 6px; padding: 1rem; }
+    pre.terminal { background: #1e1e1e; color: #d4d4d4; }
+    code { font-family: monospace; background: #f0efea; padding: 0.1em 0.3em; border-radius: 3px; }
+    pre code { background: transparent; }
+    details { border: 1px solid #e8e7e2; border-radius: 6px; padding: 0.8rem 1rem; margin: 0.5rem 0; }
+    summary { cursor: pointer; font-family: monospace; font-size: 0.78rem; }
+  </style>
+</head>
+<body>
+  <div class="badge">Exercice 5 / 6 — Fonctions</div>
+  <h1>Deux fonctions ensemble</h1>
+
+  <section>
+    <h2>Le concept</h2>
+    <p>Tu peux appeler une fonction <em>depuis</em> une autre fonction. La première fait un petit travail, la deuxième s'en sert pour décider quoi faire.</p>
+    <pre><code class="language-python">def est_majeur(age):
+    return age >= 18
+
+def peut_conduire(age):
+    if est_majeur(age):
+        return "Oui"
+    return "Non"</code></pre>
+  </section>
+
+  <section>
+    <h2>Instructions</h2>
+    <p>L'HUD de vie dans ton jeu de survie affiche un statut selon les points de vie du joueur.</p>
+
+    <h3>La fonction <code>est_critique</code></h3>
+    <p>Elle prend un paramètre <code>vie</code> (un nombre). Elle retourne <code>True</code> si la vie est inférieure ou égale à vingt, sinon <code>False</code>.</p>
+
+    <h3>La fonction <code>statut_vie</code></h3>
+    <p>Elle prend aussi <code>vie</code>. Elle appelle <code>est_critique(vie)</code> :</p>
+    <ul>
+      <li>Si c'est critique → retourne le texte <code>"CRITIQUE"</code></li>
+      <li>Sinon → retourne le texte <code>"OK"</code></li>
+    </ul>
+    <pre class="terminal"><code>✅ est_critique(15) → True
+✅ est_critique(50) → False
+✅ est_critique(20) → True (seuil inclus)
+✅ statut_vie(15) → CRITIQUE
+✅ statut_vie(80) → OK
+
+────────────────────────────────────────
+  5/5 tests passés
+  🎉 Parfait !</code></pre>
+  </section>
+
+  <section>
+    <h2>Commandes</h2>
+    <p>📄 <code>open /Users/noah/Desktop/Python/20260619/projet/05_combinaison/instructions.html</code></p>
+    <p>🧪 <code>python3 /Users/noah/Desktop/Python/20260619/projet/05_combinaison/tester.py</code></p>
+  </section>
+
+  <section>
+    <h2>Indices</h2>
+    <details><summary>💡 Indice 1 — est_critique</summary><p><code>return vie &lt;= 20</code> suffit — Python renvoie directement vrai ou faux.</p></details>
+    <details><summary>💡 Indice 2 — statut_vie</summary><pre><code class="language-python">def statut_vie(vie):
+    if est_critique(vie):
+        return "CRITIQUE"
+    return "OK"</code></pre></details>
+  </section>
+  <script>hljs.highlightAll();</script>
+</body>
+</html>

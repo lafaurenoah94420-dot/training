@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercice 4/6 — return</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <style>
+    body { font-family: 'Lora', Georgia, serif; max-width: 700px; margin: 0 auto; padding: 2rem 1.5rem; line-height: 1.75; }
+    h2 { font-family: monospace; font-size: 0.7rem; text-transform: uppercase; color: #aaa; border-bottom: 1px solid #eee; margin: 2rem 0 1rem; }
+    pre { background: #f7f7f5; border: 1px solid #e8e7e2; border-radius: 6px; padding: 1rem; }
+    pre.terminal { background: #1e1e1e; color: #d4d4d4; }
+    code { font-family: monospace; background: #f0efea; padding: 0.1em 0.3em; border-radius: 3px; }
+    pre code { background: transparent; }
+    .warn { background: #fffbeb; border: 1px solid #e9c46a; padding: 0.6rem 1rem; border-radius: 5px; font-size: 0.9rem; }
+    details { border: 1px solid #e8e7e2; border-radius: 6px; padding: 0.8rem 1rem; margin: 0.5rem 0; }
+    summary { cursor: pointer; font-family: monospace; font-size: 0.78rem; }
+  </style>
+</head>
+<body>
+  <div class="badge">Exercice 4 / 6 — Fonctions</div>
+  <h1>return — renvoyer un résultat</h1>
+
+  <section>
+    <h2>Le concept</h2>
+    <p><code>return</code> envoie une valeur à celui qui a appelé la fonction. Sans <code>return</code>, la fonction ne renvoie rien d'utilisable pour la suite du programme.</p>
+    <pre><code class="language-python">def addition(a, b):
+    return a + b
+
+resultat = addition(3, 4)  # resultat vaut 7</code></pre>
+  </section>
+
+  <section>
+    <h2>Instructions</h2>
+    <p>Joel tire sur des infectés dans <em>The Last of Us</em>. Tu calcules combien de balles il lui reste.</p>
+    <h3>La fonction <code>munitions_restantes</code></h3>
+    <p>Deux paramètres :</p>
+    <ul>
+      <li><code>chargeur</code> — combien de balles il avait avant de tirer</li>
+      <li><code>tirees</code> — combien de balles il a tirées</li>
+    </ul>
+    <p>La fonction retourne combien de balles restent. Si le calcul donnerait un nombre négatif, elle retourne zéro à la place — on ne peut pas avoir moins de zéro balle.</p>
+    <div class="warn">Par exemple : s'il avait trois balles et qu'il en tire dix, le résultat doit être zéro, pas moins sept.</div>
+    <pre><code class="language-python">munitions_restantes(30, 10)  # → 20
+munitions_restantes(3, 10)   # → 0</code></pre>
+    <p>Indice outil : <code>max(0, chargeur - tirees)</code></p>
+    <pre class="terminal"><code>✅ munitions_restantes(30, 10) → 20
+✅ munitions_restantes(5, 5) → 0
+✅ munitions_restantes(3, 10) → 0 (pas négatif)
+✅ munitions_restantes(0, 0) → 0
+
+────────────────────────────────────────
+  4/4 tests passés
+  🎉 Parfait !</code></pre>
+  </section>
+
+  <section>
+    <h2>Commandes</h2>
+    <p>📄 <code>open /Users/noah/Desktop/Python/20260619/projet/04_avec_return/instructions.html</code></p>
+    <p>🧪 <code>python3 /Users/noah/Desktop/Python/20260619/projet/04_avec_return/tester.py</code></p>
+  </section>
+
+  <section>
+    <h2>Indices</h2>
+    <details><summary>💡 Indice 1 — Calcul</summary><p><code>return max(0, chargeur - tirees)</code></p></details>
+    <details><summary>💡 Indice 2 — Pourquoi max</summary><p><code>max(0, ...)</code> garantit que le résultat ne descend jamais sous zéro.</p></details>
+  </section>
+  <script>hljs.highlightAll();</script>
+</body>
+</html>

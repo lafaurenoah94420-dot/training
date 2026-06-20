@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 1/6 — Les outils intégrés</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #fff; color: #1a1a1a; font-family: 'Lora', Georgia, serif; font-size: 0.9375rem; line-height: 1.75; padding: clamp(2rem, 6vmin, 4rem) 1.5rem 6rem; max-width: 700px; margin: 0 auto; }
+    header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e8e7e2; }
+    .badge { display: inline-block; font-family: ui-monospace, monospace; font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.09em; color: #999; background: #f5f5f3; border: 1px solid #e2e1db; padding: 0.18rem 0.6rem; border-radius: 999px; margin-bottom: 0.9rem; }
+    h1 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 500; margin-bottom: 0.35rem; }
+    .concept-tag { font-family: ui-monospace, monospace; font-size: 0.72rem; color: #aaa; }
+    section { margin-bottom: 2.5rem; }
+    h2 { font-family: ui-monospace, monospace; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #aaa; margin-bottom: 1.1rem; padding-bottom: 0.45rem; border-bottom: 1px solid #ebebeb; }
+    p { margin-bottom: 1rem; color: #2a2a2a; }
+  code { font-family: ui-monospace, monospace; font-size: 0.82em; background: #f0efea; padding: 0.1em 0.3em; border-radius: 3px; }
+    pre { background: #f7f7f5; border: 1px solid #e8e7e2; border-radius: 6px; padding: 1.1rem 1.25rem; overflow-x: auto; margin: 1rem 0; font-size: 0.855rem; }
+    pre code { background: transparent; padding: 0; }
+    pre.terminal { background: #1e1e1e; border-color: #333; color: #d4d4d4; }
+    pre.terminal code { color: #d4d4d4; }
+    .commands-box { background: #f7f7f5; border: 1px solid #e8e7e2; border-radius: 6px; padding: 0.9rem 1.2rem; }
+    .cmd-line { display: flex; align-items: center; gap: 0.7rem; margin: 0.4rem 0; flex-wrap: wrap; }
+    .cmd-line .label { font-size: 0.85rem; color: #999; min-width: 8.5rem; }
+    .copy-btn { font-family: ui-monospace, monospace; font-size: 0.68rem; background: #fff; border: 1px solid #d5d4ce; color: #999; border-radius: 4px; padding: 0.18rem 0.5rem; cursor: pointer; }
+    .copy-btn:hover, .copy-btn.copied { background: #1a1a1a; color: #fff; }
+    details { border: 1px solid #e8e7e2; border-radius: 6px; margin-bottom: 0.65rem; padding: 0.8rem 1rem; }
+    summary { cursor: pointer; font-family: ui-monospace, monospace; font-size: 0.78rem; font-weight: 600; color: #666; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::before { content: '▶ '; font-size: 0.6em; color: #bbb; }
+    details[open] summary::before { content: '▼ '; }
+    details > *:not(summary) { margin-top: 0.8rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="badge">Exercice 1 / 6 — Fonctions</div>
+    <h1>Les outils intégrés</h1>
+    <div class="concept-tag">len, max, min</div>
+  </header>
+
+  <section>
+    <h2>Le concept</h2>
+    <p>Avant de créer tes propres fonctions, Python en propose déjà plein. Tu les appelles avec des parenthèses et tu leur passes des valeurs entre ces parenthèses.</p>
+    <p><code>len()</code> compte combien d'éléments il y a dans une liste. <code>max()</code> renvoie le plus grand nombre d'une liste. <code>min()</code> renvoie le plus petit.</p>
+    <pre><code class="language-python">armes = ["batte", "hache", "fusil"]
+degats = [25, 40, 80]
+nombre = len(armes)      # → 3
+plus_fort = max(degats)  # → 80</code></pre>
+  </section>
+
+  <section>
+    <h2>Instructions</h2>
+    <p>Tu fais l'inventaire des armes de Joel dans <em>The Last of Us</em>. Dans <code>main.py</code>, crée deux listes :</p>
+    <ul>
+      <li><code>armes</code> avec quatre textes : <code>"batte"</code>, <code>"hache"</code>, <code>"arc"</code>, <code>"fusil"</code></li>
+      <li><code>degats</code> avec quatre nombres : <code>12</code>, <code>35</code>, <code>50</code>, <code>85</code></li>
+    </ul>
+    <p>Ensuite, crée trois variables en utilisant les outils intégrés :</p>
+    <ul>
+      <li><code>nombre_armes</code> — le nombre d'armes dans la liste (utilise <code>len</code>)</li>
+      <li><code>degat_max</code> — le dégât le plus élevé (utilise <code>max</code>)</li>
+      <li><code>degat_min</code> — le dégât le plus faible (utilise <code>min</code>)</li>
+    </ul>
+    <p>Quand tu lances <code>python3 tester.py</code>, tu dois voir :</p>
+    <pre class="terminal"><code>✅ nombre_armes vaut 4
+✅ degat_max vaut 85
+✅ degat_min vaut 12
+
+────────────────────────────────────────
+  3/3 tests passés
+  🎉 Parfait !</code></pre>
+  </section>
+
+  <section>
+    <h2>Commandes</h2>
+    <div class="commands-box">
+      <div class="cmd-line">
+        <span class="label">📄 Instructions</span>
+        <code>open /Users/noah/Desktop/Python/20260619/projet/01_builtins/instructions.html</code>
+        <button class="copy-btn" onclick="copier(this, 'open /Users/noah/Desktop/Python/20260619/projet/01_builtins/instructions.html')">⎘ copier</button>
+      </div>
+      <div class="cmd-line">
+        <span class="label">🧪 Tester</span>
+        <code>python3 /Users/noah/Desktop/Python/20260619/projet/01_builtins/tester.py</code>
+        <button class="copy-btn" onclick="copier(this, 'python3 /Users/noah/Desktop/Python/20260619/projet/01_builtins/tester.py')">⎘ copier</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Indices</h2>
+    <details>
+      <summary>💡 Indice 1 — Par où commencer</summary>
+      <p>Commence par écrire les deux listes, puis une ligne par variable avec <code>len(armes)</code>, <code>max(degats)</code> et <code>min(degats)</code>.</p>
+    </details>
+    <details>
+      <summary>💡 Indice 2 — Structure</summary>
+      <pre><code class="language-python">armes = [...]
+degats = [...]
+nombre_armes = len(armes)
+degat_max = max(degats)
+degat_min = min(degats)</code></pre>
+    </details>
+  </section>
+
+  <script>hljs.highlightAll();</script>
+  <script>
+    function copier(btn, texte) {
+      navigator.clipboard.writeText(texte).then(() => {
+        btn.textContent = '✓ copié';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = '⎘ copier'; btn.classList.remove('copied'); }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>

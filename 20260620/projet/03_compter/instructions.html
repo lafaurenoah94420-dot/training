@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 3/6 — Compter dans une liste</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #ffffff; color: #1a1a1a; font-family: 'Lora', Georgia, serif; font-size: 0.9375rem; line-height: 1.75; padding: clamp(2rem, 6vmin, 4rem) 1.5rem 6rem; max-width: 700px; margin: 0 auto; }
+    header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e8e7e2; }
+    .badge { display: inline-block; font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.09em; color: #999; background: #f5f5f3; border: 1px solid #e2e1db; padding: 0.18rem 0.6rem; border-radius: 999px; margin-bottom: 0.9rem; }
+    h1 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 0.35rem; }
+    .concept-tag { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.72rem; color: #aaa; }
+    section { margin-bottom: 2.5rem; }
+    h2 { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #aaa; margin-bottom: 1.1rem; padding-bottom: 0.45rem; border-bottom: 1px solid #ebebeb; }
+    h3 { font-size: 0.95rem; font-weight: 600; margin: 1.75rem 0 0.6rem; color: #1a1a1a; }
+    p { margin-bottom: 1rem; color: #2a2a2a; }
+    ol, ul { padding-left: 1.4rem; margin-bottom: 1rem; }
+    li { margin-bottom: 0.5rem; color: #2a2a2a; line-height: 1.65; }
+    strong { font-weight: 600; color: #1a1a1a; }
+    code { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.82em; background: #f0efea; padding: 0.1em 0.3em; border-radius: 3px; color: #1a1a1a; }
+    pre { background: #f7f7f5; border: 1px solid #e8e7e2; border-radius: 6px; padding: 1.1rem 1.25rem; overflow-x: auto; margin: 1rem 0; font-size: 0.855rem; line-height: 1.6; }
+    pre code { background: transparent; padding: 0; font-size: inherit; border-radius: 0; color: inherit; }
+    .hljs { background: transparent !important; padding: 0 !important; }
+    pre.terminal { background: #1e1e1e; border-color: #333; color: #d4d4d4; }
+    pre.terminal code { color: #d4d4d4; }
+    .commands-box { background: #f7f7f5; border: 1px solid #e8e7e2; border-radius: 6px; padding: 0.9rem 1.2rem; }
+    .cmd-line { display: flex; align-items: center; gap: 0.7rem; margin: 0.4rem 0; flex-wrap: wrap; }
+    .cmd-line .label { font-size: 0.85rem; color: #999; min-width: 8.5rem; }
+    .cmd-line code { background: #ebebeb; color: #1a1a1a; font-size: 0.85rem; }
+    .copy-btn { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.68rem; background: #fff; border: 1px solid #d5d4ce; color: #999; border-radius: 4px; padding: 0.18rem 0.5rem; cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+    .copy-btn:hover, .copy-btn.copied { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+    details { border: 1px solid #e8e7e2; border-radius: 6px; margin-bottom: 0.65rem; padding: 0.8rem 1rem; }
+    summary { cursor: pointer; font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.78rem; font-weight: 600; color: #666; list-style: none; user-select: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::before { content: '▶ '; font-size: 0.6em; color: #bbb; }
+    details[open] summary::before { content: '▼ '; }
+    details > *:not(summary) { margin-top: 0.8rem; }
+    .hint-content { font-size: 0.9rem; color: #333; line-height: 1.65; }
+    .hint-content code { background: #f0efea; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge">Exercice 3 / 6 — Listes avancées</div>
+    <h1>Compter dans une liste</h1>
+    <div class="concept-tag">boucle for, if, compteur</div>
+  </header>
+
+  <section>
+    <h2>Le concept</h2>
+    <p>Parfois tu veux savoir combien de fois un élément précis apparaît dans une liste. Python ne propose pas d'outil magique pour ça : tu parcours la liste toi-même et tu comptes à chaque fois que tu trouves ce que tu cherches.</p>
+    <p>La technique classique : une variable compteur qui part de zéro, une boucle <code>for</code> qui visite chaque élément, et un <code>if</code> qui ajoute un à chaque correspondance.</p>
+    <pre><code class="language-python">def compter_type(liste, nom):
+    compteur = 0
+    for element in liste:
+        if element == nom:
+            compteur = compteur + 1
+    return compteur</code></pre>
+    <p>Dans <em>Resident Evil</em>, compter combien de zombies d'un type donné restent dans une salle, c'est la même logique.</p>
+  </section>
+
+  <section>
+    <h2>Instructions</h2>
+    <p>Tu analyses un rapport de patrouille : une liste d'infectés repérés dans une zone. Tu veux une fonction réutilisable pour compter combien de fois un type précis apparaît.</p>
+
+    <h3>La fonction <code>compter_type</code></h3>
+    <p>Cette fonction reçoit deux paramètres. Le premier s'appelle <code>liste</code> — c'est la liste de textes à parcourir, par exemple les types d'infectés observés. Le second s'appelle <code>nom</code> — c'est le type que tu veux compter, par exemple <code>"coureur"</code> ou <code>"Tank"</code>.</p>
+    <p>La fonction doit parcourir toute la liste avec une boucle <code>for</code>. À chaque élément, elle vérifie avec un <code>if</code> si l'élément est égal à <code>nom</code>. Si oui, elle augmente un compteur d'une unité. À la fin, elle retourne le nombre total de correspondances.</p>
+    <p>Si le type recherché n'apparaît pas du tout dans la liste, la fonction doit retourner zéro — pas d'erreur, juste aucune occurrence trouvée.</p>
+    <p>Voici des exemples pour vérifier que ta logique est correcte :</p>
+    <pre><code class="language-python">types = ["coureur", "Tank", "coureur", "rapide", "coureur"]
+compter_type(types, "coureur")   # → 3
+compter_type(types, "Tank")        # → 1
+compter_type(types, "mega")        # → 0</code></pre>
+    <p>Quand tu lances <code>python3 tester.py</code>, tu dois voir :</p>
+    <pre class="terminal"><code>✅ 3 coureurs
+✅ 1 Tank
+✅ 0 mega
+
+────────────────────────────────────────
+  3/3 tests passés
+  🎉 Parfait !</code></pre>
+  </section>
+
+  <section>
+    <h2>Commandes</h2>
+    <div class="commands-box">
+      <div class="cmd-line">
+        <span class="label">📁 Dossier</span>
+        <code>cd /Users/noah/Desktop/Python/20260620/projet/03_compter</code>
+        <button class="copy-btn" onclick="copier(this, 'cd /Users/noah/Desktop/Python/20260620/projet/03_compter')">⎘ copier</button>
+      </div>
+      <div class="cmd-line">
+        <span class="label">📄 Instructions</span>
+        <code>open /Users/noah/Desktop/Python/20260620/projet/03_compter/instructions.html</code>
+        <button class="copy-btn" onclick="copier(this, 'open /Users/noah/Desktop/Python/20260620/projet/03_compter/instructions.html')">⎘ copier</button>
+      </div>
+      <div class="cmd-line">
+        <span class="label">🧪 Tester</span>
+        <code>python3 tester.py</code>
+        <button class="copy-btn" onclick="copier(this, 'python3 tester.py')">⎘ copier</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Indices</h2>
+    <details>
+      <summary>💡 Indice 1 — Le compteur</summary>
+      <div class="hint-content">
+        <p>Avant la boucle, crée une variable <code>compteur</code> initialisée à zéro. C'est elle que tu vas augmenter à chaque fois que tu trouves une correspondance, puis retourner à la fin de la fonction.</p>
+      </div>
+    </details>
+    <details>
+      <summary>💡 Indice 2 — La condition</summary>
+      <div class="hint-content">
+        <p>Dans la boucle, compare chaque élément au paramètre <code>nom</code> avec <code>==</code>. Si c'est égal, ajoute un au compteur :</p>
+        <pre><code class="language-python">if element == nom:
+    compteur = compteur + 1</code></pre>
+      </div>
+    </details>
+  </section>
+
+  <script>hljs.highlightAll();</script>
+  <script>
+    function copier(btn, texte) {
+      navigator.clipboard.writeText(texte).then(() => {
+        btn.textContent = '✓ copié';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = '⎘ copier'; btn.classList.remove('copied'); }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>

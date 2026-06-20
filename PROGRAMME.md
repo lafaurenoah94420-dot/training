@@ -3,7 +3,7 @@
 ## Règles générales
 
 - **Du mardi au samedi** — 5 sessions par semaine
-- Chaque jour : exos → build → libre → vibe, dans cet ordre
+- Chaque jour : exos → projet → libre → vibe, dans cet ordre
 - Chaque jour a son propre dossier — tu travailles dedans toute la journée
 
 ---
@@ -26,19 +26,19 @@
 
 ---
 
-### Partie 2 — Build (~1h)
+### Partie 2 — Projet (~1h30)
 
-> Tu construis un mini-programme à partir d'un scaffold. Le `main.py` est écrit, les fonctions sont à toi.
+> 6 exercices progressifs sur un seul concept Python, style Codédex. Chaque exercice a ses instructions, ses tests automatiques et une page HTML.
 
-1. Lance `/python-build` — l'agent propose 3 projets, tu choisis
-2. Lis `main.py` pour comprendre ce que le programme est censé faire
-3. Implémente les fonctions dans `project.py` une par une
-4. Lance `python main.py` jusqu'à ce que le programme tourne de bout en bout
+1. Lance `/python-projet` — l'agent génère 6 exercices sur le concept du jour
+2. Pour chaque exercice : lis `instructions.html`, code dans `main.py`, lance `tester.py`
+3. Passe à l'exercice suivant quand tous les tests sont verts
+4. Dis-moi quand tu as fini ou si tu bloques depuis plus de 15 min
 
 **Objectif de progression :**
 
-- Semaines 1-2 : faire tourner le programme même si c'est pas élégant
-- Semaines 3+ : utiliser les bons outils Python du premier coup
+- Semaines 1-2 : finir les 4 premiers exercices
+- Semaines 3+ : finir les 6 sans demander d'indices
 
 ---
 
@@ -76,15 +76,15 @@
 
 ## Récap hebdomadaire
 
-| Jour     | Partie 1          | Partie 2          | Partie 3          | Partie 4         | Total  |
-| -------- | ----------------- | ----------------- | ----------------- | ---------------- | ------ |
-| Mardi    | `/python-exos`    | `/python-build`   | `/python-libre`   | `/python-vibe`   | ~3h45  |
-| Mercredi | `/python-exos`    | `/python-build`   | `/python-libre`   | `/python-vibe`   | ~3h45  |
-| Jeudi    | `/python-exos`    | `/python-build`   | `/python-libre`   | `/python-vibe`   | ~3h45  |
-| Vendredi | `/python-exos`    | `/python-build`   | `/python-libre`   | `/python-vibe`   | ~3h45  |
-| Samedi   | `/python-exos`    | `/python-build`   | `/python-libre`   | `/python-vibe`   | ~3h45  |
+| Jour     | Partie 1          | Partie 2             | Partie 3          | Partie 4         | Total  |
+| -------- | ----------------- | -------------------- | ----------------- | ---------------- | ------ |
+| Mardi    | `/python-exos`    | `/python-projet`     | `/python-libre`   | `/python-vibe`   | ~4h30  |
+| Mercredi | `/python-exos`    | `/python-projet`     | `/python-libre`   | `/python-vibe`   | ~4h30  |
+| Jeudi    | `/python-exos`    | `/python-projet`     | `/python-libre`   | `/python-vibe`   | ~4h30  |
+| Vendredi | `/python-exos`    | `/python-projet`     | `/python-libre`   | `/python-vibe`   | ~4h30  |
+| Samedi   | `/python-exos`    | `/python-projet`     | `/python-libre`   | `/python-vibe`   | ~4h30  |
 
-**Total : ~18h45/semaine**
+**Total : ~22h30/semaine**
 
 ---
 
@@ -94,6 +94,7 @@ Tu es à l'aise en Python quand :
 
 - **Exos** : tu finis les 5 fichiers sans chercher dans la doc
 - **Build** : tu lis un stub de fonction et tu sais quoi écrire du premier coup
+- **Projet** : tu lis les instructions d'un exercice et tu codes sans indices
 - **Global** : tu arrives sur du code que tu n'as pas écrit, tu comprends ce qu'il fait et tu sais où ajouter le tien
 
 Tu maîtrises le vibe coding quand :

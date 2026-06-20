@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercice 6/6 — Mini programme complet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <style>
+    body { font-family: 'Lora', Georgia, serif; max-width: 700px; margin: 0 auto; padding: 2rem 1.5rem; line-height: 1.75; }
+    h2 { font-family: monospace; font-size: 0.7rem; text-transform: uppercase; color: #aaa; border-bottom: 1px solid #eee; margin: 2rem 0 1rem; }
+    h3 { margin: 1.5rem 0 0.5rem; }
+    pre { background: #f7f7f5; border: 1px solid #e8e7e2; border-radius: 6px; padding: 1rem; }
+    pre.terminal { background: #1e1e1e; color: #d4d4d4; }
+    code { font-family: monospace; background: #f0efea; padding: 0.1em 0.3em; border-radius: 3px; }
+    pre code { background: transparent; }
+    .info { background: #f0f7ff; border: 1px solid #b3d4f5; padding: 0.6rem 1rem; border-radius: 5px; font-size: 0.9rem; }
+    details { border: 1px solid #e8e7e2; border-radius: 6px; padding: 0.8rem 1rem; margin: 0.5rem 0; }
+    summary { cursor: pointer; font-family: monospace; font-size: 0.78rem; }
+  </style>
+</head>
+<body>
+  <div class="badge">Exercice 6 / 6 — Fonctions</div>
+  <h1>Mini programme complet</h1>
+
+  <section>
+    <h2>Le concept</h2>
+    <p>Tu combines tout ce que tu as appris : paramètres, <code>return</code>, f-strings, <code>if/elif/else</code>. Chaque fonction fait une seule chose ; ensemble elles forment un petit système.</p>
+  </section>
+
+  <section>
+    <h2>Instructions</h2>
+    <p>Tu finalises le système de radio de <em>Project Zomboid</em> pour la veille de nuit.</p>
+
+    <h3>La fonction <code>rapport_nuit</code></h3>
+    <p>Deux paramètres : <code>zone</code> (texte) et <code>infectes</code> (nombre). Retourne une phrase comme <code>Zone Garage — 12 infectés repérés</code> (remplace zone et nombre par les valeurs reçues).</p>
+
+    <h3>La fonction <code>evaluer_nuit</code></h3>
+    <p>Un paramètre <code>infectes</code> — le nombre total d'infectés vus. Retourne un mot selon la menace :</p>
+    <ul>
+      <li>Cinq infectés ou moins → <code>"Calme"</code></li>
+      <li>Seize infectés ou moins (mais plus de cinq) → <code>"Tendu"</code></li>
+      <li>Plus de seize → <code>"Critique"</code></li>
+    </ul>
+    <div class="info">Utilise <code>if</code>, <code>elif</code> et <code>else</code> avec <code>return</code> dans chaque branche.</div>
+
+    <pre class="terminal"><code>✅ rapport_nuit zone + infectés
+✅ rapport_nuit autre zone
+✅ evaluer_nuit(8) → Tendu
+✅ evaluer_nuit(3) → Calme
+✅ evaluer_nuit(22) → Critique
+
+────────────────────────────────────────
+  5/5 tests passés
+  🎉 Parfait !</code></pre>
+  </section>
+
+  <section>
+    <h2>Commandes</h2>
+    <p>📄 <code>open /Users/noah/Desktop/Python/20260619/projet/06_programme_complet/instructions.html</code></p>
+    <p>🧪 <code>python3 /Users/noah/Desktop/Python/20260619/projet/06_programme_complet/tester.py</code></p>
+  </section>
+
+  <section>
+    <h2>Indices</h2>
+    <details><summary>💡 Indice 1 — rapport_nuit</summary><p><code>return f"Zone {zone} — {infectes} infectés repérés"</code></p></details>
+    <details><summary>💡 Indice 2 — evaluer_nuit</summary><p>Pense dans l'ordre : d'abord le cas le plus calme (≤ 5), puis le cas moyen (≤ 16), sinon le pire.</p></details>
+  </section>
+  <script>hljs.highlightAll();</script>
+</body>
+</html>
