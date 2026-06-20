@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nahla Arena — nahla.lol</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="arena.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body class="arena-page">
+  <header class="top">
+    <a href="index.html" class="logo">nahla<span class="dot">.</span>lol</a>
+    <nav>
+      <a href="index.html#games">← Retour aux jeux</a>
+    </nav>
+  </header>
+
+  <main class="arena-main">
+    <div class="arena-header">
+      <img src="nahla_head.png" alt="" class="arena-logo" width="72" height="72">
+      <h1>Nahla Arena</h1>
+      <p>Malik, Kays, Noah et Maman veulent te caresser. Esquive, griffe, survie.</p>
+    </div>
+
+    <div class="arena-hud">
+      <div class="hud-box">Survie : <span id="score">0</span>s</div>
+      <div class="hud-box">Vague <span id="wave">1</span></div>
+      <div class="hud-box">Record : <span id="record">0</span>s</div>
+    </div>
+
+    <div class="canvas-wrap">
+      <canvas id="game" width="1280" height="720" aria-label="Nahla Arena"></canvas>
+      <div id="overlay" class="overlay">
+        <p id="overlay-title">Nahla Arena</p>
+        <p id="overlay-msg">ZQSD ou flèches — esquive les caresses</p>
+        <button id="start-btn" class="btn">Jouer</button>
+      </div>
+      <div id="gameover" class="overlay hidden">
+        <p class="go-title">Attrapée !</p>
+        <p id="go-msg">Un humain t'a caressée.</p>
+        <p class="go-score">Survie : <span id="go-score">0</span>s</p>
+        <button id="retry-btn" class="btn">Rejouer (R)</button>
+      </div>
+    </div>
+
+    <div class="claw-bar-wrap">
+      <span class="claw-label">Griffe</span>
+      <div class="claw-bar"><div id="claw-fill" class="claw-fill"></div></div>
+    </div>
+
+    <p class="arena-controls">ZQSD / flèches — bouger · Espace — griffe · R — rejouer · ESC — menu</p>
+  </main>
+
+  <script src="arena.js"></script>
+</body>
+</html>

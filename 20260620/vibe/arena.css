@@ -1,0 +1,133 @@
+.arena-page {
+  background: var(--bg);
+}
+
+.arena-main {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  text-align: center;
+}
+
+.arena-header h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
+  margin: 0.75rem 0 0.5rem;
+}
+
+.arena-header p {
+  color: var(--muted);
+  max-width: 520px;
+  margin: 0 auto 1.5rem;
+}
+
+.arena-logo {
+  border-radius: 50%;
+  border: 3px solid rgba(244, 162, 97, 0.5);
+}
+
+.arena-hud {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.hud-box {
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.95rem;
+}
+
+.hud-box span {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.canvas-wrap {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid rgba(244, 162, 97, 0.25);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+#game {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  background: #2a2430;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(12, 10, 15, 0.82);
+  gap: 0.75rem;
+  padding: 1.5rem;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+#overlay-title,
+.go-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+#overlay-msg,
+#go-msg {
+  color: var(--muted);
+  max-width: 400px;
+}
+
+.go-score {
+  font-size: 1.25rem;
+}
+
+.claw-bar-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.claw-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.claw-bar {
+  width: 140px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.claw-fill {
+  height: 100%;
+  width: 100%;
+  background: #64d28c;
+  border-radius: 4px;
+  transition: width 0.05s linear;
+}
+
+.arena-controls {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
