@@ -11,3 +11,9 @@ concept : Dictionnaires
 exercices : 6/6
 bloqué : 01 set vs dict ; 05-06 clé vs inventaire[i] ; 06 f-string
 notes : prix_infraction OK vite ; piège clé/valeur en boucle récurrent mais corrigé seul
+
+## Build
+projet : Garde-manger de la safehouse (Zomboid)
+notions utilisées : dict lecture, dict écriture, in, for+dict+somme, f-string
+difficultés : pantry_status — total += i au lieu de pantry[i] (même piège qu'exos)
+notes : TODO 1-4 sans aide ; 5 corrigé après TypeError ; transfert projet → build fluide
