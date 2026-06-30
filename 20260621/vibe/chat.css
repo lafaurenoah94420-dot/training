@@ -1,0 +1,288 @@
+.chat-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.chat-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 0;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem 2rem 2rem;
+  min-height: calc(100vh - 70px);
+}
+
+.nahla-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nahla-portrait-wrap {
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+
+.nahla-portrait {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.nahla-portrait.talking {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px var(--glow);
+}
+
+.portrait-glow {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--glow), transparent 70%);
+  z-index: 0;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.nahla-status {
+  margin-top: 1.25rem;
+  font-size: 0.95rem;
+  color: var(--accent-soft);
+  font-weight: 600;
+  text-align: center;
+}
+
+.nahla-mood {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.chat-panel {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2rem;
+  min-height: 0;
+}
+
+.chat-header {
+  margin-bottom: 1rem;
+}
+
+.chat-header h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.chat-sub {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.mode-badge {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(244, 162, 97, 0.4);
+  color: var(--accent);
+}
+
+.mode-badge.ai {
+  border-color: rgba(100, 200, 120, 0.5);
+  color: #7dcea0;
+}
+
+.mode-badge.fallback {
+  border-color: rgba(200, 150, 80, 0.5);
+  color: var(--accent-soft);
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 0;
+  min-height: 300px;
+  max-height: calc(100vh - 280px);
+}
+
+.message {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 85%;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.message.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.message-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid var(--accent);
+}
+
+.message.user .message-avatar {
+  display: none;
+}
+
+.bubble {
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.message.nahla .bubble {
+  background: var(--surface);
+  border: 1px solid rgba(244, 162, 97, 0.2);
+  border-top-left-radius: 0.25rem;
+}
+
+.message.user .bubble {
+  background: rgba(244, 162, 97, 0.15);
+  border: 1px solid rgba(244, 162, 97, 0.3);
+  border-top-right-radius: 0.25rem;
+}
+
+.typing {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.typing.hidden {
+  display: none;
+}
+
+.typing-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  animation: bounce 1s ease infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.chat-input {
+  display: flex;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 0.85rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--surface);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.chat-input input:focus {
+  border-color: var(--accent);
+}
+
+.chat-input input::placeholder {
+  color: var(--muted);
+}
+
+.btn-send {
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  border: none;
+  background: var(--accent);
+  color: var(--bg);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.15s, opacity 0.15s;
+}
+
+.btn-send:hover {
+  transform: scale(1.03);
+}
+
+.btn-send:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  .chat-main {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .nahla-panel {
+    flex-direction: row;
+    gap: 1rem;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding-bottom: 1rem;
+  }
+
+  .nahla-portrait-wrap,
+  .nahla-portrait {
+    width: 72px;
+    height: 72px;
+  }
+
+  .chat-panel {
+    padding-left: 0;
+    padding-top: 1rem;
+  }
+
+  .messages {
+    max-height: 50vh;
+  }
+}

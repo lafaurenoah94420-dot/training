@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parler à Nahla — nahla.lol</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chat.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body class="chat-page">
+  <header class="top">
+    <a href="index.html" class="logo">nahla<span class="dot">.</span>lol</a>
+    <nav>
+      <a href="index.html#games">← Retour aux jeux</a>
+    </nav>
+  </header>
+
+  <main class="chat-main">
+    <aside class="nahla-panel">
+      <div class="nahla-portrait-wrap">
+        <img src="nahla_head.png" alt="Nahla" class="nahla-portrait" id="nahla-img">
+        <div class="portrait-glow"></div>
+      </div>
+      <p class="nahla-status" id="nahla-status">En train de te juger</p>
+      <p class="nahla-mood" id="nahla-mood">Humeur : mépris modéré</p>
+    </aside>
+
+    <section class="chat-panel">
+      <div class="chat-header">
+        <h1>Parler à Nahla</h1>
+        <p class="chat-sub">Elle répond. Enfin… si elle en a envie.</p>
+        <span class="mode-badge" id="mode-badge">connexion…</span>
+      </div>
+
+      <div class="messages" id="messages" aria-live="polite"></div>
+
+      <div class="typing hidden" id="typing">
+        <img src="nahla_head.png" alt="" class="typing-avatar">
+        <span>Nahla réfléchit… (probablement à une sieste)</span>
+      </div>
+
+      <form class="chat-input" id="chat-form">
+        <input
+          type="text"
+          id="user-input"
+          placeholder="Dis quelque chose à Nahla (elle s'en fout probablement)…"
+          autocomplete="off"
+          maxlength="500"
+        >
+        <button type="submit" class="btn-send" id="send-btn">Envoyer</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="chat.js"></script>
+</body>
+</html>

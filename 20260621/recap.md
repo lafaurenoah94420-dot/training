@@ -23,3 +23,13 @@ sujet : Nahla — Rapport médical quotidien
 notions utilisées : input, int, if/elif, f-string, def
 features : —
 notes : piège appel fonction récursif + variables locales ; tranches poids corrigées seul ; vibe direct sans features
+
+## Vibe
+projet : Nahla vs Zombies
+stack : Python + pygame
+jusqu'où : shooter fonctionnel — visée souris, 5 types zombies, vagues, score/vies ; géants vague 4 ; spawn augmenté
+consignes qui ont bien marché : visée souris, types zombies plus durs, géants plus tôt, plus de zombies
+notes : bugs corrigés (random.choice, touches) ; IA chat abandonnée (coût) ; à continuer demain
+
+## Journée
+Journée dicts solide : exos 5/5, projet 6/6, build Zomboid sans aide sur les 4 premières fonctions. Piège clé/valeur en boucle encore présent mais corrigé plus vite qu'hier. Vibe : jeu pygame avancé bien avancé, suite demain.
