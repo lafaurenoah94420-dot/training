@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 5/6 — Totaliser les valeurs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #ffffff; color: #1a1a1a; font-family: 'Lora', Georgia, serif; font-size: 0.9375rem; line-height: 1.75; padding: clamp(2rem, 6vmin, 4rem) 1.5rem 6rem; max-width: 700px; margin: 0 auto; }
+    header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e8e7e2; }
+    .badge { display: inline-block; font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.09em; color: #999; background: #f5f5f3; border: 1px solid #e2e1db; padding: 0.18rem 0.6rem; border-radius: 999px; margin-bottom: 0.9rem; }
+    h1 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 0.35rem; }
+    .concept-tag { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.72rem; color: #aaa; }
+    section { margin-bottom: 2.5rem; }
+    h2 { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #aaa; margin-bottom: 1.1rem; padding-bottom: 0.45rem; border-bottom: 1px solid #ebebeb; }
+    h3 { font-size: 0.95rem; font-weight: 600; margin: 1.75rem 0 0.6rem; color: #1a1a1a; }
+    p { margin-bottom: 1rem; color: #2a2a2a; }
+    ol, ul { padding-left: 1.4rem; margin-bottom: 1rem; }
+    li { margin-bottom: 0.5rem; color: #2a2a2a; line-height: 1.65; }
+    strong { font-weight: 600; color: #1a1a1a; }
+    code { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.82em; background: #f0efea; padding: 0.1em 0.3em; border-radius: 3px; color: #1a1a1a; }
+    pre { background: #f7f7f5; border: 1px solid #e8e7e2; border-radius: 6px; padding: 1.1rem 1.25rem; overflow-x: auto; margin: 1rem 0; font-size: 0.855rem; line-height: 1.6; }
+    pre code { background: transparent; padding: 0; font-size: inherit; border-radius: 0; color: inherit; }
+    .hljs { background: transparent !important; padding: 0 !important; }
+    pre.terminal { background: #1e1e1e; border-color: #333; color: #d4d4d4; }
+    pre.terminal code { color: #d4d4d4; }
+    .warn { font-size: 0.875rem; background: #fffbeb; border: 1px solid #e9c46a; border-radius: 5px; padding: 0.6rem 1rem; margin: 1rem 0; color: #7a5800; line-height: 1.55; }
+    .commands-box { background: #f7f7f5; border: 1px solid #e8e7e2; border-radius: 6px; padding: 0.9rem 1.2rem; }
+    .cmd-line { display: flex; align-items: center; gap: 0.7rem; margin: 0.4rem 0; flex-wrap: wrap; }
+    .cmd-line .label { font-size: 0.85rem; color: #999; min-width: 8.5rem; }
+    .cmd-line code { background: #ebebeb; color: #1a1a1a; font-size: 0.85rem; }
+    .copy-btn { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.68rem; background: #fff; border: 1px solid #d5d4ce; color: #999; border-radius: 4px; padding: 0.18rem 0.5rem; cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+    .copy-btn:hover, .copy-btn.copied { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+    details { border: 1px solid #e8e7e2; border-radius: 6px; margin-bottom: 0.65rem; padding: 0.8rem 1rem; }
+    summary { cursor: pointer; font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.78rem; font-weight: 600; color: #666; list-style: none; user-select: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::before { content: '▶ '; font-size: 0.6em; color: #bbb; }
+    details[open] summary::before { content: '▼ '; }
+    details > *:not(summary) { margin-top: 0.8rem; }
+    .hint-content { font-size: 0.9rem; color: #333; line-height: 1.65; }
+    .hint-content code { background: #f0efea; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge">Exercice 5 / 6 — Dictionnaires</div>
+    <h1>Totaliser les valeurs</h1>
+    <div class="concept-tag">boucle for, clé vs valeur</div>
+  </header>
+
+  <section>
+    <h2>Le concept</h2>
+    <p>Pour parcourir un dictionnaire, on utilise <code>for cle in mon_dict:</code>. À chaque tour de boucle, <code>cle</code> reçoit une <strong>clé</strong> du dictionnaire — le nom de la ressource, pas sa quantité.</p>
+    <p>Pour lire la quantité associée à cette clé, il faut écrire <code>mon_dict[cle]</code>. C'est un piège fréquent : la variable de boucle contient le nom, pas le nombre. Si tu additionnes <code>cle</code> directement au lieu de <code>depot[cle]</code>, tu additionnes des textes ou tu obtiens un résultat faux.</p>
+    <pre><code class="language-python">depot = {"acier": 100, "caoutchouc": 50}
+total = 0
+for cle in depot:
+    total = total + depot[cle]   # depot[cle] → la valeur (100, 50...)
+# total vaut 150</code></pre>
+    <p>Dans <em>Hearts of Iron IV</em>, le dépôt national liste chaque ressource par nom avec une quantité stockée — additionner les valeurs donne le stock total de matériel.</p>
+  </section>
+
+  <section>
+    <h2>Instructions</h2>
+    <p>Tu consultes le dépôt de ressources de ton pays dans <em>Hearts of Iron IV</em>. Chaque matière première a un nom et une quantité en stock. Tu veux connaître le total de toutes les ressources réunies.</p>
+
+    <h3>La fonction <code>total_ressources</code></h3>
+    <p>Cette fonction reçoit un seul paramètre qui s'appelle <code>depot</code>. C'est le dictionnaire qui représente le stock national. Chaque clé est le nom d'une ressource (un texte), chaque valeur est la quantité disponible (un nombre).</p>
+    <p>La fonction doit parcourir toutes les clés du dictionnaire avec une boucle <code>for</code>, additionner toutes les <strong>valeurs</strong>, et retourner ce total. Elle commence avec un compteur à zéro, puis à chaque tour elle ajoute la quantité trouvée à la clé courante.</p>
+    <div class="warn"><strong>Piège classique :</strong> dans <code>for cle in depot</code>, la variable <code>cle</code> contient un <strong>nom</strong> comme <code>"acier"</code>, pas un nombre comme cent. Pour obtenir la quantité, tu dois écrire <code>depot[cle]</code>. Si tu écris <code>total = total + cle</code>, tu additionnes les noms — ça ne marchera pas.</div>
+    <p>Voici des exemples pour vérifier ta logique :</p>
+    <pre><code class="language-python">depot = {"acier": 100, "caoutchouc": 50, "petrole": 25}
+total_ressources(depot)           # → 175
+
+total_ressources({})              # → 0 (dépôt vide)
+
+total_ressources({"munitions": 40})  # → 40 (une seule ressource)</code></pre>
+    <p>Quand tu lances <code>python3 tester.py</code>, tu dois voir :</p>
+    <pre class="terminal"><code>✅ total dépôt HOI4 → 175
+✅ dépôt vide → 0
+✅ une seule ressource → 40
+
+────────────────────────────────────────
+  3/3 tests passés
+  🎉 Parfait !</code></pre>
+  </section>
+
+  <section>
+    <h2>Commandes</h2>
+    <div class="commands-box">
+      <div class="cmd-line">
+        <span class="label">📁 Dossier</span>
+        <code>cd /Users/noah/Desktop/Python/20260621/projet/05_fonction_total</code>
+        <button class="copy-btn" onclick="copier(this, 'cd /Users/noah/Desktop/Python/20260621/projet/05_fonction_total')">⎘ copier</button>
+      </div>
+      <div class="cmd-line">
+        <span class="label">📄 Instructions</span>
+        <code>open /Users/noah/Desktop/Python/20260621/projet/05_fonction_total/instructions.html</code>
+        <button class="copy-btn" onclick="copier(this, 'open /Users/noah/Desktop/Python/20260621/projet/05_fonction_total/instructions.html')">⎘ copier</button>
+      </div>
+      <div class="cmd-line">
+        <span class="label">🧪 Tester</span>
+        <code>python3 tester.py</code>
+        <button class="copy-btn" onclick="copier(this, 'python3 tester.py')">⎘ copier</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Indices</h2>
+    <details>
+      <summary>💡 Indice 1 — Le compteur et la boucle</summary>
+      <div class="hint-content">
+        <p>Commence par créer une variable <code>total</code> à zéro avant la boucle. Ensuite, parcours le dictionnaire avec <code>for cle in depot:</code> et ajoute quelque chose à <code>total</code> à chaque tour.</p>
+      </div>
+    </details>
+    <details>
+      <summary>💡 Indice 2 — Lire la valeur, pas la clé</summary>
+      <div class="hint-content">
+        <p>À chaque tour, la quantité à ajouter se trouve avec <code>depot[cle]</code> — pas avec <code>cle</code> seul :</p>
+        <pre><code class="language-python">total = 0
+for cle in depot:
+    total = total + depot[cle]
+return total</code></pre>
+      </div>
+    </details>
+  </section>
+
+  <script>hljs.highlightAll();</script>
+  <script>
+    function copier(btn, texte) {
+      navigator.clipboard.writeText(texte).then(() => {
+        btn.textContent = '✓ copié';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = '⎘ copier'; btn.classList.remove('copied'); }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>
