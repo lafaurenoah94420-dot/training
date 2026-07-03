@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 3/6 — Tir aléatoire</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #ffffff; color: #1a1a1a; font-family: 'Lora', Georgia, serif; font-size: 0.9375rem; line-height: 1.75; padding: clamp(2rem, 6vmin, 4rem) 1.5rem 6rem; max-width: 700px; margin: 0 auto; }
+    header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e8e7e2; }
+    .badge { display: inline-block; font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.09em; color: #999; background: #f5f5f3; border: 1px solid #e2e1db; padding: 0.18rem 0.6rem; border-radius: 999px; margin-bottom: 0.9rem; }
+    h1 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 0.35rem; }
+    .concept-tag { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.72rem; color: #aaa; }
+    section { margin-bottom: 2.5rem; }
+    h2 { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #aaa; margin-bottom: 1.1rem; padding-bottom: 0.45rem; border-bottom: 1px solid #ebebeb; }
+    h3 { font-size: 0.95rem; font-weight: 600; margin: 1.75rem 0 0.6rem; color: #1a1a1a; }
+    p { margin-bottom: 1rem; color: #2a2a2a; }
+    strong { font-weight: 600; color: #1a1a1a; }
+    code { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.82em; background: #f0efea; padding: 0.1em 0.3em; border-radius: 3px; color: #1a1a1a; }
+    pre { background: #f7f7f5; border: 1px solid #e8e7e2; border-radius: 6px; padding: 1.1rem 1.25rem; overflow-x: auto; margin: 1rem 0; font-size: 0.855rem; line-height: 1.6; }
+    pre code { background: transparent; padding: 0; font-size: inherit; border-radius: 0; color: inherit; }
+    .hljs { background: transparent !important; padding: 0 !important; }
+    pre.terminal { background: #1e1e1e; border-color: #333; color: #d4d4d4; }
+    pre.terminal code { color: #d4d4d4; }
+    .commands-box { background: #f7f7f5; border: 1px solid #e8e7e2; border-radius: 6px; padding: 0.9rem 1.2rem; }
+    .cmd-line { display: flex; align-items: center; gap: 0.7rem; margin: 0.4rem 0; flex-wrap: wrap; }
+    .cmd-line .label { font-size: 0.85rem; color: #999; min-width: 8.5rem; }
+    .cmd-line code { background: #ebebeb; color: #1a1a1a; font-size: 0.85rem; }
+    .copy-btn { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.68rem; background: #fff; border: 1px solid #d5d4ce; color: #999; border-radius: 4px; padding: 0.18rem 0.5rem; cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+    .copy-btn:hover, .copy-btn.copied { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+    details { border: 1px solid #e8e7e2; border-radius: 6px; margin-bottom: 0.65rem; padding: 0.8rem 1rem; }
+    summary { cursor: pointer; font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.78rem; font-weight: 600; color: #666; list-style: none; user-select: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::before { content: '▶ '; font-size: 0.6em; color: #bbb; }
+    details[open] summary::before { content: '▼ '; }
+    details > *:not(summary) { margin-top: 0.8rem; }
+    .hint-content { font-size: 0.9rem; color: #333; line-height: 1.65; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge">Exercice 3 / 6 — Modules</div>
+    <h1>Tir aléatoire</h1>
+    <div class="concept-tag">random dans une fonction, return</div>
+  </header>
+
+  <section>
+    <h2>Le concept</h2>
+    <p>On peut combiner une fonction avec un module importé. Tu importes <code>random</code> une fois en haut du fichier, puis tu utilises <code>random.randint</code> à l'intérieur d'une fonction pour renvoyer une valeur différente à chaque appel.</p>
+    <pre><code class="language-python">import random
+
+def lancer_de():
+    return random.randint(1, 6)</code></pre>
+    <p>Dans <em>The Last of Us</em>, chaque tir ne fait pas exactement les mêmes dégâts — il y a une fourchette min/max.</p>
+  </section>
+
+  <section>
+    <h2>Instructions</h2>
+    <p>Joel tire sur un infecté dans <em>The Last of Us</em>. Selon la précision et l'arme, les dégâts varient entre un minimum et un maximum.</p>
+
+    <h3>La fonction <code>tirer_degats</code></h3>
+    <p>Cette fonction simule les dégâts d'un tir. Elle reçoit deux nombres : le premier s'appelle <code>min_dmg</code> — c'est le dégât minimum possible. Le second s'appelle <code>max_dmg</code> — c'est le dégât maximum possible.</p>
+    <p>La fonction doit retourner un nombre entier aléatoire entre <code>min_dmg</code> et <code>max_dmg</code> (bornes incluses), en utilisant <code>random.randint</code>. N'oublie pas <code>import random</code> en haut du fichier.</p>
+    <p>Voici des exemples pour vérifier ta logique :</p>
+    <pre><code class="language-python">tirer_degats(10, 20)   # → un nombre entre 10 et 20
+tirer_degats(30, 30)   # → toujours 30
+tirer_degats(0, 0)     # → 0</code></pre>
+
+    <p>Quand tu lances <code>python3 tester.py</code>, tu dois voir :</p>
+    <pre class="terminal"><code>✅ tirer_degats(10, 20) reste entre 10 et 20
+✅ tirer_degats(1, 5) reste entre 1 et 5
+✅ tirer_degats(30, 30) retourne toujours 30
+✅ tirer_degats(0, 0) → 0
+
+────────────────────────────────────────
+  4/4 tests passés
+  🎉 Parfait !</code></pre>
+  </section>
+
+  <section>
+    <h2>Commandes</h2>
+    <div class="commands-box">
+      <div class="cmd-line">
+        <span class="label">📁 Dossier</span>
+        <code>cd /Users/noah/Desktop/Python/20260703/projet/03_fonction_tir</code>
+        <button class="copy-btn" onclick="copier(this, 'cd /Users/noah/Desktop/Python/20260703/projet/03_fonction_tir')">⎘ copier</button>
+      </div>
+      <div class="cmd-line">
+        <span class="label">📄 Instructions</span>
+        <code>open /Users/noah/Desktop/Python/20260703/projet/03_fonction_tir/instructions.html</code>
+        <button class="copy-btn" onclick="copier(this, 'open /Users/noah/Desktop/Python/20260703/projet/03_fonction_tir/instructions.html')">⎘ copier</button>
+      </div>
+      <div class="cmd-line">
+        <span class="label">🧪 Tester</span>
+        <code>python3 tester.py</code>
+        <button class="copy-btn" onclick="copier(this, 'python3 tester.py')">⎘ copier</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Indices</h2>
+    <details>
+      <summary>💡 Indice 1 — Structure de la fonction</summary>
+      <div class="hint-content">
+        <p>Commence par <code>import random</code>, puis définis <code>def tirer_degats(min_dmg, max_dmg):</code> avec un <code>return</code> à l'intérieur.</p>
+      </div>
+    </details>
+    <details>
+      <summary>💡 Indice 2 — Le return</summary>
+      <div class="hint-content">
+        <p>Une seule ligne suffit dans le corps de la fonction : <code>return random.randint(min_dmg, max_dmg)</code>.</p>
+      </div>
+    </details>
+  </section>
+
+  <script>hljs.highlightAll();</script>
+  <script>
+    function copier(btn, texte) {
+      navigator.clipboard.writeText(texte).then(() => {
+        btn.textContent = '✓ copié';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = '⎘ copier'; btn.classList.remove('copied'); }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>
