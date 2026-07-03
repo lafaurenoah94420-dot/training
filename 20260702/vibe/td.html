@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nahla Tower Defense — nahla.lol</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    .td-hero {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+    @media (max-width: 700px) { .td-hero { grid-template-columns: 1fr; } }
+    .td-hero img {
+      width: 100%;
+      max-width: 280px;
+      border-radius: 50%;
+      border: 4px solid var(--accent, #ffa848);
+      justify-self: center;
+    }
+    .td-units { list-style: none; padding: 0; margin: 1rem 0; }
+    .td-units li { padding: 0.35rem 0; color: var(--muted, #968c9b); }
+    .td-units strong { color: var(--text, #f5eee1); }
+    .back-link { display: inline-block; margin: 1rem 1.5rem; color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <a href="index.html" class="logo" style="text-decoration:none;color:inherit">nahla<span class="dot">.</span>lol</a>
+    <nav>
+      <a href="index.html#games">← Tous les jeux</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="td-hero">
+      <div>
+        <p class="badge">pygame · tower defense</p>
+        <h1 style="font-family:'Playfair Display',serif;font-size:2.4rem;margin:0.5rem 0">Nahla Tower Defense</h1>
+        <p class="tagline">Les aspirateurs veulent le canapé. Défends-le avec une armée de Nahla.</p>
+        <ul class="td-units">
+          <li><strong>Soldat</strong> — fusil + ralentissement</li>
+          <li><strong>Sniper</strong> — longue portée, gros dégâts</li>
+          <li><strong>Général</strong> — buff les alliés autour</li>
+          <li>+ Grondeuse, Paresseuse, Banquière, Reine</li>
+        </ul>
+        <p style="font-size:0.95rem;color:var(--muted)">3 maps · 20 vagues · améliorations <kbd>U</kbd> · sons</p>
+        <code class="launch-cmd" data-cmd="cd /Users/noah/Desktop/Python/20260619/vibe && python3 main.py" style="display:block;margin:1rem 0;padding:0.75rem;background:#2a2634;border-radius:8px;font-size:0.85rem">cd /Users/noah/Desktop/Python/20260619/vibe && python3 main.py</code>
+        <button class="btn-copy btn" type="button" style="margin-top:0">Copier la commande</button>
+      </div>
+      <img src="nahla_head.png" alt="Nahla Soldat">
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Nahla.lol — Le canapé ne négocie pas.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

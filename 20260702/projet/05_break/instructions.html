@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 5/6 — Break dans une boucle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #ffffff; color: #1a1a1a; font-family: 'Lora', Georgia, serif; font-size: 0.9375rem; line-height: 1.75; padding: clamp(2rem, 6vmin, 4rem) 1.5rem 6rem; max-width: 700px; margin: 0 auto; }
+    header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e8e7e2; }
+    .badge { display: inline-block; font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.09em; color: #999; background: #f5f5f3; border: 1px solid #e2e1db; padding: 0.18rem 0.6rem; border-radius: 999px; margin-bottom: 0.9rem; }
+    h1 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 0.35rem; }
+    .concept-tag { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.72rem; color: #aaa; }
+    section { margin-bottom: 2.5rem; }
+    h2 { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #aaa; margin-bottom: 1.1rem; padding-bottom: 0.45rem; border-bottom: 1px solid #ebebeb; }
+    h3 { font-size: 0.95rem; font-weight: 600; margin: 1.75rem 0 0.6rem; color: #1a1a1a; }
+    p { margin-bottom: 1rem; color: #2a2a2a; }
+    ol, ul { padding-left: 1.4rem; margin-bottom: 1rem; }
+    li { margin-bottom: 0.5rem; color: #2a2a2a; line-height: 1.65; }
+    strong { font-weight: 600; color: #1a1a1a; }
+    code { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.82em; background: #f0efea; padding: 0.1em 0.3em; border-radius: 3px; color: #1a1a1a; }
+    pre { background: #f7f7f5; border: 1px solid #e8e7e2; border-radius: 6px; padding: 1.1rem 1.25rem; overflow-x: auto; margin: 1rem 0; font-size: 0.855rem; line-height: 1.6; }
+    pre code { background: transparent; padding: 0; font-size: inherit; border-radius: 0; color: inherit; }
+    .hljs { background: transparent !important; padding: 0 !important; }
+    pre.terminal { background: #1e1e1e; border-color: #333; color: #d4d4d4; }
+    pre.terminal code { color: #d4d4d4; }
+    .commands-box { background: #f7f7f5; border: 1px solid #e8e7e2; border-radius: 6px; padding: 0.9rem 1.2rem; }
+    .cmd-line { display: flex; align-items: center; gap: 0.7rem; margin: 0.4rem 0; flex-wrap: wrap; }
+    .cmd-line .label { font-size: 0.85rem; color: #999; min-width: 8.5rem; }
+    .cmd-line code { background: #ebebeb; color: #1a1a1a; font-size: 0.85rem; }
+    .copy-btn { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.68rem; background: #fff; border: 1px solid #d5d4ce; color: #999; border-radius: 4px; padding: 0.18rem 0.5rem; cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+    .copy-btn:hover, .copy-btn.copied { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+    details { border: 1px solid #e8e7e2; border-radius: 6px; margin-bottom: 0.65rem; padding: 0.8rem 1rem; }
+    summary { cursor: pointer; font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.78rem; font-weight: 600; color: #666; list-style: none; user-select: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::before { content: '▶ '; font-size: 0.6em; color: #bbb; }
+    details[open] summary::before { content: '▼ '; }
+    details > *:not(summary) { margin-top: 0.8rem; }
+    .hint-content { font-size: 0.9rem; color: #333; line-height: 1.65; }
+    .hint-content code { background: #f0efea; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge">Exercice 5 / 6 — Boucles avancées</div>
+    <h1>Break dans une boucle</h1>
+    <div class="concept-tag">break — sortir immédiatement de la boucle</div>
+  </header>
+
+  <section>
+    <h2>Le concept</h2>
+    <p>Parfois, tu veux quitter une boucle <em>avant</em> que sa condition devienne fausse. C'est le rôle de <code>break</code> : dès que Python le rencontre, il sort de la boucle immédiatement, peu importe si la condition est encore vraie.</p>
+    <p>C'est parfait pour fouiller une liste : tu parcours les objets un par un, et dès que tu trouves ce que tu cherches, tu t'arrêtes — inutile de continuer à chercher dans le reste.</p>
+    <pre><code class="language-python">i = 0
+while i &lt; len(objets):
+    if objets[i] == "key":
+        break
+    i = i + 1
+# i vaut l'index de "key", ou len(objets) si absent</code></pre>
+    <p>Dans <em>Resident Evil</em>, quand Leon ouvre un coffre et trouve la clé du bureau, il n'a pas besoin de fouiller le reste — <code>break</code>, mission accomplie.</p>
+  </section>
+
+  <section>
+    <h2>Instructions</h2>
+    <p>Leon fouille un coffre du manoir Spencer à la recherche d'un objet précis.</p>
+
+    <h3>La fonction <code>fouiller_coffre</code></h3>
+    <p>Cette fonction cherche un objet dans une liste et retourne sa position. Elle reçoit deux paramètres.</p>
+    <p>Le premier s'appelle <code>objets</code>. C'est une liste de textes qui représente le contenu du coffre, dans l'ordre. Par exemple une liste contenant <code>"herb"</code>, puis <code>"key"</code>, puis <code>"ammo"</code>.</p>
+    <p>Le deuxième s'appelle <code>cible</code>. C'est le texte de l'objet recherché — par exemple <code>"key"</code>.</p>
+    <p>La fonction doit parcourir la liste avec une boucle <code>while</code> et un index <code>i</code> qui commence à zéro. La boucle tourne tant que <code>i</code> est strictement inférieur à la longueur de la liste (utilise <code>len(objets)</code>).</p>
+    <p>À chaque tour, si l'élément à la position <code>i</code> est égal à <code>cible</code>, la fonction utilise <code>break</code> pour quitter la boucle immédiatement.</p>
+    <p>Si l'objet a été trouvé, la fonction retourne la valeur de <code>i</code> — c'est la position dans la liste, en commençant à zéro. Si la boucle se termine sans avoir trouvé l'objet, la fonction retourne le nombre <code>-1</code>.</p>
+    <p>Attention : si la liste est vide, la boucle ne tourne pas et la fonction retourne <code>-1</code> directement.</p>
+    <p>Voici des exemples pour vérifier que ta logique est correcte :</p>
+    <pre><code class="language-python">fouiller_coffre(["herb", "key", "ammo"], "key")   # → 1
+fouiller_coffre(["gold", "silver"], "key")         # → -1
+fouiller_coffre([], "key")                       # → -1
+fouiller_coffre(["key"], "key")                  # → 0</code></pre>
+    <p>Quand tu lances <code>python3 tester.py</code>, tu dois voir :</p>
+    <pre class="terminal"><code>✅ clé trouvée à l'index 1
+✅ objet absent — retourne -1
+✅ coffre vide — retourne -1
+✅ objet seul à l'index 0
+
+────────────────────────────────────────
+  4/4 tests passés
+  🎉 Parfait !</code></pre>
+  </section>
+
+  <section>
+    <h2>Commandes</h2>
+    <div class="commands-box">
+      <div class="cmd-line">
+        <span class="label">📁 Dossier</span>
+        <code>cd /Users/noah/Desktop/Python/20260702/projet/05_break</code>
+        <button class="copy-btn" onclick="copier(this, 'cd /Users/noah/Desktop/Python/20260702/projet/05_break')">⎘ copier</button>
+      </div>
+      <div class="cmd-line">
+        <span class="label">📄 Instructions</span>
+        <code>open /Users/noah/Desktop/Python/20260702/projet/05_break/instructions.html</code>
+        <button class="copy-btn" onclick="copier(this, 'open /Users/noah/Desktop/Python/20260702/projet/05_break/instructions.html')">⎘ copier</button>
+      </div>
+      <div class="cmd-line">
+        <span class="label">🧪 Tester</span>
+        <code>python3 tester.py</code>
+        <button class="copy-btn" onclick="copier(this, 'python3 tester.py')">⎘ copier</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Indices</h2>
+    <details>
+      <summary>💡 Indice 1 — Savoir si on a trouvé</summary>
+      <div class="hint-content">
+        <p>Utilise une variable <code>trouve</code> initialisée à <code>False</code>. Quand tu trouves l'objet, mets-la à <code>True</code> juste avant le <code>break</code>. Après la boucle, si <code>trouve</code> est vrai, retourne <code>i</code>, sinon retourne <code>-1</code>.</p>
+      </div>
+    </details>
+    <details>
+      <summary>💡 Indice 2 — N'oublie pas d'avancer l'index</summary>
+      <div class="hint-content">
+        <p>Si tu ne trouves pas l'objet au tour actuel, augmente <code>i</code> de un <em>avant</em> de repasser au tour suivant. Sinon la boucle restera bloquée sur le même index.</p>
+        <pre><code class="language-python">i = 0
+trouve = False
+while i &lt; len(objets):
+    if objets[i] == cible:
+        trouve = True
+        break
+    i = i + 1
+if trouve:
+    return i
+return -1</code></pre>
+      </div>
+    </details>
+  </section>
+
+  <script>hljs.highlightAll();</script>
+  <script>
+    function copier(btn, texte) {
+      navigator.clipboard.writeText(texte).then(() => {
+        btn.textContent = '✓ copié';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = '⎘ copier'; btn.classList.remove('copied'); }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>

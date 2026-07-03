@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 1/6 — Outils sur une chaîne</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #ffffff; color: #1a1a1a; font-family: 'Lora', Georgia, serif; font-size: 0.9375rem; line-height: 1.75; padding: clamp(2rem, 6vmin, 4rem) 1.5rem 6rem; max-width: 700px; margin: 0 auto; }
+    header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e8e7e2; }
+    .badge { display: inline-block; font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.09em; color: #999; background: #f5f5f3; border: 1px solid #e2e1db; padding: 0.18rem 0.6rem; border-radius: 999px; margin-bottom: 0.9rem; }
+    h1 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 0.35rem; }
+    .concept-tag { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.72rem; color: #aaa; }
+    section { margin-bottom: 2.5rem; }
+    h2 { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #aaa; margin-bottom: 1.1rem; padding-bottom: 0.45rem; border-bottom: 1px solid #ebebeb; }
+    h3 { font-size: 0.95rem; font-weight: 600; margin: 1.75rem 0 0.6rem; color: #1a1a1a; }
+    p { margin-bottom: 1rem; color: #2a2a2a; }
+    ol, ul { padding-left: 1.4rem; margin-bottom: 1rem; }
+    li { margin-bottom: 0.5rem; color: #2a2a2a; line-height: 1.65; }
+    strong { font-weight: 600; color: #1a1a1a; }
+    code { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.82em; background: #f0efea; padding: 0.1em 0.3em; border-radius: 3px; color: #1a1a1a; }
+    pre { background: #f7f7f5; border: 1px solid #e8e7e2; border-radius: 6px; padding: 1.1rem 1.25rem; overflow-x: auto; margin: 1rem 0; font-size: 0.855rem; line-height: 1.6; }
+    pre code { background: transparent; padding: 0; font-size: inherit; border-radius: 0; color: inherit; }
+    .hljs { background: transparent !important; padding: 0 !important; }
+    pre.terminal { background: #1e1e1e; border-color: #333; color: #d4d4d4; }
+    pre.terminal code { color: #d4d4d4; }
+    .commands-box { background: #f7f7f5; border: 1px solid #e8e7e2; border-radius: 6px; padding: 0.9rem 1.2rem; }
+    .cmd-line { display: flex; align-items: center; gap: 0.7rem; margin: 0.4rem 0; flex-wrap: wrap; }
+    .cmd-line .label { font-size: 0.85rem; color: #999; min-width: 8.5rem; }
+    .cmd-line code { background: #ebebeb; color: #1a1a1a; font-size: 0.85rem; }
+    .copy-btn { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.68rem; background: #fff; border: 1px solid #d5d4ce; color: #999; border-radius: 4px; padding: 0.18rem 0.5rem; cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+    .copy-btn:hover, .copy-btn.copied { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+    details { border: 1px solid #e8e7e2; border-radius: 6px; margin-bottom: 0.65rem; padding: 0.8rem 1rem; }
+    summary { cursor: pointer; font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.78rem; font-weight: 600; color: #666; list-style: none; user-select: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::before { content: '▶ '; font-size: 0.6em; color: #bbb; }
+    details[open] summary::before { content: '▼ '; }
+    details > *:not(summary) { margin-top: 0.8rem; }
+    .hint-content { font-size: 0.9rem; color: #333; line-height: 1.65; }
+    .hint-content code { background: #f0efea; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge">Exercice 1 / 6 — Chaînes de caractères</div>
+    <h1>Outils sur une chaîne</h1>
+    <div class="concept-tag">upper, lower, len</div>
+  </header>
+
+  <section>
+    <h2>Le concept</h2>
+    <p>Un texte en Python s'appelle une chaîne de caractères. Tu peux le mettre entre guillemets et le stocker dans une variable, exactement comme un nombre. Ensuite, tu peux lui appliquer des méthodes : ce sont des actions attachées au texte, qu'on appelle avec un point.</p>
+    <p><code>.upper()</code> transforme toutes les lettres en majuscules. <code>.lower()</code> fait l'inverse. <code>len()</code> compte combien de caractères le texte contient — espaces et ponctuation inclus.</p>
+    <pre><code class="language-python">surnom = "clicker"
+cri = surnom.upper()    # → "CLICKER"
+taille = len(surnom)    # → 7</code></pre>
+    <p>Dans <em>The Last of Us</em>, les survivants crient le nom des infectés pour alerter les autres, ou chuchotent le nom d'une faction ennemie. Ces trois outils servent à formater et mesurer un texte sans écrire de boucle.</p>
+  </section>
+
+  <section>
+    <h2>Instructions</h2>
+    <p>Joel et Ellie repèrent un Clicker dans les ruines. Tu notes des infos dans ton journal de survie, sous forme de textes.</p>
+    <p>Dans <code>main.py</code>, crée une variable <code>surnom_infecte</code> qui vaut le texte <code>"clicker"</code>.</p>
+    <p>Crée aussi une variable <code>organisation</code> qui vaut le texte <code>"FEDRA"</code> — c'est le nom de la milice qui contrôle la zone.</p>
+    <p>À partir de ces variables, crée trois nouvelles variables :</p>
+    <ul>
+      <li><code>nom_cri</code> — le surnom de l'infecté en majuscules, pour simuler un cri d'alerte. Utilise <code>.upper()</code> sur <code>surnom_infecte</code>.</li>
+      <li><code>nom_chuchote</code> — le nom de l'organisation en minuscules, pour un message discret. Utilise <code>.lower()</code> sur <code>organisation</code>.</li>
+      <li><code>taille_nom</code> — le nombre de caractères dans <code>surnom_infecte</code>, en utilisant <code>len()</code>.</li>
+    </ul>
+    <p>Voici ce que tu dois obtenir :</p>
+    <pre><code class="language-python">nom_cri        # → "CLICKER"
+nom_chuchote   # → "fedra"
+taille_nom     # → 7</code></pre>
+    <p>Quand tu lances <code>python3 tester.py</code>, tu dois voir :</p>
+    <pre class="terminal"><code>✅ nom_cri vaut 'CLICKER'
+✅ nom_chuchote vaut 'fedra'
+✅ taille_nom vaut 7
+
+────────────────────────────────────────
+  3/3 tests passés
+  🎉 Parfait !</code></pre>
+  </section>
+
+  <section>
+    <h2>Commandes</h2>
+    <div class="commands-box">
+      <div class="cmd-line">
+        <span class="label">📁 Dossier</span>
+        <code>cd /Users/noah/Desktop/Python/20260701/projet/01_outils_chaine</code>
+        <button class="copy-btn" onclick="copier(this, 'cd /Users/noah/Desktop/Python/20260701/projet/01_outils_chaine')">⎘ copier</button>
+      </div>
+      <div class="cmd-line">
+        <span class="label">📄 Instructions</span>
+        <code>open /Users/noah/Desktop/Python/20260701/projet/01_outils_chaine/instructions.html</code>
+        <button class="copy-btn" onclick="copier(this, 'open /Users/noah/Desktop/Python/20260701/projet/01_outils_chaine/instructions.html')">⎘ copier</button>
+      </div>
+      <div class="cmd-line">
+        <span class="label">🧪 Tester</span>
+        <code>python3 tester.py</code>
+        <button class="copy-btn" onclick="copier(this, 'python3 tester.py')">⎘ copier</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Indices</h2>
+    <details>
+      <summary>💡 Indice 1 — Les parenthèses comptent</summary>
+      <div class="hint-content">
+        <p><code>len</code> est une fonction : tu l'appelles avec des parenthèses autour de la variable, comme <code>len(surnom_infecte)</code>. En revanche, <code>.upper()</code> et <code>.lower()</code> sont des méthodes : le point vient <em>après</em> la variable, et il faut quand même des parenthèses à la fin, même si tu ne passes rien dedans.</p>
+      </div>
+    </details>
+    <details>
+      <summary>💡 Indice 2 — Structure des trois lignes</summary>
+      <div class="hint-content">
+        <p>Chaque variable se calcule en une seule ligne. Tu n'as pas besoin de modifier <code>surnom_infecte</code> lui-même — les méthodes renvoient un <em>nouveau</em> texte sans toucher à l'original.</p>
+        <pre><code class="language-python">nom_cri = surnom_infecte.upper()
+nom_chuchote = organisation.lower()
+taille_nom = len(surnom_infecte)</code></pre>
+      </div>
+    </details>
+  </section>
+
+  <script>hljs.highlightAll();</script>
+  <script>
+    function copier(btn, texte) {
+      navigator.clipboard.writeText(texte).then(() => {
+        btn.textContent = '✓ copié';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = '⎘ copier'; btn.classList.remove('copied'); }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>
