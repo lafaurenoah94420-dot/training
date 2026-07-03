@@ -11,3 +11,9 @@ concept : Modules (random, math)
 exercices : 6/6
 bloqué : 04 return manquant ; 05 double return + randint ; 06 return dans la boucle
 notes : import et randint OK ; piège return récurrent mais corrigé avec indices ; ex06 while+random bien finalisé
+
+## Libre
+sujet : Nahla — Roulette du festin
+notions utilisées : random.choice, list, f-string, print
+features : —
+notes : version minimaliste sans calories ; f-string corrigée ; passage direct au vibe
