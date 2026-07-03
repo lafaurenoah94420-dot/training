@@ -1,0 +1,60 @@
+.pong-page {
+  background: #c4a884;
+}
+
+.pong-main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1rem 1rem 2rem;
+}
+
+.pong-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.pong-header h1 {
+  font-family: "Playfair Display", serif;
+  color: #372818;
+  margin: 0.5rem 0;
+}
+
+.pong-header p {
+  color: #6e5a46;
+  margin: 0;
+}
+
+.pong-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 3px solid rgba(58, 42, 36, 0.35);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+}
+
+#pong-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  touch-action: none;
+}
+
+.pong-note {
+  text-align: center;
+  color: #3a281c;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+.pong-page .top {
+  background: rgba(58, 42, 36, 0.92);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.pong-page .logo,
+.pong-page nav a {
+  color: #f5eee1;
+}
+
+.pong-page nav a:hover {
+  color: var(--accent);
+}

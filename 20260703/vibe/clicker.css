@@ -1,0 +1,54 @@
+.clicker-page {
+  background: #c4a884;
+}
+
+.clicker-main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1rem 1rem 2rem;
+}
+
+.clicker-wrap {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 3px solid rgba(58, 42, 36, 0.35);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+}
+
+#clicker-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.clicker-note {
+  text-align: center;
+  color: #3a281c;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  opacity: 0.85;
+}
+
+.clicker-note kbd {
+  background: rgba(0, 0, 0, 0.15);
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.clicker-page .top {
+  background: rgba(58, 42, 36, 0.92);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.clicker-page .logo,
+.clicker-page nav a {
+  color: #f5eee1;
+}
+
+.clicker-page nav a:hover {
+  color: var(--accent);
+}
