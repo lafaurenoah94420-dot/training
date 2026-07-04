@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 4/6 — Écrire dans un dictionnaire</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #ffffff; color: #1a1a1a; font-family: 'Lora', Georgia, serif; font-size: 0.9375rem; line-height: 1.75; padding: clamp(2rem, 6vmin, 4rem) 1.5rem 6rem; max-width: 700px; margin: 0 auto; }
+    header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e8e7e2; }
+    .badge { display: inline-block; font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.09em; color: #999; background: #f5f5f3; border: 1px solid #e2e1db; padding: 0.18rem 0.6rem; border-radius: 999px; margin-bottom: 0.9rem; }
+    h1 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 0.35rem; }
+    .concept-tag { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.72rem; color: #aaa; }
+    section { margin-bottom: 2.5rem; }
+    h2 { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #aaa; margin-bottom: 1.1rem; padding-bottom: 0.45rem; border-bottom: 1px solid #ebebeb; }
+    h3 { font-size: 0.95rem; font-weight: 600; margin: 1.75rem 0 0.6rem; color: #1a1a1a; }
+    p { margin-bottom: 1rem; color: #2a2a2a; }
+    ol, ul { padding-left: 1.4rem; margin-bottom: 1rem; }
+    li { margin-bottom: 0.5rem; color: #2a2a2a; line-height: 1.65; }
+    strong { font-weight: 600; color: #1a1a1a; }
+    code { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.82em; background: #f0efea; padding: 0.1em 0.3em; border-radius: 3px; color: #1a1a1a; }
+    pre { background: #f7f7f5; border: 1px solid #e8e7e2; border-radius: 6px; padding: 1.1rem 1.25rem; overflow-x: auto; margin: 1rem 0; font-size: 0.855rem; line-height: 1.6; }
+    pre code { background: transparent; padding: 0; font-size: inherit; border-radius: 0; color: inherit; }
+    .hljs { background: transparent !important; padding: 0 !important; }
+    pre.terminal { background: #1e1e1e; border-color: #333; color: #d4d4d4; }
+    pre.terminal code { color: #d4d4d4; }
+    .info { font-size: 0.875rem; background: #f0f7ff; border: 1px solid #b3d4f5; border-radius: 5px; padding: 0.6rem 1rem; margin: 1rem 0; color: #1a4a7a; line-height: 1.55; }
+    .commands-box { background: #f7f7f5; border: 1px solid #e8e7e2; border-radius: 6px; padding: 0.9rem 1.2rem; }
+    .cmd-line { display: flex; align-items: center; gap: 0.7rem; margin: 0.4rem 0; flex-wrap: wrap; }
+    .cmd-line .label { font-size: 0.85rem; color: #999; min-width: 8.5rem; }
+    .cmd-line code { background: #ebebeb; color: #1a1a1a; font-size: 0.85rem; }
+    .copy-btn { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.68rem; background: #fff; border: 1px solid #d5d4ce; color: #999; border-radius: 4px; padding: 0.18rem 0.5rem; cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+    .copy-btn:hover, .copy-btn.copied { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+    details { border: 1px solid #e8e7e2; border-radius: 6px; margin-bottom: 0.65rem; padding: 0.8rem 1rem; }
+    summary { cursor: pointer; font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.78rem; font-weight: 600; color: #666; list-style: none; user-select: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::before { content: '▶ '; font-size: 0.6em; color: #bbb; }
+    details[open] summary::before { content: '▼ '; }
+    details > *:not(summary) { margin-top: 0.8rem; }
+    .hint-content { font-size: 0.9rem; color: #333; line-height: 1.65; }
+    .hint-content code { background: #f0efea; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge">Exercice 4 / 6 — Dictionnaires</div>
+    <h1>Écrire dans un dictionnaire</h1>
+    <div class="concept-tag">modifier une valeur, fonction avec effet de bord</div>
+  </header>
+
+  <section>
+    <h2>Le concept</h2>
+    <p>Lire une valeur dans un dictionnaire, c'est une chose. La modifier en place, c'en est une autre. Quand tu écris <code>stocks["nourriture"] = 8</code>, tu changes directement le contenu du dictionnaire original — pas besoin de le retourner.</p>
+    <p>Une fonction qui modifie un dictionnaire reçu en paramètre agit sur l'original. C'est ce qu'on appelle un effet de bord : la fonction ne retourne rien, mais le dictionnaire qu'on lui a passé est différent après l'appel.</p>
+    <pre><code class="language-python">def ajouter(stocks, item, qty):
+    stocks[item] = stocks[item] + qty
+
+reserve = {"nourriture": 5}
+ajouter(reserve, "nourriture", 3)
+# reserve["nourriture"] vaut maintenant 8</code></pre>
+    <p>Dans <em>Project Zomboid</em>, quand tu trouves de la nourriture dans une maison, tu l'ajoutes à ton stock existant. Tu ne remplaces pas tout l'inventaire — tu augmentes la quantité d'un objet que tu possèdes déjà.</p>
+  </section>
+
+  <section>
+    <h2>Instructions</h2>
+    <p>Tu explores une maison abandonnée dans <em>Project Zomboid</em> et tu ramasses des ressources. Ton inventaire est un dictionnaire, et tu veux une fonction pour ajouter une quantité à un objet déjà présent.</p>
+
+    <h3>La fonction <code>ajouter</code></h3>
+    <p>Cette fonction reçoit trois paramètres. Le premier s'appelle <code>stocks</code> — c'est le dictionnaire de l'inventaire. Chaque clé est le nom d'un objet, chaque valeur est la quantité actuelle. Le second s'appelle <code>item</code> — c'est le texte de la clé de l'objet à modifier. Le troisième s'appelle <code>qty</code> — c'est le nombre à ajouter à la quantité existante.</p>
+    <p>La fonction doit augmenter la valeur associée à <code>item</code> dans le dictionnaire <code>stocks</code>. Concrètement, elle remplace l'ancienne valeur par l'ancienne valeur plus <code>qty</code>. Elle ne retourne rien — le dictionnaire est modifié directement.</p>
+    <p>Attention : pour cet exercice, on suppose que la clé existe déjà dans le dictionnaire. Tu n'as pas à gérer le cas où l'objet n'est pas encore dans l'inventaire.</p>
+    <div class="info">Pourquoi modifier le dictionnaire directement ? Parce que c'est plus naturel pour un inventaire : tu passes ton sac à la fonction, elle ajoute dedans, et ton sac est mis à jour. Pas besoin de récupérer un nouveau dictionnaire à chaque fois.</div>
+    <p>Voici des exemples pour vérifier ta logique :</p>
+    <pre><code class="language-python">sac = {"nourriture": 5, "eau": 2}
+ajouter(sac, "nourriture", 3)
+# sac["nourriture"] vaut maintenant 8
+
+ajouter(sac, "eau", 5)
+# sac["eau"] vaut maintenant 7</code></pre>
+    <p>Quand tu lances <code>python3 tester.py</code>, tu dois voir :</p>
+    <pre class="terminal"><code>✅ ajouter nourriture +3 → 8
+✅ ajouter eau +5 → 15
+✅ ajouter zéro ne change rien
+✅ ajouter planches +4 → 12
+
+────────────────────────────────────────
+  4/4 tests passés
+  🎉 Parfait !</code></pre>
+  </section>
+
+  <section>
+    <h2>Commandes</h2>
+    <div class="commands-box">
+      <div class="cmd-line">
+        <span class="label">📁 Dossier</span>
+        <code>cd /Users/noah/Desktop/Python/20260704/projet/04_fonction_ecrire</code>
+        <button class="copy-btn" onclick="copier(this, 'cd /Users/noah/Desktop/Python/20260704/projet/04_fonction_ecrire')">⎘ copier</button>
+      </div>
+      <div class="cmd-line">
+        <span class="label">📄 Instructions</span>
+        <code>open /Users/noah/Desktop/Python/20260704/projet/04_fonction_ecrire/instructions.html</code>
+        <button class="copy-btn" onclick="copier(this, 'open /Users/noah/Desktop/Python/20260704/projet/04_fonction_ecrire/instructions.html')">⎘ copier</button>
+      </div>
+      <div class="cmd-line">
+        <span class="label">🧪 Tester</span>
+        <code>python3 tester.py</code>
+        <button class="copy-btn" onclick="copier(this, 'python3 tester.py')">⎘ copier</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Indices</h2>
+    <details>
+      <summary>💡 Indice 1 — Lire puis écrire</summary>
+      <div class="hint-content">
+        <p>Pour ajouter une quantité, tu lis d'abord la valeur actuelle avec <code>stocks[item]</code>, tu ajoutes <code>qty</code>, et tu réassignes le résultat à la même clé.</p>
+      </div>
+    </details>
+    <details>
+      <summary>💡 Indice 2 — La ligne à écrire</summary>
+      <div class="hint-content">
+        <p>Tout tient en une seule ligne dans la fonction :</p>
+        <pre><code class="language-python">def ajouter(stocks, item, qty):
+    stocks[item] = stocks[item] + qty</code></pre>
+      </div>
+    </details>
+  </section>
+
+  <script>hljs.highlightAll();</script>
+  <script>
+    function copier(btn, texte) {
+      navigator.clipboard.writeText(texte).then(() => {
+        btn.textContent = '✓ copié';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = '⎘ copier'; btn.classList.remove('copied'); }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>
