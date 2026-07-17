@@ -1,9 +1,9 @@
 ---
-name: python-vibe
-description: Session vibe coding avec l'agent Cursor. L'agent propose 3 projets ambitieux, Noah choisit. Noah dirige étape par étape en français dans le chat ; l'agent crée le code dans YYYYMMDD/vibe/. Noah n'écrit pas de code lui-même. Utilise quand l'utilisateur dit /python-vibe.
+name: lua-vibe
+description: Session vibe coding avec l'agent Cursor. L'agent propose 3 projets ambitieux, Noah choisit. Noah dirige étape par étape en français dans le chat ; l'agent crée le code dans YYYYMMDD/vibe/. Noah n'écrit pas de code lui-même. Utilise quand l'utilisateur dit /lua-vibe.
 ---
 
-# Python Vibe
+# Lua Vibe
 
 Session vibe coding **dans ce chat**. Noah ne tape pas de code — il **donne des consignes** à l'agent, étape par étape, en français naturel (« crée le fond noir », « ajoute le serpent », « accélère un peu »). **C'est l'agent qui crée** les fichiers dans `YYYYMMDD/vibe/`.
 
@@ -49,6 +49,8 @@ notes : [clarté des demandes, ce qui bloque encore]
 
 Noah peut aussi **proposer son idée** (ex. « un Snake ») — l'agent valide, fixe la stack, et on part là-dessus.
 
+**Stack par défaut :** LÖVE2D (`love2d`) pour les jeux et simulations 2D. Alternatives quand c'est plus adapté : HTML/canvas (dans le navigateur) ou script Lua terminal pur (`lua main.lua`).
+
 Format :
 ```
 Voici 3 projets vibe — choisis A, B ou C (ou dis ton idée) :
@@ -67,7 +69,7 @@ Après le choix :
 
 1. Créer `YYYYMMDD/vibe/` et `BRIEF.md` (vision + stack + **feuille de route** en étapes, pas un prompt à coller ailleurs)
 2. Expliquer à Noah : **tu me dis quoi faire, je code ici**, une brique à la fois
-3. **Lancer la première brique** si Noah dit « go » — typiquement : fenêtre + fond (pygame) ou squelette HTML — selon le projet
+3. **Lancer la première brique** si Noah dit « go » — typiquement : fenêtre + fond (LÖVE : `love.load` / `love.draw`) ou squelette HTML — selon le projet
 
 **BRIEF.md contient :**
 - Titre, accroche, stack
@@ -95,10 +97,18 @@ Dis-moi la suite quand tu veux.
 
 **L'agent DOIT :**
 - Implémenter ce que Noah demande (ou la variante la plus proche réaliste)
-- Créer / modifier les fichiers du projet (main.py, index.html, etc.)
+- Créer / modifier les fichiers du projet (`main.lua`, `conf.lua`, `index.html`, etc.)
 - Ajouter un README avec comment lancer si pertinent
-- Après chaque étape livrée : rappeler **une phrase** pour lancer/tester (`python3 main.py`, ouvrir index.html…)
+- Après chaque étape livrée : rappeler **une phrase** pour lancer/tester :
+  - LÖVE2D : `love .` depuis le dossier `YYYYMMDD/vibe/`
+  - HTML/canvas : ouvrir `index.html`
+  - Lua terminal : `lua main.lua`
 - Proposer **1-2 prochaines étapes possibles** en français (« tu veux qu'on ajoute… ? ») sans imposer
+
+**Projet LÖVE2D — fichiers typiques :**
+- `main.lua` — logique du jeu (`love.load`, `love.update`, `love.draw`, `love.keypressed`…)
+- `conf.lua` — taille de fenêtre, titre (optionnel au début)
+- Lancer toujours avec `love .` **depuis** `YYYYMMDD/vibe/` (pas depuis la racine du repo)
 
 **L'agent NE DOIT PAS :**
 - Refuser de coder en renvoyant Noah vers « un autre Agent » ou « colle ce prompt »
@@ -123,17 +133,17 @@ Feedback court (5 lignes), puis recap + git push.
 
 ## Banque de projets (inspiration)
 
-- Simulation pygame (fourmis, boids, feu, Game of Life)
-- Jeu 2D pygame (shooter, snake amélioré, tower defense, casse-briques)
-- Outil visuel pygame (fractales, tris animés, gravité)
-- Site web (cyberpunk, jeu canvas, dashboard)
-- Terminal rich (dashboard animé, RPG texte)
+- Simulation LÖVE2D (fourmis, boids, feu, Game of Life, particules)
+- Jeu 2D LÖVE2D (shooter, snake amélioré, tower defense, casse-briques, platformer)
+- Outil visuel LÖVE2D (fractales, tris animés, gravité, générateur de labyrinthes)
+- Site web / HTML canvas (cyberpunk, jeu canvas, dashboard)
+- Terminal Lua riche (dashboard animé, RPG texte, ASCII art interactif)
 
-## Feuille de route type — Snake (pygame)
+## Feuille de route type — Snake (LÖVE2D)
 
-1. Fenêtre + fond noir + fermeture propre
+1. Fenêtre + fond noir + `love.load` / `love.draw` (lancer avec `love .`)
 2. Grille + serpent immobile au centre
-3. Déplacement continu (flèches, pas demi-tour instantané)
+3. Déplacement continu via `love.update` + flèches dans `love.keypressed` (pas de demi-tour instantané)
 4. Pomme aléatoire + croissance + score
 5. Collisions (murs, soi) + Game Over + R pour rejouer
 6. Polish (couleurs, vitesse, power-ups si Noah demande)

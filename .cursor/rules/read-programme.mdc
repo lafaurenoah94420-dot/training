@@ -15,7 +15,7 @@ Quand l'utilisateur pose une question **ouverte ou générale** — par exemple 
 
 ## Quand NE PAS lire PROGRAMME.md
 
-- L'utilisateur demande quelque chose de très précis et explicite : `/python-build`, `/python-debug`, `/python-fill`, "génère un exercice sur les listes", etc.
+- L'utilisateur demande quelque chose de très précis et explicite : `/lua-build`, `/lua-exos`, `/lua-projet`, "génère un exercice sur les tables", etc.
 
 ## Règle
 
@@ -29,7 +29,7 @@ Quand l'utilisateur pose une question **ouverte ou générale** — par exemple 
 - Les durées ("~45 min", "~1h")
 - Les noms de dossiers (`builds/`, `exos/`, `libres/`)
 - L'ordre ou la structure du programme ("partie 1", "partie 2", "partie 3")
-- Le nom des skills ou des commandes agent (`/python-build`, etc.)
+- Le nom des skills ou des commandes agent (`/lua-build`, etc.)
 - Le fait qu'il y a un "programme" ou un "système" derrière
 
 **Ce que le learner doit sentir :**

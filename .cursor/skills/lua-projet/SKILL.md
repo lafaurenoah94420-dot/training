@@ -1,11 +1,11 @@
 ---
-name: python-projet
-description: Génère une session de 6 exercices progressifs sur un seul concept Python, style Codédex. Chaque exercice a un main.py, un tester.py et une instructions.html. Utilise quand l'utilisateur dit /python-projet.
+name: lua-projet
+description: Génère une session de 6 exercices progressifs sur un seul concept Lua, style Codédex. Chaque exercice a un main.lua, un tester.lua et une instructions.html. Utilise quand l'utilisateur dit /lua-projet.
 ---
 
-# Python Projet
+# Lua Projet
 
-Session principale. L'agent génère 6 exercices progressifs sur **un seul concept**, comme un chapitre Codédex. Chaque exercice = un `main.py` où Noah code, un `tester.py` qui teste automatiquement, une page `instructions.html` avec l'explication du concept, les instructions et des indices pliables.
+Session principale. L'agent génère 6 exercices progressifs sur **un seul concept**, comme un chapitre Codédex. Chaque exercice = un `main.lua` où Noah code, un `tester.lua` qui teste automatiquement, une page `instructions.html` avec l'explication du concept, les instructions et des indices pliables.
 
 **Durée : ~1h30.**
 
@@ -47,17 +47,17 @@ Scanner les dossiers `YYYYMMDD/projet/` existants pour voir les concepts récent
 Si c'est la première session : commencer par **Fonctions**.
 
 **Pool de concepts (ordre recommandé) :**
-1. Fonctions — définir, appeler, paramètres, return, scope
-2. Listes avancées — trier, filtrer, accumuler, combiner avec des fonctions
-3. Chaînes de caractères — upper, lower, replace, split, f-strings
-4. Dictionnaires — lire/écrire des clés, boucler sur un dict
-5. Modules — random, math, datetime
-6. Boucles avancées — while, break, continue, enumerate
-7. Fonctions avancées — valeurs par défaut, return multiple, imbrication
-8. Gestion d'erreurs — try/except, raise
-9. Fichiers — open, read, write
+1. Fonctions — function, return, paramètres, scope local
+2. Tables (listes) — ipairs, insert, #, filtrer/accumuler
+3. Chaînes — string.upper/lower/gsub/sub/format
+4. Tables (dictionnaires) — clés string, pairs
+5. Modules std — math, os, string
+6. Boucles avancées — while, break, nested
+7. Fonctions avancées — valeurs par défaut (or), return multiple
+8. Gestion d'erreurs — pcall, error
+9. Fichiers — io.open, read, write
 
-**Niveau de Noah :** il maîtrise variables, conditions, boucles, fonctions de base et listes (append, index, boucle, len, in). Ces notions peuvent être utilisées librement dans n'importe quel exercice sans être "le concept du jour".
+**Niveau de Noah :** il maîtrise variables, conditions, boucles, fonctions de base et tables-listes (insert, index, boucle, #, ipairs). Ces notions peuvent être utilisées librement dans n'importe quel exercice sans être "le concept du jour".
 
 Ne pas proposer de choix — générer directement.
 
@@ -71,8 +71,8 @@ Créer `YYYYMMDD/projet/` avec 6 sous-dossiers :
 YYYYMMDD/
 └── projet/
     ├── 01_builtins/
-    │   ├── main.py
-    │   ├── tester.py
+    │   ├── main.lua
+    │   ├── tester.lua
     │   └── instructions.html
     ├── 02_definir_appeler/
     │   ├── ...
@@ -86,7 +86,7 @@ YYYYMMDD/
 | # | Rôle | Ce que Noah fait |
 |---|------|-----------------|
 | 01 | Découverte | Utilise le concept sans le créer (built-ins, méthodes existantes...) |
-| 02 | Premier pas | Crée la structure minimale (fonction sans params, liste vide...) |
+| 02 | Premier pas | Crée la structure minimale (fonction sans params, table vide...) |
 | 03 | Avec input | Ajoute des paramètres / entrées |
 | 04 | Avec output | Ajoute `return` / valeur de sortie réelle |
 | 05 | Combinaison | Deux éléments du concept qui interagissent |
@@ -96,75 +96,106 @@ YYYYMMDD/
 
 ### Étape 3 — Format de chaque fichier
 
-#### `main.py`
+#### `main.lua`
 
-```python
-# ============================================================
-# Exercice [N]/6 — [Titre]
-# ============================================================
-# 📁 Dossier      : cd /Users/noah/Desktop/Python/YYYYMMDD/projet/0N_[nom]
-# 📄 Instructions : open /Users/noah/Desktop/Python/YYYYMMDD/projet/0N_[nom]/instructions.html
-# 🧪 Tester       : python3 tester.py
-# ============================================================
+```lua
+-- ============================================================
+-- Exercice [N]/6 — [Titre]
+-- ============================================================
+-- 📁 Dossier      : cd /Users/noah/Desktop/Python/YYYYMMDD/projet/0N_[nom]
+-- 📄 Instructions : open /Users/noah/Desktop/Python/YYYYMMDD/projet/0N_[nom]/instructions.html
+-- 🧪 Tester       : lua tester.lua
+-- ============================================================
 ```
 
-**Règles strictes pour `main.py` :**
-- **Rien d'autre que le header.** Pas de `def`, pas de variables, pas de `pass`, pas de commentaires supplémentaires, pas d'exemples d'appel.
+**Règles strictes pour `main.lua` :**
+- **Rien d'autre que le header.** Pas de `function`, pas de variables, pas de commentaires supplémentaires, pas d'exemples d'appel.
 - Noah lit `instructions.html` pour savoir quoi écrire — il part d'une page blanche.
-- Le nom exact des fonctions et variables à créer est indiqué dans `instructions.html`, pas dans `main.py`.
+- Le nom exact des fonctions et variables à créer est indiqué dans `instructions.html`, pas dans `main.lua`.
 - Les chemins dans le header sont toujours absolus — jamais relatifs.
+- **Noah doit écrire ses fonctions en GLOBAL** : `function nom(...)` **sans** `local`. Le tester charge `main.lua` dans un environnement isolé ; seules les fonctions globales (non-`local`) y sont visibles. Documenter clairement dans `instructions.html` : « Écris `function nom(...)` sans le mot `local` devant. »
 
-#### `tester.py`
+#### `tester.lua`
 
-```python
-# ============================================================
-# Tester — [Titre]
-# ============================================================
-import sys
+Pattern exact à utiliser (fonctionne avec `lua tester.lua` depuis le dossier de l'exercice) :
 
-try:
-    from main import [nom_fonction_ou_variable]
-except ImportError as e:
-    print(f"❌ Erreur d'import : {e}")
-    print("   → Vérifie que tu as bien défini [ce qu'on attend] dans main.py")
-    sys.exit(1)
+```lua
+-- ============================================================
+-- Tester — [Titre]
+-- ============================================================
 
-_resultats = []
+local function load_main()
+  local env = setmetatable({}, { __index = _G })
+  local chunk, err = loadfile("main.lua", "t", env)
+  if not chunk then
+    print("❌ Erreur de chargement : " .. tostring(err))
+    print("   → Vérifie que main.lua existe et n'a pas d'erreur de syntaxe")
+    os.exit(1)
+  end
+  local ok, err2 = pcall(chunk)
+  if not ok then
+    print("❌ Erreur d'exécution dans main.lua : " .. tostring(err2))
+    os.exit(1)
+  end
+  return env
+end
 
-def _tester(description, obtenu, attendu):
-    if obtenu == attendu:
-        print(f"✅ {description}")
-        _resultats.append(True)
-    else:
-        print(f"❌ {description}")
-        print(f"   Attendu : {attendu!r}")
-        print(f"   Obtenu  : {obtenu!r}")
-        _resultats.append(False)
+local main = load_main()
 
-# ---- Tests ----
-_tester("[description en français]", [appel_fonction(args)], [valeur_attendue])
+-- Check expected function exists:
+if type(main.nom_fonction) ~= "function" then
+  print("❌ Erreur : la fonction nom_fonction n'est pas définie dans main.lua")
+  print("   → Vérifie que tu as bien écrit : function nom_fonction(...)")
+  os.exit(1)
+end
 
-# ---- Résultat ----
-_passes = sum(_resultats)
-_total = len(_resultats)
-print(f"\n{'─' * 40}")
-print(f"  {_passes}/{_total} tests passés")
-if _passes == _total:
-    print("  🎉 Parfait !")
-else:
-    print(f"  {_total - _passes} test(s) à corriger.")
-print('─' * 40)
+local _resultats = {}
+
+local function _tester(description, obtenu, attendu)
+  if obtenu == attendu then
+    print("✅ " .. description)
+    table.insert(_resultats, true)
+  else
+    print("❌ " .. description)
+    print("   Attendu : " .. tostring(attendu))
+    print("   Obtenu  : " .. tostring(obtenu))
+    table.insert(_resultats, false)
+  end
+end
+
+-- ---- Tests ----
+_tester("...", main.nom_fonction(args), expected)
+
+-- ---- Résultat ----
+local _passes = 0
+for _, r in ipairs(_resultats) do if r then _passes = _passes + 1 end end
+local _total = #_resultats
+print("\n" .. string.rep("─", 40))
+print(string.format("  %d/%d tests passés", _passes, _total))
+if _passes == _total then
+  print("  🎉 Parfait !")
+else
+  print(string.format("  %d test(s) à corriger.", _total - _passes))
+end
+print(string.rep("─", 40))
 ```
+
+**Pourquoi ce pattern :**
+- `loadfile("main.lua", "t", env)` charge le fichier dans un environnement `env` (Lua 5.2+ / LuaJIT avec `_ENV`).
+- Une fonction écrite `function soigner(vie, soin)` (sans `local`) devient `env.soigner` — le tester y accède via `main.soigner`.
+- Si Noah écrit `local function soigner(...)`, le tester ne la trouve **pas**. D'où l'obligation d'écrire des fonctions globales.
 
 **Règles pour les tests :**
-- 3 à 5 tests par exercice — cas normaux ET cas limites (0, valeur max, string vide...).
-- Ne jamais tester des fonctions qui utilisent `input()` — uniquement les fonctions pures.
-- Si l'exercice 01 est exploratoire (pas de fonction à tester) : tester des variables assignées dans `main.py`.
+- 3 à 5 tests par exercice — cas normaux ET cas limites (0, valeur max, chaîne vide...).
+- Ne jamais tester des fonctions qui utilisent `io.read()` — uniquement les fonctions pures.
+- Si l'exercice 01 est exploratoire (pas de fonction à tester) : tester des variables assignées dans `main.lua` (aussi sans `local` : `vie = 100` pas `local vie = 100`).
 - Les messages de test sont en français et décrivent ce qu'on attend : `"soigner(60, 20) → 80"` pas `"Test 1"`.
+- Pour comparer des tables, écrire un helper d'égalité (boucle sur les clés) ou tester des valeurs scalaires extraites — `==` ne compare pas le contenu des tables en Lua.
+- Remplacer `nom_fonction` / `args` / `expected` par les vrais noms et valeurs pour chaque exercice. Dupliquer le bloc `if type(main....) ~= "function"` pour chaque fonction attendue.
 
 #### `instructions.html`
 
-Style : fond blanc (#ffffff), police Lora (Google Fonts), coloration syntaxique Python via highlight.js thème github. Les blocs de résultat terminal ont un fond sombre pour les distinguer visuellement du code Python.
+Style : fond blanc (#ffffff), police Lora (Google Fonts), coloration syntaxique Lua via highlight.js thème github. Les blocs de résultat terminal ont un fond sombre pour les distinguer visuellement du code Lua.
 
 ```html
 <!DOCTYPE html>
@@ -240,7 +271,7 @@ Style : fond blanc (#ffffff), police Lora (Google Fonts), coloration syntaxique 
       color: #1a1a1a;
     }
 
-    /* ── Code blocks (Python) — highlight.js thème github ── */
+    /* ── Code blocks (Lua) — highlight.js thème github ── */
     pre {
       background: #f7f7f5;
       border: 1px solid #e8e7e2;
@@ -362,13 +393,17 @@ Style : fond blanc (#ffffff), police Lora (Google Fonts), coloration syntaxique 
   <section>
     <h2>Le concept</h2>
     <p>[Explication claire du concept — 3 à 5 phrases. Explique le pourquoi avant le comment. Pas condescendant, pas scolaire.]</p>
-    <pre><code class="language-python">[Exemple de code Python minimal illustrant le concept]</code></pre>
+    <pre><code class="language-lua">[Exemple de code Lua minimal illustrant le concept]</code></pre>
     <p>[Suite ou complément si nécessaire.]</p>
   </section>
 
   <section>
     <h2>Instructions</h2>
     <p>[Contexte narratif — 1 à 2 phrases pour planter le décor du thème (jeu vidéo ou monde réel).]</p>
+
+    <div class="warn">
+      Écris tes fonctions avec <code>function nom(...)</code> — <strong>sans</strong> le mot <code>local</code> devant. Sinon le testeur ne les trouve pas.
+    </div>
 
     <!-- Pour chaque fonction à écrire, utiliser ce bloc : -->
     <h3>La fonction <code>[nom_fonction]</code></h3>
@@ -377,11 +412,11 @@ Style : fond blanc (#ffffff), police Lora (Google Fonts), coloration syntaxique 
     <p>La fonction doit [expliquer ce qu'elle calcule ou fait, en langage naturel, sans code]. Elle doit retourner [description complète de ce qu'elle retourne].</p>
     <p>Attention : [décrire le ou les cas particuliers en phrases complètes, sans raccourcis].</p>
     <p>Voici des exemples pour vérifier que ta logique est correcte :</p>
-    <pre><code class="language-python">[nom_fonction]([val1], [val2])   # → [résultat]
-[nom_fonction]([val3], [val4])   # → [résultat]  (cas limite)</code></pre>
+    <pre><code class="language-lua">[nom_fonction]([val1], [val2])   -- → [résultat]
+[nom_fonction]([val3], [val4])   -- → [résultat]  (cas limite)</code></pre>
 
     <!-- Résultat terminal attendu — utiliser pre.terminal pour le fond sombre -->
-    <p>Quand tu lances <code>python3 tester.py</code>, tu dois voir :</p>
+    <p>Quand tu lances <code>lua tester.lua</code>, tu dois voir :</p>
     <pre class="terminal"><code>[sortie exacte du terminal]</code></pre>
   </section>
 
@@ -400,8 +435,8 @@ Style : fond blanc (#ffffff), police Lora (Google Fonts), coloration syntaxique 
       </div>
       <div class="cmd-line">
         <span class="label">🧪 Tester</span>
-        <code>python3 tester.py</code>
-        <button class="copy-btn" onclick="copier(this, 'python3 tester.py')">⎘ copier</button>
+        <code>lua tester.lua</code>
+        <button class="copy-btn" onclick="copier(this, 'lua tester.lua')">⎘ copier</button>
       </div>
     </div>
   </section>
@@ -412,7 +447,7 @@ Style : fond blanc (#ffffff), police Lora (Google Fonts), coloration syntaxique 
     <details>
       <summary>💡 Indice 1 — [titre en une phrase courte]</summary>
       <div class="hint-content">
-        <p>[Premier indice — oriente vers le bon outil Python ou la bonne façon de penser le problème. Pas de code complet.]</p>
+        <p>[Premier indice — oriente vers le bon outil Lua ou la bonne façon de penser le problème. Pas de code complet.]</p>
       </div>
     </details>
 
@@ -420,7 +455,7 @@ Style : fond blanc (#ffffff), police Lora (Google Fonts), coloration syntaxique 
       <summary>💡 Indice 2 — [titre plus précis]</summary>
       <div class="hint-content">
         <p>[Deuxième indice plus précis — peut montrer la structure sans donner la solution complète.]</p>
-        <pre><code class="language-python">[Structure partielle ou pseudo-code si vraiment nécessaire]</code></pre>
+        <pre><code class="language-lua">[Structure partielle ou pseudo-code si vraiment nécessaire]</code></pre>
       </div>
     </details>
 
@@ -454,34 +489,34 @@ Pour chaque exercice, dans l'ordre, copie-colle ces commandes :
   Exercice 01 :
     cd /Users/noah/Desktop/Python/YYYYMMDD/projet/01_[nom]
     open instructions.html
-    python3 tester.py
+    lua tester.lua
 
   Exercice 02 :
     cd /Users/noah/Desktop/Python/YYYYMMDD/projet/02_[nom]
     open instructions.html
-    python3 tester.py
+    lua tester.lua
 
   Exercice 03 :
     cd /Users/noah/Desktop/Python/YYYYMMDD/projet/03_[nom]
     open instructions.html
-    python3 tester.py
+    lua tester.lua
 
   Exercice 04 :
     cd /Users/noah/Desktop/Python/YYYYMMDD/projet/04_[nom]
     open instructions.html
-    python3 tester.py
+    lua tester.lua
 
   Exercice 05 :
     cd /Users/noah/Desktop/Python/YYYYMMDD/projet/05_[nom]
     open instructions.html
-    python3 tester.py
+    lua tester.lua
 
   Exercice 06 :
     cd /Users/noah/Desktop/Python/YYYYMMDD/projet/06_[nom]
     open instructions.html
-    python3 tester.py
+    lua tester.lua
 
-Lis les instructions d'abord, code dans main.py, puis teste.
+Lis les instructions d'abord, code dans main.lua, puis teste.
 Passe à l'exercice suivant quand tous les tests sont verts.
 
 Dis-moi quand t'as fini ou si tu bloques depuis plus de 15 min.
@@ -493,7 +528,7 @@ Demander jusqu'à quel exercice il est allé et si tous les tests sont passés.
 
 Feedback ciblé (8 à 10 lignes max) :
 - Quel exercice a demandé le plus de réflexion et pourquoi
-- Le concept ou l'outil Python utilisé pour la première fois
+- Le concept ou l'outil Lua utilisé pour la première fois
 - Ce qu'il faut retenir avant la prochaine session
 - 1 chose à creuser si un exercice n'a pas été fini
 
@@ -505,13 +540,15 @@ Ensuite, silencieusement :
 
 ## Règles générales
 
-**Niveau :** Noah maîtrise variables, conditions, boucles, fonctions de base et listes (append, index, boucle, len, in, sort). Les exercices peuvent utiliser toutes ces notions librement — le concept du jour est ce qu'on *approfondit*, pas la seule chose qu'on utilise.
+**Niveau :** Noah maîtrise variables, conditions, boucles, fonctions de base et tables-listes (`table.insert`, index, boucle, `#`, `ipairs`). Les exercices peuvent utiliser toutes ces notions librement — le concept du jour est ce qu'on *approfondit*, pas la seule chose qu'on utilise.
 
 **Langue :** instructions, commentaires et textes en français — noms de variables et fonctions en anglais.
 
-**Interdits :** classes, décorateurs, générateurs, async/await, compréhensions de liste (sauf si c'est le concept du jour).
+**Interdits :** métatables avancées (sauf si c'est le concept du jour), coroutines, `setfenv` / `_ENV` manuel, OOP avec métatables, modules custom (`require` d'un fichier perso hors stdlib).
 
 **Style des exercices :** concrets, contextualisés, variés. Pas de "calcule 2 + 2". Un exercice doit avoir un vrai contexte narratif qui donne envie de le résoudre.
+
+**Rappel critique fonctions globales :** dans chaque `instructions.html`, rappeler (via le callout `.warn` du template) que Noah doit écrire `function nom(...)` **sans** `local`. Idem pour les variables testées dans l'exo 01 exploratoire.
 
 ---
 
@@ -531,9 +568,10 @@ Toujours écrire des phrases complètes avec sujet, verbe, complément. Jamais d
 
 ### Vocabulaire adapté à un débutant de 16 ans
 
-- Dire **"nombre"** — jamais "entier", jamais "int"
-- Dire **"texte"** ou **"chaîne de caractères"** — jamais "string"
-- Dire **"vrai ou faux"** — jamais "booléen" ou "bool"
+- Dire **"nombre"** — jamais "entier", jamais "number" comme type
+- Dire **"texte"** ou **"chaîne de caractères"** — jamais "string" comme type (le module `string` peut être nommé tel quel)
+- Dire **"vrai ou faux"** — jamais "booléen" ou "boolean"
+- Dire **"table"** pour les listes et dictionnaires Lua — expliquer en contexte si c'est une liste (indices 1, 2, 3…) ou un dictionnaire (clés nommées)
 - Expliquer les plages de valeurs en mots : "entre zéro et cent" — jamais "0 ≤ x ≤ 100"
 - Expliquer les cas limites avec un exemple concret : "par exemple, si le joueur mange 50 points de nourriture alors qu'il n'a que 10 points de faim, le résultat ne peut pas être négatif, donc la fonction doit retourner zéro"
 

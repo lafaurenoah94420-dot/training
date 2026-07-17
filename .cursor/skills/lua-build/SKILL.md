@@ -1,15 +1,15 @@
 ---
-name: python-build
-description: Génère un mini-projet Python avec un scaffold à compléter. main.py est déjà écrit, le learner implémente les fonctions dans project.py jusqu'à ce que le programme tourne. ~1h. Utilise quand l'utilisateur dit /python-build.
+name: lua-build
+description: Génère un mini-projet Lua avec un scaffold à compléter. main.lua est déjà écrit, le learner implémente les fonctions dans project.lua jusqu'à ce que le programme tourne. ~1h. Utilise quand l'utilisateur dit /lua-build.
 ---
 
-# Python Build
+# Lua Build
 
-Session de construction. L'agent génère un mini-programme avec un `main.py` déjà écrit et un `project.py` avec des fonctions à implémenter. Le learner complète les fonctions jusqu'à ce que `python3 main.py` fasse quelque chose de cool.
+Session de construction. L'agent génère un mini-programme avec un `main.lua` déjà écrit et un `project.lua` avec des fonctions à implémenter. Le learner complète les fonctions jusqu'à ce que `lua main.lua` fasse quelque chose de cool.
 
 Les projets viennent de l'univers de jeux comme Project Zomboid, The Last of Us, Resident Evil, GTA, Hearts of Iron 4. Le learner ne construit pas une "calculatrice scolaire" — il construit le système d'inventaire de Joel, le simulateur de propagation d'infection de Zomboid, le calculateur de production militaire de HOI4.
 
-**Le `main.py` ne se touche pas.** Il montre ce que le programme est censé faire — les fonctions appelées, les données attendues, le résultat affiché. Le learner lit `main.py` pour comprendre, puis implémente dans `project.py`.
+**Le `main.lua` ne se touche pas.** Il montre ce que le programme est censé faire — les fonctions appelées, les données attendues, le résultat affiché. Le learner lit `main.lua` pour comprendre, puis implémente dans `project.lua`.
 
 **Durée : ~1h.** C'est la session principale de la semaine. Générer **5 fonctions** à implémenter, indépendantes les unes des autres. Pas de fonctions qui s'appuient sur les précédentes — chacune fait une chose, seule.
 
@@ -32,7 +32,7 @@ Tout ce qui suit se fait en arrière-plan, sans jamais en parler à Noah.
 ```
 ## Build
 projet : [nom du projet]
-notions utilisées : [liste des notions Python mobilisées]
+notions utilisées : [liste des notions Lua mobilisées]
 difficultés : [ce qui a demandé le plus d'efforts — une ligne]
 notes : [ce qui était solide vs ce qui reste fragile]
 ```
@@ -47,7 +47,7 @@ notes : [ce qui était solide vs ce qui reste fragile]
 
 Lire `YYYYMMDD/exos/` pour identifier les notions travaillées aujourd'hui. Le build doit utiliser **les mêmes notions** que les exos du jour — c'est le renforcement immédiat qui ancre vraiment l'apprentissage.
 
-Exemple : si les exos du jour couvrent `for` sur une liste et `if` dans une boucle → au moins une ou deux fonctions du build doivent utiliser ces notions dans un contexte différent.
+Exemple : si les exos du jour couvrent `for` sur une table et `if` dans une boucle → au moins une ou deux fonctions du build doivent utiliser ces notions dans un contexte différent.
 
 Ensuite, proposer exactement 3 projets distincts et attendre le choix.
 
@@ -80,114 +80,133 @@ Créer `YYYYMMDD/build/` avec :
 ```
 YYYYMMDD/
 └── build/
-    ├── main.py       # programme principal — déjà écrit, ne pas modifier
-    └── project.py    # fonctions à implémenter
+    ├── main.lua       # programme principal — déjà écrit, ne pas modifier
+    └── project.lua    # fonctions à implémenter
 ```
 
-Les instructions sont dans l'en-tête de `main.py`.
+Les instructions sont dans l'en-tête de `main.lua`.
 
 ---
 
 ### Règles de conception
 
-**`main.py` :**
+**`main.lua` :**
 - Déjà complet et lisible — ne doit jamais être modifié par le learner
 - Commence par un en-tête commenté :
   - 2-3 phrases sur ce que fait le programme
-  - Ce que le learner doit faire (ouvrir project.py, implémenter dans l'ordre, lancer)
-  - Les critères de réussite (tourne jusqu'au ✅, exemples `=>` respectés, plus de NotImplementedError)
-  - La ligne `# NE PAS MODIFIER CE FICHIER.`
-- Après l'en-tête : `from project import fonction1, fonction2, ...`
+  - Ce que le learner doit faire (ouvrir project.lua, implémenter dans l'ordre, lancer)
+  - Les critères de réussite (tourne jusqu'au ✅, exemples `=>` respectés, plus de `error("not implemented")`)
+  - La ligne `-- NE PAS MODIFIER CE FICHIER.`
+- Après l'en-tête : `local project = require("project")` puis appels `project.fonction1(...)`, `project.fonction2(...)`, etc.
 - Doit être court (30-40 lignes en tout) — lisible en 2 minutes
-- Si `main.py` est lancé avec toutes les fonctions non implémentées → crash propre sur `NotImplementedError`
+- Si `main.lua` est lancé avec toutes les fonctions non implémentées → crash propre sur `error("not implemented")`
 - Textes affichés en français, noms de variables en anglais
 
-**Structure de l'en-tête de `main.py` :**
+**Structure de l'en-tête de `main.lua` :**
 
-```python
-# ============================================================
-# [Jeu] — [titre du projet]
-# ============================================================
-# [2-3 phrases sur ce que fait le programme une fois terminé.]
-#
-# Ce que tu dois faire :
-# → Ouvre project.py et implémente les 5 fonctions dans l'ordre
-# → Lance python3 main.py après chaque fonction pour voir si ça avance
-#
-# Critères de réussite :
-# → python3 main.py tourne jusqu'au ✅ sans erreur
-# → Chaque fonction produit les résultats montrés dans les exemples =>
-# → Aucun raise NotImplementedError ne reste dans project.py
-# ============================================================
-# NE PAS MODIFIER CE FICHIER.
-# ============================================================
+```lua
+-- ============================================================
+-- [Jeu] — [titre du projet]
+-- ============================================================
+-- [2-3 phrases sur ce que fait le programme une fois terminé.]
+--
+-- Ce que tu dois faire :
+-- → Ouvre project.lua et implémente les 5 fonctions dans l'ordre
+-- → Lance lua main.lua après chaque fonction pour voir si ça avance
+--
+-- Critères de réussite :
+-- → lua main.lua tourne jusqu'au ✅ sans erreur
+-- → Chaque fonction produit les résultats montrés dans les exemples =>
+-- → Aucun error("not implemented") ne reste dans project.lua
+-- ============================================================
+-- NE PAS MODIFIER CE FICHIER.
+-- ============================================================
 ```
 
-**`project.py` :**
+**Pattern d'import dans `main.lua` :**
 
-**Le learner est un vrai débutant.** Les fonctions doivent être implémentables avec les bases absolues du Python. Chaque fonction est courte (3-6 lignes d'implémentation), indépendante, et fait une seule chose.
+```lua
+local project = require("project")
+
+-- ensuite appeler les fonctions :
+local result = project.nom_fonction(valeur1, valeur2)
+print(result)
+```
+
+**`project.lua` :**
+
+**Le learner est un vrai débutant.** Les fonctions doivent être implémentables avec les bases absolues du Lua. Chaque fonction est courte (3-6 lignes d'implémentation), indépendante, et fait une seule chose.
 
 **Concepts autorisés dans les fonctions :**
-- Variables et assignation
-- `if / elif / else`
-- Boucle `for` sur une liste simple ou `range()`
+- Variables locales (`local`) et assignation
+- `if / elseif / else`
+- Boucle `for` numérique (`for i = 1, n do`) ou `ipairs` sur une table-liste simple
 - `print()`, `return`
-- `int()`, `str()`, `float()` pour convertir
-- Opérations mathématiques simples (`+`, `-`, `*`, `/`, `//`, `%`)
-- Accès à une liste par index (`liste[0]`)
-- `append()` sur une liste
-- `random.randint()` ou `random.choice()` si pertinent
+- `tonumber()`, `tostring()` pour convertir
+- Opérations mathématiques simples (`+`, `-`, `*`, `/`, `%`, `//` si Lua 5.3+)
+- Accès à une table par index (`liste[1]` — **rappel : Lua indexe à partir de 1**)
+- Ajouter un élément en fin de table-liste (`liste[#liste + 1] = valeur`)
+- Tables simples clé → valeur (string/number) pour de la lecture seule, si pertinent
+- `math.random()` ou `math.floor()` / `math.max()` / `math.min()` si pertinent
 
 **Concepts interdits dans ce skill :**
-- Dicts (sauf clé → valeur string/int simple et seulement si la fonction est UNIQUEMENT de la lecture)
-- Tuples comme structures de données
-- Fonctions qui appellent d'autres fonctions dans leur corps
-- List comprehensions
-- `sorted()`, `sum()`, `zip()`, `enumerate()`
-- Classes
-- `*args`, `**kwargs`
+- Métatables (`setmetatable`, `__index`, etc.)
+- OOP / classes / prototypes
+- Coroutines
+- Tables utilisées comme structures complexes (imbrications profondes, tables de tables de tables)
+- Fonctions qui appellent d'autres fonctions du module dans leur corps
+- Closures avancées / upvalues manipulées volontairement
+- `pcall` / `xpcall` pour contourner les erreurs
+- Modules multiples au-delà de `project.lua`
 
 Structure type :
-```python
-# ============================================================
-# [Titre du projet]
-# ============================================================
-# Implémente les 5 fonctions ci-dessous pour que main.py fonctionne.
-# Lance : python3 main.py
-# Implémente-les dans l'ordre — commence par TODO 1.
-# ============================================================
+```lua
+-- ============================================================
+-- [Titre du projet]
+-- ============================================================
+-- Implémente les 5 fonctions ci-dessous pour que main.lua fonctionne.
+-- Lance : lua main.lua
+-- Implémente-les dans l'ordre — commence par TODO 1.
+-- ============================================================
+
+local M = {}
 
 
-# ------------------------------------------------------------
-# TODO 1 — [titre court et impératif — ex: "Manger fait baisser la faim"]
-# ------------------------------------------------------------
-# [2-3 phrases narratives : contexte concret dans l'univers du jeu,
-#  enjeu de la fonction, ce qui se passe au cas limite.]
-#
-#   parametre1  : [ce que c'est en une ligne — ex: "la faim actuelle (0 à 100)"]
-#   parametre2  : [ce que c'est en une ligne]
-#
-# nom_fonction(valeur1, valeur2)   =>  résultat_normal
-# nom_fonction(valeur_limite, x)   =>  résultat_limite   (explication du cas)
-#
-# Indice : [nom exact de l'outil Python — ex: max(0, ...) / min(100, ...) / if / return]
-# ------------------------------------------------------------
-def nom_fonction(parametre1, parametre2):
-    raise NotImplementedError  # supprime cette ligne et écris ton code ici
+-- ------------------------------------------------------------
+-- TODO 1 — [titre court et impératif — ex: "Manger fait baisser la faim"]
+-- ------------------------------------------------------------
+-- [2-3 phrases narratives : contexte concret dans l'univers du jeu,
+--  enjeu de la fonction, ce qui se passe au cas limite.]
+--
+--   parametre1  : [ce que c'est en une ligne — ex: "la faim actuelle (0 à 100)"]
+--   parametre2  : [ce que c'est en une ligne]
+--
+-- nom_fonction(valeur1, valeur2)   =>  résultat_normal
+-- nom_fonction(valeur_limite, x)   =>  résultat_limite   (explication du cas)
+--
+-- Indice : [nom exact de l'outil Lua — ex: math.max(0, ...) / math.min(100, ...) / if / return]
+-- ------------------------------------------------------------
+function M.nom_fonction(parametre1, parametre2)
+  error("not implemented")  -- supprime cette ligne et écris ton code ici
+end
 
 
-# [répéter pour TODO 2, TODO 3, TODO 4 et TODO 5]
+-- [répéter pour TODO 2, TODO 3, TODO 4 et TODO 5]
+
+
+return M
 ```
 
 **Règles pour les blocs TODO :**
 - **Narrative d'abord** — 2-3 phrases qui posent le contexte et l'enjeu avant tout
 - **Chaque paramètre expliqué** — une ligne par argument, alignées avec les espaces, entre la narrative et les exemples
-- **Deux exemples avec `=>`** — le cas normal + le cas limite (valeur à 0, plafond à 100, liste vide, etc.)
+- **Deux exemples avec `=>`** — le cas normal + le cas limite (valeur à 0, plafond à 100, table vide, etc.)
 - **Jamais les labels `Entrée :` / `Sortie :`** — utiliser la syntaxe d'appel directe avec `=>`
 - L'indice donne le nom exact de l'outil sans donner l'implémentation
-- Chaque fonction commence obligatoirement par `raise NotImplementedError`
+- Chaque fonction commence obligatoirement par `error("not implemented")`
 - La première fonction doit être implémentable en 5-10 minutes
 - **Noms de variables et fonctions en anglais** — seuls les commentaires et exemples sont en français
+- **Indexation à 1** — si une fonction travaille sur une table-liste, les exemples et indices rappellent que le premier élément est à l'index `1`
 
 **Règles pour la progression dans la session :**
 - TODO 1 : trivial — 2-3 lignes, aucun doute sur l'outil à utiliser
@@ -209,12 +228,12 @@ Colle ça dans ton terminal :
 
   cd /Users/noah/Desktop/Python/YYYYMMDD/build
 
-Lis main.py en entier d'abord — il te montre ce que tu dois construire.
-Ensuite implémente les fonctions dans project.py une par une.
+Lis main.lua en entier d'abord — il te montre ce que tu dois construire.
+Ensuite implémente les fonctions dans project.lua une par une.
 
 Pour lancer le programme :
 
-  python3 main.py
+  lua main.lua
 
 ✅  Objectif : le programme tourne de bout en bout.
 Dis-moi quand tu as fini ou si tu es bloqué depuis plus de 15 min.
@@ -222,12 +241,12 @@ Dis-moi quand tu as fini ou si tu es bloqué depuis plus de 15 min.
 
 ### Étape 3 — Débrief (quand l'utilisateur a fini)
 
-Demander de coller la sortie de `python3 main.py`.
+Demander de coller la sortie de `lua main.lua`.
 
 Feedback ciblé (8-10 lignes max) :
 - Quelles fonctions ont été implémentées sans hésiter
 - Laquelle a demandé le plus de temps et pourquoi
-- Le ou les outils Python utilisés pour la première fois
+- Le ou les outils Lua utilisés pour la première fois
 - 1 chose concrète à retenir pour la prochaine session build
 
 Ensuite, silencieusement :
@@ -251,7 +270,7 @@ Fonction 2 : augmenter la faim avec le temps (faim + fatigue_par_heure × heures
 Fonction 3 : retourner le message d'état selon le niveau de faim (critique / faible / ok).
 
 **Resident Evil — Gestion d'herbes**
-Fonction 1 : vérifier si le joueur a assez d'herbes pour se soigner (True/False).
+Fonction 1 : vérifier si le joueur a assez d'herbes pour se soigner (`true` / `false`).
 Fonction 2 : appliquer le soin (vie + soin, max vie_max).
 Fonction 3 : afficher le message de soin selon les points récupérés.
 
@@ -262,5 +281,5 @@ Fonction 3 : retourner le message de statut selon le niveau de wanted (tranquill
 
 **Hearts of Iron 4 — Production d'équipement**
 Fonction 1 : calculer les équipements produits (usines × production_par_usine).
-Fonction 2 : vérifier si la production suffit pour équiper une division (True/False).
+Fonction 2 : vérifier si la production suffit pour équiper une division (`true` / `false`).
 Fonction 3 : calculer le nombre de jours pour atteindre un objectif de production.

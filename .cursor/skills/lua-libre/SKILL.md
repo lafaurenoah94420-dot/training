@@ -1,9 +1,9 @@
 ---
-name: python-libre
-description: Créneau libre. Génère 5 idées de mini-programmes autour de Nahla (le chat), Malik et Kays (les frères). Le learner choisit, code from scratch sans scaffold. L'agent donne des indices si besoin, jamais du code. Utilise quand l'utilisateur dit /python-libre.
+name: lua-libre
+description: Créneau libre. Génère 5 idées de mini-programmes autour de Nahla (le chat), Malik et Kays (les frères). Le learner choisit, code from scratch sans scaffold. L'agent donne des indices si besoin, jamais du code. Utilise quand l'utilisateur dit /lua-libre.
 ---
 
-# Python Libre
+# Lua Libre
 
 Créneau libre. Pas de scaffold, pas de fonctions pré-écrites, pas de stubs. Le learner choisit une idée, part d'un fichier vide, et code ce qu'il veut.
 
@@ -17,7 +17,7 @@ Les idées tournent autour de ce qui l'amuse vraiment : **Nahla** (son chat, une
 
 Tout ce qui suit se fait en arrière-plan, sans jamais en parler à Noah.
 
-**Structure du jour :** le fichier va dans `YYYYMMDD/libre/main.py` à la racine du repo (`/Users/noah/Desktop/Python/YYYYMMDD/libre/main.py`).
+**Structure du jour :** le fichier va dans `YYYYMMDD/libre/main.lua` à la racine du repo (`/Users/noah/Desktop/Python/YYYYMMDD/libre/main.lua`).
 
 **Avant de générer :**
 1. `cd /Users/noah/Desktop/Python && git pull origin main` (silencieux, continuer si échec)
@@ -33,7 +33,7 @@ Tout ce qui suit se fait en arrière-plan, sans jamais en parler à Noah.
 ```
 ## Libre
 sujet : [titre du programme]
-notions utilisées : [liste des notions Python mobilisées]
+notions utilisées : [liste des notions Lua mobilisées]
 features : [features ajoutées après le premier jet, ou "—"]
 notes : [ce qui a marché, ce qui a bloqué — une ligne]
 
@@ -82,14 +82,14 @@ Attends le choix avant de faire quoi que ce soit.
 
 ### Étape 1 — Créer le fichier vide
 
-Créer `YYYYMMDD/libre/main.py` avec uniquement l'en-tête :
+Créer `YYYYMMDD/libre/main.lua` avec uniquement l'en-tête :
 
-```python
-# ============================================================
-# [Titre du programme]
-# ============================================================
-# [L'exemple d'exécution exact — ce à quoi doit ressembler le programme]
-# ============================================================
+```lua
+-- ============================================================
+-- [Titre du programme]
+-- ============================================================
+-- [L'exemple d'exécution exact — ce à quoi doit ressembler le programme]
+-- ============================================================
 ```
 
 Rien d'autre. Pas de variables, pas de fonctions, pas de commentaires supplémentaires. Le learner part de là.
@@ -99,7 +99,7 @@ Rien d'autre. Pas de variables, pas de fonctions, pas de commentaires supplémen
 Après avoir créé le fichier, afficher **uniquement** :
 - La commande `cd` à coller
 - La commande pour lancer
-- **Un point de départ concret** — une seule phrase qui dit par quoi commencer (la toute première chose à écrire, pas une liste, pas un plan). Doit être formulé comme une action immédiate : "commence par demander l'heure avec `input()`", "première chose : crée une variable `score` à 0 et affiche-la", etc. Calibré pour que le learner sache exactement quoi taper sans se poser de question.
+- **Un point de départ concret** — une seule phrase qui dit par quoi commencer (la toute première chose à écrire, pas une liste, pas un plan). Doit être formulé comme une action immédiate : "commence par demander l'heure avec `io.read()`", "première chose : crée une variable `score` à 0 et affiche-la avec `print`", etc. Calibré pour que le learner sache exactement quoi taper sans se poser de question.
 
 Format :
 
@@ -110,9 +110,9 @@ Colle ça dans ton terminal :
 
 Pour lancer :
 
-  python3 main.py
+  lua main.lua
 
-Pour commencer : [une seule action concrète à faire en premier — outil Python précis ou variable à créer].
+Pour commencer : [une seule action concrète à faire en premier — outil Lua précis ou variable à créer].
 ```
 
 Ne pas dire "le fichier t'attend", "pars de zéro", ni rappeler les règles d'aide — juste la commande et le premier pas.
@@ -120,10 +120,10 @@ Ne pas dire "le fichier t'attend", "pars de zéro", ni rappeler les règles d'ai
 ### Pendant la session — Règle de l'agent
 
 Si le learner demande de l'aide :
-- **Donner le nom de l'outil Python** à utiliser, jamais l'implémentation
+- **Donner le nom de l'outil Lua** à utiliser, jamais l'implémentation (`io.read()`, `tonumber()`, `ipairs`, `math.random`, `string.format`, etc.)
 - **Poser une question** plutôt que donner une réponse : "t'as besoin de quoi pour comparer deux valeurs ?"
-- Si bloqué depuis plus de 15 min sur le même point → donner un exemple minimal non lié au projet (ex: montrer comment `random.choice()` fonctionne avec une liste générique)
-- **Jamais écrire du code directement dans main.py**
+- Si bloqué depuis plus de 15 min sur le même point → donner un exemple minimal non lié au projet (ex: montrer comment `math.random(1, #liste)` fonctionne avec une table générique)
+- **Jamais écrire du code directement dans main.lua**
 
 ### Étape 3 — Premier jet terminé (quand le learner dit qu'il a fini)
 
@@ -143,10 +143,10 @@ C — [feature concrète en une ligne]
 ```
 
 **Règles pour choisir les 3 features :**
-- Chaque feature utilise une notion Python précise — de préférence une notion vue dans les exos du jour (lire `## Exos` dans `YYYYMMDD/recap.md`) ou légèrement au-dessus de ce que le learner a déjà fait
+- Chaque feature utilise une notion Lua précise — de préférence une notion vue dans les exos du jour (lire `## Exos` dans `YYYYMMDD/recap.md`) ou légèrement au-dessus de ce que le learner a déjà fait
 - Les 3 options ont des difficultés différentes : A facile, B moyen, C plus ambitieux
 - Les features doivent enrichir le programme existant, pas le réécrire
-- Exemples de features selon le niveau : ajouter une boucle `while` pour rejouer, utiliser `random.choice()` pour varier les textes, compter les interactions avec un accumulateur, ajouter des tranches supplémentaires avec `elif`, formater l'affichage avec une f-string, lire une liste et parcourir avec `for`
+- Exemples de features selon le niveau : ajouter une boucle `while` pour rejouer, utiliser `math.random` pour varier les textes, compter les interactions avec un accumulateur, ajouter des tranches supplémentaires avec `elseif`, formater l'affichage avec `string.format`, lire une table et parcourir avec `ipairs` / `pairs`
 
 Attendre le choix (A, B ou C), puis guider comme pendant la session (indices, jamais le code).
 

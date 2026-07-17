@@ -1,4 +1,4 @@
-# Programme de formation Python
+# Programme de formation Lua
 
 ## Règles générales
 
@@ -14,8 +14,8 @@
 
 > 5 petits exercices indépendants, un par fichier, difficulté croissante. Tu t'arrêtes où tu bloques.
 
-1. Lance `/python-exos` — l'agent génère 5 fichiers directement
-2. Lance `python 01_[notion].py`, corrige jusqu'à voir `✅ Correct !`
+1. Lance `/lua-exos` — l'agent génère 5 fichiers directement
+2. Lance `lua 01_[notion].lua`, corrige jusqu'à voir `✅ Correct !`
 3. Passe au fichier suivant
 4. Arrête-toi quand tu bloques — c'est normal de pas finir les 5
 
@@ -28,10 +28,10 @@
 
 ### Partie 2 — Projet (~1h30)
 
-> 6 exercices progressifs sur un seul concept Python, style Codédex. Chaque exercice a ses instructions, ses tests automatiques et une page HTML.
+> 6 exercices progressifs sur un seul concept Lua, style Codédex. Chaque exercice a ses instructions, ses tests automatiques et une page HTML.
 
-1. Lance `/python-projet` — l'agent génère 6 exercices sur le concept du jour
-2. Pour chaque exercice : lis `instructions.html`, code dans `main.py`, lance `tester.py`
+1. Lance `/lua-projet` — l'agent génère 6 exercices sur le concept du jour
+2. Pour chaque exercice : lis `instructions.html`, code dans `main.lua`, lance `tester.lua`
 3. Passe à l'exercice suivant quand tous les tests sont verts
 4. Dis-moi quand tu as fini ou si tu bloques depuis plus de 15 min
 
@@ -46,7 +46,7 @@
 
 > Tu codes ce que tu veux autour de Nahla, Malik et Kays. From scratch, pas de scaffold.
 
-1. Lance `/python-libre` — l'agent propose 3 idées, tu choisis
+1. Lance `/lua-libre` — l'agent propose 3 idées, tu choisis
 2. Tu pars d'un fichier vide et tu codes
 3. Tu peux demander de l'aide — tu auras des indices, pas du code
 4. Le programme doit tourner à la fin
@@ -62,7 +62,7 @@
 
 > Tu ne codes pas. Tu diriges une IA pour construire quelque chose d'ambitieux et d'impressionnant.
 
-1. Lance `/python-vibe` — l'agent choisit le projet et toutes les specs techniques
+1. Lance `/lua-vibe` — l'agent choisit le projet et toutes les specs techniques
 2. Tu lis le briefing et le premier prompt de départ
 3. Tu colles le prompt dans Cursor (ou l'IA de ton choix) et tu construis
 4. Tu pousses aussi loin que tu veux — l'agent est là uniquement si tu bloques sur comment formuler une demande
@@ -76,13 +76,13 @@
 
 ## Récap hebdomadaire
 
-| Jour     | Partie 1          | Partie 2             | Partie 3          | Partie 4         | Total  |
-| -------- | ----------------- | -------------------- | ----------------- | ---------------- | ------ |
-| Mardi    | `/python-exos`    | `/python-projet`     | `/python-libre`   | `/python-vibe`   | ~4h30  |
-| Mercredi | `/python-exos`    | `/python-projet`     | `/python-libre`   | `/python-vibe`   | ~4h30  |
-| Jeudi    | `/python-exos`    | `/python-projet`     | `/python-libre`   | `/python-vibe`   | ~4h30  |
-| Vendredi | `/python-exos`    | `/python-projet`     | `/python-libre`   | `/python-vibe`   | ~4h30  |
-| Samedi   | `/python-exos`    | `/python-projet`     | `/python-libre`   | `/python-vibe`   | ~4h30  |
+| Jour     | Partie 1       | Partie 2          | Partie 3       | Partie 4      | Total  |
+| -------- | -------------- | ----------------- | -------------- | ------------- | ------ |
+| Mardi    | `/lua-exos`    | `/lua-projet`     | `/lua-libre`   | `/lua-vibe`   | ~4h30  |
+| Mercredi | `/lua-exos`    | `/lua-projet`     | `/lua-libre`   | `/lua-vibe`   | ~4h30  |
+| Jeudi    | `/lua-exos`    | `/lua-projet`     | `/lua-libre`   | `/lua-vibe`   | ~4h30  |
+| Vendredi | `/lua-exos`    | `/lua-projet`     | `/lua-libre`   | `/lua-vibe`   | ~4h30  |
+| Samedi   | `/lua-exos`    | `/lua-projet`     | `/lua-libre`   | `/lua-vibe`   | ~4h30  |
 
 **Total : ~22h30/semaine**
 
@@ -90,7 +90,7 @@
 
 ## Signaux de progression
 
-Tu es à l'aise en Python quand :
+Tu es à l'aise en Lua quand :
 
 - **Exos** : tu finis les 5 fichiers sans chercher dans la doc
 - **Build** : tu lis un stub de fonction et tu sais quoi écrire du premier coup
