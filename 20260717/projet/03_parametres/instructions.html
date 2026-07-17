@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 3/6 — Fonction avec paramètres</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #ffffff; color: #1a1a1a;
+      font-family: 'Lora', Georgia, serif; font-size: 0.9375rem;
+      line-height: 1.75; padding: clamp(2rem, 6vmin, 4rem) 1.5rem 6rem;
+      max-width: 700px; margin: 0 auto;
+    }
+    header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e8e7e2; }
+    .badge {
+      display: inline-block; font-family: ui-monospace, 'SF Mono', monospace;
+      font-size: 0.68rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.09em; color: #999; background: #f5f5f3;
+      border: 1px solid #e2e1db; padding: 0.18rem 0.6rem; border-radius: 999px;
+      margin-bottom: 0.9rem;
+    }
+    h1 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 0.35rem; }
+    .concept-tag { font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.72rem; color: #aaa; }
+    section { margin-bottom: 2.5rem; }
+    h2 {
+      font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em; color: #aaa;
+      margin-bottom: 1.1rem; padding-bottom: 0.45rem; border-bottom: 1px solid #ebebeb;
+    }
+    h3 { font-size: 0.95rem; font-weight: 600; margin: 1.75rem 0 0.6rem; color: #1a1a1a; }
+    p { margin-bottom: 1rem; color: #2a2a2a; }
+    ol, ul { padding-left: 1.4rem; margin-bottom: 1rem; }
+    li { margin-bottom: 0.5rem; color: #2a2a2a; line-height: 1.65; }
+    strong { font-weight: 600; color: #1a1a1a; }
+    code {
+      font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.82em;
+      background: #f0efea; padding: 0.1em 0.3em; border-radius: 3px; color: #1a1a1a;
+    }
+    pre {
+      background: #f7f7f5; border: 1px solid #e8e7e2; border-radius: 6px;
+      padding: 1.1rem 1.25rem; overflow-x: auto; margin: 1rem 0;
+      font-size: 0.855rem; line-height: 1.6;
+    }
+    pre code { background: transparent; padding: 0; font-size: inherit; border-radius: 0; color: inherit; }
+    .hljs { background: transparent !important; padding: 0 !important; }
+    pre.terminal { background: #1e1e1e; border-color: #333; color: #d4d4d4; }
+    pre.terminal code { color: #d4d4d4; }
+    .task-box {
+      border-left: 2px solid #1a1a1a; padding: 0.9rem 1.2rem; margin: 1.25rem 0; background: #fafaf8;
+    }
+    .task-box .task-title {
+      font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.07em; color: #666; margin-bottom: 0.75rem;
+    }
+    .task-box ul { margin-bottom: 0; }
+    .task-box li { font-size: 0.9rem; }
+    .warn {
+      font-size: 0.875rem; background: #fffbeb; border: 1px solid #e9c46a; border-radius: 5px;
+      padding: 0.6rem 1rem; margin: 1rem 0; color: #7a5800; line-height: 1.55;
+    }
+    .info {
+      font-size: 0.875rem; background: #f0f7ff; border: 1px solid #b3d4f5; border-radius: 5px;
+      padding: 0.6rem 1rem; margin: 1rem 0; color: #1a4a7a; line-height: 1.55;
+    }
+    .commands-box {
+      background: #f7f7f5; border: 1px solid #e8e7e2; border-radius: 6px; padding: 0.9rem 1.2rem;
+    }
+    .cmd-line { display: flex; align-items: center; gap: 0.7rem; margin: 0.4rem 0; flex-wrap: wrap; }
+    .cmd-line .label { font-size: 0.85rem; color: #999; min-width: 8.5rem; }
+    .cmd-line code { background: #ebebeb; color: #1a1a1a; font-size: 0.85rem; }
+    .copy-btn {
+      font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.68rem;
+      background: #fff; border: 1px solid #d5d4ce; color: #999; border-radius: 4px;
+      padding: 0.18rem 0.5rem; cursor: pointer; transition: all 0.15s; white-space: nowrap;
+    }
+    .copy-btn:hover, .copy-btn.copied { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+    details {
+      border: 1px solid #e8e7e2; border-radius: 6px; margin-bottom: 0.65rem; padding: 0.8rem 1rem;
+    }
+    summary {
+      cursor: pointer; font-family: ui-monospace, 'SF Mono', monospace; font-size: 0.78rem;
+      font-weight: 600; color: #666; list-style: none; user-select: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::before { content: '▶ '; font-size: 0.6em; color: #bbb; }
+    details[open] summary::before { content: '▼ '; }
+    details > *:not(summary) { margin-top: 0.8rem; }
+    .hint-content { font-size: 0.9rem; color: #333; line-height: 1.65; }
+    .hint-content code { background: #f0efea; }
+</style>
+</head>
+<body>
+  <header>
+    <div class="badge">Exercice 3 / 6 — Fonctions</div>
+    <h1>Fonction avec paramètres</h1>
+    <div class="concept-tag">paramètres</div>
+  </header>
+  <section>
+    <h2>Le concept</h2>
+    <p>Les paramètres, ce sont les informations que tu donnes à une fonction pour qu'elle travaille avec. Tu les écris entre les parenthèses au moment où tu définis la fonction, et tu passes les vraies valeurs quand tu l'appelles.</p>
+<pre><code class="language-lua">function addition(a, b)
+  return a + b
+end
+
+addition(3, 4)  -- → 7</code></pre>
+<p>Ici, <code>a</code> et <code>b</code> sont des noms locaux à la fonction. À l'appel, ils prennent les valeurs que tu as passées.</p>
+  </section>
+  <section>
+    <h2>Instructions</h2>
+    <p>Joel utilise un kit de soin. Pour l'instant, on calcule juste la nouvelle vie sans plafond : on additionne la vie actuelle et les points de soin.</p>
+<div class="warn">Écris tes fonctions avec <code>function nom(...)</code> — <strong>sans</strong> le mot <code>local</code> devant. Sinon le testeur ne les trouve pas.</div>
+<h3>La fonction <code>soigner</code></h3>
+<p>Cette fonction reçoit deux paramètres. Le premier s'appelle <code>vie</code> — c'est un nombre qui représente les points de vie actuels. Il peut valoir entre zéro et plus de cent. Le deuxième s'appelle <code>soin</code> — c'est un nombre qui représente les points récupérés grâce au kit.</p>
+<p>La fonction doit additionner ces deux nombres et retourner le total. Pour cet exercice, il n'y a pas encore de plafond : si le résultat dépasse cent, on laisse dépasser.</p>
+<p>Voici des exemples pour vérifier que ta logique est correcte :</p>
+<pre><code class="language-lua">soigner(60, 20)  -- → 80
+soigner(90, 20)  -- → 110  (pas encore de plafond)</code></pre>
+    <p>Quand tu lances <code>lua tester.lua</code>, tu dois voir :</p>
+    <pre class="terminal"><code>✅ soigner(60, 20) → 80
+✅ soigner(10, 5) → 15
+✅ soigner(0, 40) → 40
+✅ soigner(90, 20) → 110
+
+────────────────────────────────────────
+  4/4 tests passés
+  🎉 Parfait !
+────────────────────────────────────────</code></pre>
+  </section>
+  <section>
+    <h2>Commandes</h2>
+    <div class="commands-box">
+      <div class="cmd-line">
+        <span class="label">📁 Dossier</span>
+        <code>cd /Users/noah/Desktop/Lua/20260717/projet/03_parametres</code>
+        <button class="copy-btn" onclick="copier(this, 'cd /Users/noah/Desktop/Lua/20260717/projet/03_parametres')">⎘ copier</button>
+      </div>
+      <div class="cmd-line">
+        <span class="label">📄 Instructions</span>
+        <code>open /Users/noah/Desktop/Lua/20260717/projet/03_parametres/instructions.html</code>
+        <button class="copy-btn" onclick="copier(this, 'open /Users/noah/Desktop/Lua/20260717/projet/03_parametres/instructions.html')">⎘ copier</button>
+      </div>
+      <div class="cmd-line">
+        <span class="label">🧪 Tester</span>
+        <code>lua tester.lua</code>
+        <button class="copy-btn" onclick="copier(this, 'lua tester.lua')">⎘ copier</button>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2>Indices</h2>
+    <details><summary>💡 Indice 1 — Signature</summary><div class="hint-content"><p>Écris <code>function soigner(vie, soin)</code> puis un <code>return</code> qui utilise les deux paramètres.</p></div></details>
+<details><summary>💡 Indice 2 — Le calcul</summary><div class="hint-content"><p>Tu dois retourner la somme de <code>vie</code> et de <code>soin</code>. Une seule expression suffit.</p></div></details>
+  </section>
+  <script>hljs.highlightAll();</script>
+  <script>
+    function copier(btn, texte) {
+      navigator.clipboard.writeText(texte).then(() => {
+        btn.textContent = '✓ copié';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = '⎘ copier'; btn.classList.remove('copied'); }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>
