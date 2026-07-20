@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercice 2/6 — Fonction majuscules</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background:#fff; color:#1a1a1a; font-family:'Lora',Georgia,serif; font-size:0.9375rem; line-height:1.75; padding:clamp(2rem,6vmin,4rem) 1.5rem 6rem; max-width:700px; margin:0 auto; }
+    header { margin-bottom:2.5rem; padding-bottom:1.5rem; border-bottom:1px solid #e8e7e2; }
+    .badge { display:inline-block; font-family:ui-monospace,'SF Mono',monospace; font-size:0.68rem; font-weight:600; text-transform:uppercase; letter-spacing:0.09em; color:#999; background:#f5f5f3; border:1px solid #e2e1db; padding:0.18rem 0.6rem; border-radius:999px; margin-bottom:0.9rem; }
+    h1 { font-size:clamp(1.4rem,3vw,1.9rem); font-weight:500; line-height:1.2; margin-bottom:0.35rem; }
+    .concept-tag { font-family:ui-monospace,'SF Mono',monospace; font-size:0.72rem; color:#aaa; }
+    section { margin-bottom:2.5rem; }
+    h2 { font-family:ui-monospace,'SF Mono',monospace; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#aaa; margin-bottom:1.1rem; padding-bottom:0.45rem; border-bottom:1px solid #ebebeb; }
+    h3 { font-size:0.95rem; font-weight:600; margin:1.75rem 0 0.6rem; }
+    p { margin-bottom:1rem; color:#2a2a2a; }
+    ul { padding-left:1.4rem; margin-bottom:1rem; }
+    li { margin-bottom:0.5rem; color:#2a2a2a; line-height:1.65; }
+    code { font-family:ui-monospace,'SF Mono',monospace; font-size:0.82em; background:#f0efea; padding:0.1em 0.3em; border-radius:3px; }
+    pre { background:#f7f7f5; border:1px solid #e8e7e2; border-radius:6px; padding:1.1rem 1.25rem; overflow-x:auto; margin:1rem 0; font-size:0.855rem; line-height:1.6; }
+    pre code { background:transparent; padding:0; }
+    .hljs { background:transparent !important; padding:0 !important; }
+    pre.terminal { background:#1e1e1e; border-color:#333; color:#d4d4d4; }
+    pre.terminal code { color:#d4d4d4; }
+    .task-box { border-left:2px solid #1a1a1a; padding:0.9rem 1.2rem; margin:1.25rem 0; background:#fafaf8; }
+    .task-box .task-title { font-family:ui-monospace,'SF Mono',monospace; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.07em; color:#666; margin-bottom:0.75rem; }
+    .warn { font-size:0.875rem; background:#fffbeb; border:1px solid #e9c46a; border-radius:5px; padding:0.6rem 1rem; margin:1rem 0; color:#7a5800; line-height:1.55; }
+    .commands-box { background:#f7f7f5; border:1px solid #e8e7e2; border-radius:6px; padding:0.9rem 1.2rem; }
+    .cmd-line { display:flex; align-items:center; gap:0.7rem; margin:0.4rem 0; flex-wrap:wrap; }
+    .cmd-line .label { font-size:0.85rem; color:#999; min-width:8.5rem; }
+    .copy-btn { font-family:ui-monospace,'SF Mono',monospace; font-size:0.68rem; background:#fff; border:1px solid #d5d4ce; color:#999; border-radius:4px; padding:0.18rem 0.5rem; cursor:pointer; }
+    details { border:1px solid #e8e7e2; border-radius:6px; margin-bottom:0.65rem; padding:0.8rem 1rem; }
+    summary { cursor:pointer; font-family:ui-monospace,'SF Mono',monospace; font-size:0.78rem; font-weight:600; color:#666; list-style:none; }
+    summary::-webkit-details-marker { display:none; }
+    summary::before { content:'▶ '; font-size:0.6em; color:#bbb; }
+    details[open] summary::before { content:'▼ '; }
+    details > *:not(summary) { margin-top:0.8rem; }
+    .hint-content { font-size:0.9rem; color:#333; line-height:1.65; }
+</style>
+</head><body>
+<header>
+<div class="badge">Exercice 2 / 6 — Chaînes</div>
+<h1>Fonction majuscules</h1>
+<div class="concept-tag">function + string.upper</div>
+</header>
+<section><h2>Le concept</h2><p>Tu peux envelopper un outil texte dans ta propre fonction, pour le réutiliser.</p>
+<pre><code class="language-lua">function crier(texte)
+  return string.upper(texte)
+end</code></pre></section>
+<section><h2>Instructions</h2><p>Le jeu a besoin d'une fonction qui met n'importe quel nom en majuscules.</p>
+<div class="warn"><code>function en_majuscules(...)</code> sans <code>local</code>.</div>
+<h3><code>en_majuscules</code></h3>
+<p>Un paramètre <code>texte</code>. Retourne ce texte en majuscules.</p>
+<pre><code class="language-lua">en_majuscules("joel")  -- → "JOEL"</code></pre>
+<p>Quand tu lances <code>lua tester.lua</code>, tu dois voir :</p>
+<pre class="terminal"><code>✅ en_majuscules("joel") → "JOEL"
+✅ en_majuscules("Ellie") → "ELLIE"
+✅ en_majuscules("") → ""
+
+────────────────────────────────────────
+  3/3 tests passés
+  🎉 Parfait !
+────────────────────────────────────────</code></pre>
+</section>
+<section><h2>Commandes</h2>
+<div class="commands-box">
+<div class="cmd-line"><span class="label">📁 Dossier</span><code>cd /Users/noah/Desktop/Lua/20260720/projet/02_majuscules</code>
+<button class="copy-btn" onclick="copier(this,'cd /Users/noah/Desktop/Lua/20260720/projet/02_majuscules')">⎘ copier</button></div>
+<div class="cmd-line"><span class="label">📄 Instructions</span><code>open /Users/noah/Desktop/Lua/20260720/projet/02_majuscules/instructions.html</code>
+<button class="copy-btn" onclick="copier(this,'open /Users/noah/Desktop/Lua/20260720/projet/02_majuscules/instructions.html')">⎘ copier</button></div>
+<div class="cmd-line"><span class="label">🧪 Tester</span><code>lua tester.lua</code>
+<button class="copy-btn" onclick="copier(this,'lua tester.lua')">⎘ copier</button></div>
+</div></section>
+<section><h2>Indices</h2><details><summary>💡 Indice 1</summary><div class="hint-content"><p><code>return string.upper(texte)</code></p></div></details></section>
+<script>hljs.highlightAll();</script>
+<script>function copier(btn,t){navigator.clipboard.writeText(t).then(()=>{btn.textContent='✓ copié';setTimeout(()=>btn.textContent='⎘ copier',1500);});}</script>
+</body></html>

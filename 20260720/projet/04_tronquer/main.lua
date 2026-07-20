@@ -1,0 +1,7 @@
+-- ============================================================
+-- Exercice 4/6 — Couper une chaîne
+-- ============================================================
+-- 📁 Dossier      : cd /Users/noah/Desktop/Lua/20260720/projet/04_tronquer
+-- 📄 Instructions : open /Users/noah/Desktop/Lua/20260720/projet/04_tronquer/instructions.html
+-- 🧪 Tester       : lua tester.lua
+-- ============================================================
