@@ -5,3 +5,9 @@ notions : string.lower, table associative, math.random, fonction 2 params, for+i
 score : 5/5
 bloqué : —
 notes : for+if = return trop tôt dans la boucle ; reste OK
+
+## Projet
+concept : Boucles avancées
+exercices : 6/6
+bloqué : —
+notes : return trop tôt dans while (remplir) ; n=0 oublié ; nested/break/chasse OK avec indices

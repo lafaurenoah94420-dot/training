@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercice 4/6 — Boucles imbriquées</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#fff;color:#1a1a1a;font-family:'Lora',Georgia,serif;font-size:.9375rem;line-height:1.75;padding:clamp(2rem,6vmin,4rem) 1.5rem 6rem;max-width:700px;margin:0 auto}
+header{margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid #e8e7e2}
+.badge{display:inline-block;font-family:ui-monospace,monospace;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:#999;background:#f5f5f3;border:1px solid #e2e1db;padding:.18rem .6rem;border-radius:999px;margin-bottom:.9rem}
+h1{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:500;line-height:1.2;margin-bottom:.35rem}
+.concept-tag{font-family:ui-monospace,monospace;font-size:.72rem;color:#aaa}
+section{margin-bottom:2.5rem}
+h2{font-family:ui-monospace,monospace;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#aaa;margin-bottom:1.1rem;padding-bottom:.45rem;border-bottom:1px solid #ebebeb}
+h3{font-size:.95rem;font-weight:600;margin:1.75rem 0 .6rem}
+p{margin-bottom:1rem;color:#2a2a2a}
+ul{padding-left:1.4rem;margin-bottom:1rem}
+li{margin-bottom:.5rem;color:#2a2a2a;line-height:1.65}
+code{font-family:ui-monospace,monospace;font-size:.82em;background:#f0efea;padding:.1em .3em;border-radius:3px}
+pre{background:#f7f7f5;border:1px solid #e8e7e2;border-radius:6px;padding:1.1rem 1.25rem;overflow-x:auto;margin:1rem 0;font-size:.855rem;line-height:1.6}
+pre code{background:transparent;padding:0}
+.hljs{background:transparent!important;padding:0!important}
+pre.terminal{background:#1e1e1e;border-color:#333;color:#d4d4d4}
+pre.terminal code{color:#d4d4d4}
+.task-box{border-left:2px solid #1a1a1a;padding:.9rem 1.2rem;margin:1.25rem 0;background:#fafaf8}
+.task-box .task-title{font-family:ui-monospace,monospace;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#666;margin-bottom:.75rem}
+.warn{font-size:.875rem;background:#fffbeb;border:1px solid #e9c46a;border-radius:5px;padding:.6rem 1rem;margin:1rem 0;color:#7a5800;line-height:1.55}
+.commands-box{background:#f7f7f5;border:1px solid #e8e7e2;border-radius:6px;padding:.9rem 1.2rem}
+.cmd-line{display:flex;align-items:center;gap:.7rem;margin:.4rem 0;flex-wrap:wrap}
+.cmd-line .label{font-size:.85rem;color:#999;min-width:8.5rem}
+.copy-btn{font-family:ui-monospace,monospace;font-size:.68rem;background:#fff;border:1px solid #d5d4ce;color:#999;border-radius:4px;padding:.18rem .5rem;cursor:pointer}
+details{border:1px solid #e8e7e2;border-radius:6px;margin-bottom:.65rem;padding:.8rem 1rem}
+summary{cursor:pointer;font-family:ui-monospace,monospace;font-size:.78rem;font-weight:600;color:#666;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:'▶ ';font-size:.6em;color:#bbb}
+details[open] summary::before{content:'▼ '}
+details>*:not(summary){margin-top:.8rem}
+.hint-content{font-size:.9rem;color:#333;line-height:1.65}
+</style></head><body>
+<header><div class="badge">Exercice 4 / 6 — Boucles avancées</div>
+<h1>Boucles imbriquées</h1><div class="concept-tag">for dans for</div></header>
+<section><h2>Le concept</h2><p>Une boucle peut être <strong>à l'intérieur</strong> d'une autre. Pour chaque tour de la boucle externe, la boucle interne recommence depuis le début.</p>
+<pre><code class="language-lua">for i = 1, 2 do
+  for j = 1, 3 do
+    -- tourne 2 * 3 = 6 fois
+  end
+end</code></pre></section>
+<section><h2>Instructions</h2><p>HOI4 : une grille de provinces — lignes × colonnes.</p>
+<div class="warn">Fonction sans <code>local</code>.</div>
+<h3><code>grille</code></h3>
+<p>Paramètres <code>lignes</code> et <code>colonnes</code>. Compte combien de cases avec deux <code>for</code> imbriqués (à chaque case, <code>total = total + 1</code>). Retourne le total.</p>
+<pre><code class="language-lua">grille(2, 3)  -- → 6</code></pre>
+<p>Quand tu lances <code>lua tester.lua</code> :</p>
+<pre class="terminal"><code>✅ grille(2, 3) → 6
+✅ grille(1, 1) → 1
+✅ grille(4, 2) → 8
+
+────────────────────────────────────────
+  3/3 tests passés
+  🎉 Parfait !
+────────────────────────────────────────</code></pre></section>
+<section><h2>Commandes</h2><div class="commands-box">
+<div class="cmd-line"><span class="label">📁</span><code>cd /Users/noah/Desktop/Lua/20260723/projet/04_nested</code></div>
+<div class="cmd-line"><span class="label">📄</span><code>open /Users/noah/Desktop/Lua/20260723/projet/04_nested/instructions.html</code></div>
+<div class="cmd-line"><span class="label">🧪</span><code>lua tester.lua</code></div>
+</div></section>
+<section><h2>Indices</h2><details><summary>💡 Indice</summary><div class="hint-content"><p><code>for i = 1, lignes do</code> puis à l'intérieur <code>for j = 1, colonnes do</code>.</p></div></details></section>
+<script>hljs.highlightAll()</script>
+</body></html>
