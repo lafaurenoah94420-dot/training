@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercice 2/6 — Lancer une erreur</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{background:#fff;color:#1a1a1a;font-family:'Lora',Georgia,serif;font-size:.9375rem;line-height:1.75;padding:clamp(2rem,6vmin,4rem) 1.5rem 6rem;max-width:700px;margin:0 auto}
+header{margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid #e8e7e2}
+.badge{display:inline-block;font-family:ui-monospace,monospace;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:#999;background:#f5f5f3;border:1px solid #e2e1db;padding:.18rem .6rem;border-radius:999px;margin-bottom:.9rem}
+h1{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:500;margin-bottom:.35rem}
+.concept-tag{font-family:ui-monospace,monospace;font-size:.72rem;color:#aaa}
+section{margin-bottom:2.5rem}
+h2{font-family:ui-monospace,monospace;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#aaa;margin-bottom:1.1rem;padding-bottom:.45rem;border-bottom:1px solid #ebebeb}
+h3{font-size:.95rem;font-weight:600;margin:1.75rem 0 .6rem}
+p{margin-bottom:1rem;color:#2a2a2a}
+ul,ol{padding-left:1.4rem;margin-bottom:1rem}
+li{margin-bottom:.5rem;color:#2a2a2a;line-height:1.65}
+code{font-family:ui-monospace,monospace;font-size:.82em;background:#f0efea;padding:.1em .3em;border-radius:3px}
+pre{background:#f7f7f5;border:1px solid #e8e7e2;border-radius:6px;padding:1.1rem 1.25rem;overflow-x:auto;margin:1rem 0;font-size:.855rem;line-height:1.6}
+pre code{background:transparent;padding:0}
+pre.terminal{background:#1e1e1e;border-color:#333;color:#d4d4d4}
+pre.terminal code{color:#d4d4d4}
+.warn{font-size:.875rem;background:#fffbeb;border:1px solid #e9c46a;border-radius:5px;padding:.6rem 1rem;margin:1rem 0;color:#7a5800}
+.info{font-size:.875rem;background:#f0f7ff;border:1px solid #b3d4f5;border-radius:5px;padding:.6rem 1rem;margin:1rem 0;color:#1a4a7a}
+.commands-box{background:#f7f7f5;border:1px solid #e8e7e2;border-radius:6px;padding:.9rem 1.2rem}
+.cmd-line{margin:.4rem 0}.cmd-line .label{color:#999;margin-right:.5rem}
+details{border:1px solid #e8e7e2;border-radius:6px;margin-bottom:.65rem;padding:.8rem 1rem}
+summary{cursor:pointer;font-family:ui-monospace,monospace;font-size:.78rem;font-weight:600;color:#666;list-style:none}
+.hint-content{font-size:.9rem;margin-top:.8rem}</style></head><body>
+<header>
+<div class="badge">Exercice 2 / 6 — Gestion d'erreurs</div>
+<h1>Lancer une erreur</h1>
+<div class="concept-tag">error</div>
+</header>
+<section><h2>Le concept</h2><p>Quand quelque chose d'interdit se produit, tu peux arrêter volontairement avec <code>error</code>. Le programme s'arrête à cet endroit — sauf si tu as enveloppé l'appel dans <code>pcall</code>.</p>
+<pre><code class="language-lua">function crier()
+  error("danger")
+end
+
+ok, msg = pcall(crier)
+-- ok vaut false, msg contient "danger"</code></pre></section>
+<section><h2>Instructions</h2><p>L'infection est critique : le jeu doit signaler l'alerte.</p>
+<div class="warn">Écris <code>function alerter(...)</code> — <strong>sans</strong> le mot <code>local</code> devant.</div>
+<h3>La fonction <code>alerter</code></h3>
+<p>Cette fonction ne reçoit aucun paramètre. Elle doit appeler <code>error</code> avec le texte <code>infection critique</code>.</p>
+<p>Elle ne retourne rien de spécial : son rôle est de planter volontairement pour signaler le problème.</p>
+<pre><code class="language-lua">-- après ton code, pcall(alerter) doit échouer
+-- et le message d'erreur doit contenir le mot infection</code></pre>
+<p>Quand tu lances <code>lua tester.lua</code>, tu dois voir :</p>
+<pre class="terminal"><code>✅ alerter() échoue (ok == false)
+✅ le message contient "infection"
+
+────────────────────────────────────────
+  2/2 tests passés
+  🎉 Parfait !
+────────────────────────────────────────</code></pre>
+</section>
+<section><h2>Commandes</h2><div class="commands-box">
+<div class="cmd-line"><span class="label">📁 Dossier</span><code>cd /Users/noah/Desktop/Lua/20260725/projet/02_error</code></div>
+<div class="cmd-line"><span class="label">📄 Instructions</span><code>open /Users/noah/Desktop/Lua/20260725/projet/02_error/instructions.html</code></div>
+<div class="cmd-line"><span class="label">🧪 Tester</span><code>lua tester.lua</code></div>
+</div></section>
+<section><h2>Indices</h2><details><summary>💡 Indice 1 — Une seule ligne dans la fonction</summary><div class="hint-content"><p>Dans le corps de <code>alerter</code>, appelle <code>error("infection critique")</code>.</p></div></details>
+</section>
+<script>hljs.highlightAll();</script>
+</body></html>
