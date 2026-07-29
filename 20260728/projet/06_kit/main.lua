@@ -3,7 +3,7 @@
 -- ============================================================
 -- 📁 Dossier      : cd /Users/noah/Desktop/Lua/20260728/projet/06_kit
 -- 📄 Instructions : open /Users/noah/Desktop/Lua/20260728/projet/06_kit/instructions.html
--- 🧪 Tester       : lua tester.lua
+-- 🧪 Tester       : z
 -- ============================================================
 function lire(chemin)
     f = io.open(chemin, "r")
