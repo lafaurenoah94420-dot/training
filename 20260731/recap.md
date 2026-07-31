@@ -1,10 +1,10 @@
 # 2026-07-31
 
 ## Exos
-notions : —
-score : non faits (session projet only)
+notions : string.lower, lecture dict, fonction 2 params, for+if, chercher ipairs
+score : 5/5
 bloqué : —
-notes : —
+notes : nb = nb + 1 (pas remettre à 0) ; if ... then manquant au début
 
 ## Projet
 concept : Tables (dictionnaires) — clés, pairs, lire/écrire
@@ -17,4 +17,4 @@ sujet : —
 notes : sauté
 
 ## Journée
-Projet dictionnaires 6/6 (version courte). Exos/libre/vibe non faits. Points clés : crochets pour clé variable, pairs vs #, modifier la bonne clé.
+Projet dictionnaires 6/6 puis exos 5/5 en fin de session. Libre/vibe non faits.
