@@ -6,6 +6,12 @@ score : 5/5
 bloqué : —
 notes : 03 : nom_lu hardcodé "fleeca" au lieu de mission["nom"] (assert OK) ; 2 erreurs syntaxe avant ; reste fluide
 
+## Exos dict (difficile)
+notions : présence ~= nil, dict imbriqué, if→autre clé, pairs max, pairs+insert clés
+score : 5/5
+bloqué : —
+notes : = vs ~= puis logique nil sur présence ; accès joueur["vie"] avant de passer par stats ; max/insert OK
+
 ## Projet
 concept : —
 exercices : —
@@ -17,4 +23,4 @@ sujet : —
 notes : sauté
 
 ## Journée
-Exos dict 5/5. Projet/libre/vibe non faits.
+Exos dict 5/5 + dict difficile 5/5. Projet/libre/vibe non faits.
