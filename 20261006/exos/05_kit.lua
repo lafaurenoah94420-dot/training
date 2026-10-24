@@ -4,7 +4,7 @@
 -- Leon cherche un "kit" dans son sac.
 -- Si il y est, trouve = true.
 --
--- Lance : lua 05_kit.lua
+-- Lance : -
 -- ============================================================
 
 sac = { "ammo", "herb", "kit", "clé" }

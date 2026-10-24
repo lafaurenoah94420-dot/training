@@ -17,7 +17,7 @@ code = string.lower(brut)
 -- Indice : string.lower()
 
 -- À toi :
-
+   
 
 -- --- Vérification (ne pas modifier) ---
 assert(code == "alpha-7", "Obtenu : '" .. tostring(code) .. "'")
